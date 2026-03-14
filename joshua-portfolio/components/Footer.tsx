@@ -1,4 +1,5 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+'use client'
+
 import {
   Box,
   Container,
@@ -7,54 +8,126 @@ import {
   Link as ChakraLink,
   Text,
   Divider,
+  VStack,
+  Icon,
 } from '@chakra-ui/react'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import Link from 'next/link'
+
+const navLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/work', label: 'Work' },
+  { href: '/expertise', label: 'Expertise' },
+  { href: '/contact', label: 'Contact' },
+]
+
+const socialLinks = [
+  {
+    icon: FaLinkedin,
+    href: 'https://www.linkedin.com/in/joshua-a-5760b3196/',
+    label: 'LinkedIn',
+  },
+  {
+    icon: FaGithub,
+    href: 'https://github.com/Joshua-Coded',
+    label: 'GitHub',
+  },
+  {
+    icon: FaEnvelope,
+    href: 'mailto:alanajoshua535@gmail.com',
+    label: 'Email',
+  },
+]
 
 export default function Footer() {
-  const socialLinks = [
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/joshua-a-5760b3196/', label: 'LinkedIn' },
-    { icon: FaGithub, href: 'https://github.com/Joshua-Coded', label: 'GitHub' },
-    { icon: FaEnvelope, href: 'mailto:joshuaalana1220@gmail.com', label: 'Email' },
-  ]
-
   return (
     <Box as="footer" bg="white" borderTop="1px" borderColor="gray.200">
-      <Container maxW="container.xl" py={10}>
+      <Container maxW="container.xl" py={12}>
         <Flex
           direction={{ base: 'column', md: 'row' }}
           justify="space-between"
-          align="center"
-          gap={6}
+          align={{ base: 'flex-start', md: 'flex-start' }}
+          gap={10}
+          mb={10}
         >
-          <Text fontWeight="700" color="gray.900" letterSpacing="-0.01em">
-            Joshua Alana
-          </Text>
+          {/* Left: Brand */}
+          <VStack align="flex-start" spacing={2} maxW="280px">
+            <Text fontWeight="800" fontSize="md" color="gray.900" letterSpacing="-0.02em">
+              Joshua Alana
+            </Text>
+            <Text fontSize="sm" color="gray.500" lineHeight="1.6">
+              IT Consultant · M&E Specialist · Software Engineer
+            </Text>
+            <Flex align="center" gap={1.5} mt={1}>
+              <Box w={2} h={2} rounded="full" bg="green.500" />
+              <Text fontSize="xs" color="gray.500" fontWeight="500">
+                Available for consultancy
+              </Text>
+            </Flex>
+          </VStack>
 
-          <HStack spacing={6}>
+          {/* Center: Nav Links */}
+          <VStack align="flex-start" spacing={3}>
+            <Text fontSize="xs" fontWeight="700" color="gray.400" letterSpacing="widest" textTransform="uppercase" mb={1}>
+              Navigation
+            </Text>
+            {navLinks.map((link) => (
+              <ChakraLink
+                key={link.href}
+                as={Link}
+                href={link.href}
+                fontSize="sm"
+                color="gray.600"
+                fontWeight="500"
+                _hover={{ color: 'brand.primary', textDecoration: 'none' }}
+                transition="color 0.15s"
+              >
+                {link.label}
+              </ChakraLink>
+            ))}
+          </VStack>
+
+          {/* Right: Social */}
+          <VStack align="flex-start" spacing={3}>
+            <Text fontSize="xs" fontWeight="700" color="gray.400" letterSpacing="widest" textTransform="uppercase" mb={1}>
+              Connect
+            </Text>
             {socialLinks.map((social) => (
               <ChakraLink
                 key={social.label}
                 href={social.href}
                 isExternal
-                aria-label={social.label}
-                color="gray.400"
-                _hover={{ color: 'brand.primary' }}
-                transition="color 0.2s"
+                display="flex"
+                alignItems="center"
+                gap={2}
+                fontSize="sm"
+                color="gray.600"
+                fontWeight="500"
+                _hover={{ color: 'brand.primary', textDecoration: 'none' }}
+                transition="color 0.15s"
               >
-                <social.icon size={20} />
+                <Icon as={social.icon} boxSize={4} />
+                {social.label}
               </ChakraLink>
             ))}
-          </HStack>
-
-          <Text fontSize="sm" color="gray.400">
-            © {new Date().getFullYear()} Joshua Alana
-          </Text>
+          </VStack>
         </Flex>
 
-        <Divider my={6} borderColor="gray.100" />
+        <Divider borderColor="gray.100" mb={6} />
 
-        <Text fontSize="xs" color="gray.400" textAlign="center">
-          IT Consultant · Software Engineer · M&E Specialist
-        </Text>
+        <Flex
+          direction={{ base: 'column', md: 'row' }}
+          justify="space-between"
+          align="center"
+          gap={3}
+        >
+          <Text fontSize="xs" color="gray.400">
+            © {new Date().getFullYear()} Joshua Alana. All rights reserved.
+          </Text>
+          <Text fontSize="xs" color="gray.400">
+            IT Consultant · AGRA · Nairobi, Kenya
+          </Text>
+        </Flex>
       </Container>
     </Box>
   )

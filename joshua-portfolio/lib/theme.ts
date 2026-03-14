@@ -21,7 +21,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: '#F8FAFC',
+        bg: '#FFFFFF',
         color: '#0F172A',
         fontFamily: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
       },
@@ -41,6 +41,7 @@ const theme = extendTheme({
       baseStyle: {
         fontWeight: '600',
         borderRadius: '8px',
+        _focus: { boxShadow: 'none' },
       },
     },
     Input: {
@@ -49,10 +50,41 @@ const theme = extendTheme({
           field: {
             borderRadius: '8px',
             borderColor: '#E2E8F0',
+            bg: 'white',
             _hover: { borderColor: '#1D4ED8' },
             _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
           },
         },
+      },
+    },
+    Textarea: {
+      variants: {
+        outline: {
+          borderRadius: '8px',
+          borderColor: '#E2E8F0',
+          bg: 'white',
+          _hover: { borderColor: '#1D4ED8' },
+          _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+        },
+      },
+    },
+    Select: {
+      variants: {
+        outline: {
+          field: {
+            borderRadius: '8px',
+            borderColor: '#E2E8F0',
+            bg: 'white',
+            _hover: { borderColor: '#1D4ED8' },
+            _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+          },
+        },
+      },
+    },
+    Heading: {
+      baseStyle: {
+        fontWeight: 800,
+        letterSpacing: '-0.025em',
       },
     },
   },

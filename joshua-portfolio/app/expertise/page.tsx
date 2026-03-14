@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Box,
   Container,
@@ -12,7 +13,9 @@ import {
   List,
   ListItem,
   ListIcon,
-} from '@chakra-ui/react'
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import {
   FaDatabase,
   FaChartBar,
@@ -20,168 +23,262 @@ import {
   FaSeedling,
   FaCode,
   FaProjectDiagram,
-} from 'react-icons/fa'
-import { MdCheckCircle } from 'react-icons/md'
+  FaArrowRight,
+} from "react-icons/fa";
+import { MdCheckCircle } from "react-icons/md";
+import Link from "next/link";
+
+const services = [
+  {
+    icon: FaSeedling,
+    title: "Agricultural Technology",
+    description:
+      "End-to-end technology solutions designed for food systems and agricultural development programs across Sub-Saharan Africa.",
+    accent: "#1D4ED8",
+    accentBg: "#EFF6FF",
+    deliverables: [
+      "Agricultural data management platforms",
+      "Farm-level program tracking systems",
+      "Digital tools for extension workers and field agents",
+      "Program beneficiary databases and dashboards",
+    ],
+  },
+  {
+    icon: FaDatabase,
+    title: "Data Systems & Pipelines",
+    description:
+      "Scalable data infrastructure for collecting, processing, and reporting development program data at national and continental scale.",
+    accent: "#059669",
+    accentBg: "#F0FDF4",
+    deliverables: [
+      "End-to-end pipelines (KoboToolbox, ODK, DHIS2)",
+      "Automated reporting and ETL workflows",
+      "Multi-country data aggregation systems",
+      "Real-time dashboards for program managers",
+    ],
+  },
+  {
+    icon: FaChartBar,
+    title: "M&E Framework Design",
+    description:
+      "Results frameworks and monitoring systems aligned with IFAD, AU, and donor reporting standards.",
+    accent: "#7C3AED",
+    accentBg: "#F5F3FF",
+    deliverables: [
+      "Theory of Change development",
+      "Results frameworks and logframes",
+      "Indicator tracking and performance measurement",
+      "Mid-term and final evaluation support",
+    ],
+  },
+  {
+    icon: FaUsers,
+    title: "Stakeholder Engagement",
+    description:
+      "Digital platforms and processes that facilitate coordination across governments, NGOs, and development partners.",
+    accent: "#D97706",
+    accentBg: "#FFFBEB",
+    deliverables: [
+      "Stakeholder management platforms",
+      "Multi-sector coordination tools",
+      "Communication and engagement strategies",
+      "Partner capacity-building workshops",
+    ],
+  },
+  {
+    icon: FaProjectDiagram,
+    title: "Impact Assessment",
+    description:
+      "Rigorous analytical approaches that quantify development impact and support strategic decisions for donor reporting.",
+    accent: "#DC2626",
+    accentBg: "#FEF2F2",
+    deliverables: [
+      "Baseline, midline, and endline studies",
+      "Statistical modelling and regression analysis",
+      "Impact visualisations for donor reports",
+      "Evidence synthesis and policy briefs",
+    ],
+  },
+  {
+    icon: FaCode,
+    title: "Tech Product Development",
+    description:
+      "Full-stack digital products built for African development organisations and public sector partners.",
+    accent: "#0D9488",
+    accentBg: "#F0FDFA",
+    deliverables: [
+      "Web applications and analytics dashboards",
+      "API integrations with government systems",
+      "Mobile-first tools for low-bandwidth environments",
+      "Open-source development and documentation",
+    ],
+  },
+];
+
+const frameworks = [
+  "IFAD Results Framework",
+  "AU Agenda 2063",
+  "OECD DAC Criteria",
+  "AGRA M&E Standards",
+  "SDG 2 — Zero Hunger",
+  "Theory of Change",
+  "DCED Standards",
+  "MEAL Frameworks",
+  "Logical Framework Analysis",
+  "Results-Based Management",
+];
+
+const clients = [
+  {
+    name: "AGRA",
+    full: "Alliance for a Green Revolution in Africa",
+    description:
+      "Current employer. Leading tech product development, M&E systems, and data infrastructure for pan-African agricultural programs.",
+  },
+  {
+    name: "IFAD",
+    full: "International Fund for Agricultural Development",
+    description:
+      "M&E frameworks and data systems aligned to IFAD's Results and Impact Management System (RIMS) standards.",
+  },
+  {
+    name: "African Union",
+    full: "African Union Commission",
+    description:
+      "Technology and data solutions supporting the AU's Agenda 2063 agricultural transformation goals.",
+  },
+  {
+    name: "World Bank",
+    full: "World Bank Group",
+    description:
+      "Impact assessment systems and performance analytics for World Bank-financed agricultural programs.",
+  },
+];
 
 export default function Expertise() {
-  const areas = [
-    {
-      icon: FaSeedling,
-      title: "Agricultural Technology",
-      description: "End-to-end technology solutions designed for food systems and agricultural development programs.",
-      iconBg: "green.50",
-      iconColor: "green.600",
-      deliverables: [
-        "Agricultural data management platforms",
-        "Farm-level program tracking systems",
-        "Digital tools for extension workers and field agents",
-        "Program beneficiary databases",
-      ],
-    },
-    {
-      icon: FaDatabase,
-      title: "Data Systems & Pipelines",
-      description: "Scalable data infrastructure for collecting, processing, and reporting development program data.",
-      iconBg: "blue.50",
-      iconColor: "blue.600",
-      deliverables: [
-        "End-to-end pipelines (KoboToolbox, ODK, DHIS2)",
-        "Automated reporting and ETL workflows",
-        "Multi-country data aggregation systems",
-        "Real-time dashboards for program managers",
-      ],
-    },
-    {
-      icon: FaChartBar,
-      title: "M&E Framework Design",
-      description: "Results frameworks and monitoring systems aligned with IFAD, AU, and donor reporting standards.",
-      iconBg: "purple.50",
-      iconColor: "purple.600",
-      deliverables: [
-        "Theory of Change development",
-        "Results frameworks and logframes",
-        "Indicator tracking and performance measurement",
-        "Mid-term and final evaluation support",
-      ],
-    },
-    {
-      icon: FaUsers,
-      title: "Stakeholder Engagement",
-      description: "Digital platforms and processes that facilitate coordination across governments, NGOs, and partners.",
-      iconBg: "orange.50",
-      iconColor: "orange.600",
-      deliverables: [
-        "Stakeholder management platforms",
-        "Multi-sector coordination tools",
-        "Communication and engagement strategies",
-        "Partner capacity-building workshops",
-      ],
-    },
-    {
-      icon: FaProjectDiagram,
-      title: "Impact Assessment",
-      description: "Rigorous analytical approaches that quantify development impact and support strategic decisions.",
-      iconBg: "red.50",
-      iconColor: "red.600",
-      deliverables: [
-        "Baseline, midline, and endline studies",
-        "Statistical modelling and regression analysis",
-        "Impact visualizations for donor reports",
-        "Evidence synthesis and policy briefs",
-      ],
-    },
-    {
-      icon: FaCode,
-      title: "Tech Product Development",
-      description: "Full-stack digital products built for African development organizations and public sector partners.",
-      iconBg: "teal.50",
-      iconColor: "teal.600",
-      deliverables: [
-        "Web applications and dashboards",
-        "API integrations with government systems",
-        "Mobile-first tools for low-bandwidth environments",
-        "Open-source development and documentation",
-      ],
-    },
-  ]
-
-  const frameworks = [
-    "IFAD Results Framework",
-    "AU Agenda 2063",
-    "OECD DAC Criteria",
-    "AGRA M&E Standards",
-    "SDG 2 — Zero Hunger",
-    "Theory of Change",
-    "DCED Standards",
-    "MEAL Frameworks",
-  ]
-
   return (
-    <Box minH="100vh" bg="gray.50" pt={32} pb={20}>
+    <Box minH="100vh" bg="gray.50" pt={{ base: 28, md: 32 }} pb={20}>
       <Container maxW="container.xl">
+
         {/* Header */}
         <VStack spacing={4} align="flex-start" mb={16}>
-          <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase">
+          <Text
+            fontSize="xs"
+            fontWeight="700"
+            color="brand.primary"
+            letterSpacing="widest"
+            textTransform="uppercase"
+          >
             Capabilities
           </Text>
-          <Heading as="h1" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="800" color="gray.900" letterSpacing="-0.02em">
-            Expertise
+          <Heading
+            as="h1"
+            fontSize={{ base: "4xl", md: "5xl" }}
+            fontWeight="800"
+            color="gray.900"
+            letterSpacing="-0.03em"
+          >
+            Expertise &amp; Services
           </Heading>
-          <Text fontSize="lg" color="gray.600" maxW="2xl" lineHeight="tall">
-            Technology, data, and M&E capabilities tailored for international development organisations
-            working across African food systems and agricultural programs.
+          <Text fontSize="lg" color="gray.600" maxW="2xl" lineHeight="1.8">
+            Technology, data, and M&amp;E capabilities tailored for international
+            development organisations working across African food systems and
+            agricultural programs.
           </Text>
         </VStack>
 
-        {/* Capability Areas */}
+        {/* Service Cards */}
         <Box mb={20}>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-            {areas.map((area) => (
+            {services.map((s) => (
               <Box
-                key={area.title}
+                key={s.title}
                 bg="white"
                 borderWidth={1}
                 borderColor="gray.200"
+                borderTop={`3px solid ${s.accent}`}
                 rounded="xl"
-                p={6}
+                p={7}
                 boxShadow="sm"
                 transition="all 0.2s"
-                _hover={{ boxShadow: 'md', borderColor: 'blue.200', transform: 'translateY(-2px)' }}
+                display="flex"
+                flexDirection="column"
+                _hover={{
+                  boxShadow: "md",
+                  borderColor: "gray.300",
+                  transform: "translateY(-2px)",
+                }}
               >
                 <Flex
                   w={11}
                   h={11}
                   rounded="lg"
-                  bg={area.iconBg}
+                  bg={s.accentBg}
                   align="center"
                   justify="center"
                   mb={5}
                 >
-                  <Icon as={area.icon} boxSize={5} color={area.iconColor} />
+                  <Icon as={s.icon} boxSize={5} color={s.accent} />
                 </Flex>
 
-                <Heading as="h3" size="sm" fontWeight="700" color="gray.900" mb={2}>
-                  {area.title}
+                <Heading
+                  as="h3"
+                  fontSize="md"
+                  fontWeight="700"
+                  color="gray.900"
+                  mb={2}
+                >
+                  {s.title}
                 </Heading>
 
-                <Text color="gray.500" fontSize="sm" mb={5} lineHeight="tall">
-                  {area.description}
+                <Text
+                  color="gray.600"
+                  fontSize="sm"
+                  mb={5}
+                  lineHeight="1.8"
+                  flex={1}
+                >
+                  {s.description}
                 </Text>
 
-                <List spacing={2}>
-                  {area.deliverables.map((item) => (
-                    <ListItem key={item} display="flex" alignItems="flex-start" fontSize="xs" color="gray.600">
-                      <ListIcon as={MdCheckCircle} color="brand.secondary" mt="1px" flexShrink={0} />
-                      {item}
-                    </ListItem>
-                  ))}
-                </List>
+                <Box mb={5}>
+                  <Text
+                    fontSize="xs"
+                    fontWeight="700"
+                    color="gray.400"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={3}
+                  >
+                    Deliverables
+                  </Text>
+                  <List spacing={2}>
+                    {s.deliverables.map((item) => (
+                      <ListItem
+                        key={item}
+                        display="flex"
+                        alignItems="flex-start"
+                        fontSize="xs"
+                        color="gray.600"
+                        lineHeight="1.6"
+                      >
+                        <ListIcon
+                          as={MdCheckCircle}
+                          color={s.accent}
+                          mt="1px"
+                          flexShrink={0}
+                        />
+                        {item}
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
               </Box>
             ))}
           </SimpleGrid>
         </Box>
 
-        {/* Frameworks */}
+        {/* Frameworks & Standards */}
         <Box
           bg="white"
           borderWidth={1}
@@ -189,18 +286,33 @@ export default function Expertise() {
           rounded="2xl"
           p={10}
           boxShadow="sm"
+          mb={16}
         >
           <VStack spacing={2} align="center" textAlign="center" mb={8}>
-            <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase">
+            <Text
+              fontSize="xs"
+              fontWeight="700"
+              color="brand.primary"
+              letterSpacing="widest"
+              textTransform="uppercase"
+            >
               Standards
             </Text>
-            <Heading as="h2" size="lg" fontWeight="700" color="gray.900">
-              Frameworks & Standards
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="800"
+              color="gray.900"
+              letterSpacing="-0.025em"
+            >
+              Frameworks &amp; Standards
             </Heading>
-            <Text color="gray.500" fontSize="sm">
-              Work aligned with internationally recognised development standards
+            <Text color="gray.500" fontSize="sm" maxW="400px">
+              Work aligned with internationally recognised development and M&amp;E
+              standards
             </Text>
           </VStack>
+
           <Flex flexWrap="wrap" gap={3} justify="center">
             {frameworks.map((item) => (
               <Badge
@@ -208,21 +320,125 @@ export default function Expertise() {
                 px={4}
                 py={2}
                 rounded="full"
-                bg="gray.100"
+                bg="gray.50"
                 color="gray.700"
                 fontWeight="600"
                 fontSize="sm"
                 borderWidth={1}
                 borderColor="gray.200"
-                _hover={{ bg: 'blue.50', color: 'brand.primary', borderColor: 'blue.200' }}
+                _hover={{ bg: "blue.50", color: "brand.primary", borderColor: "blue.200" }}
                 transition="all 0.2s"
+                cursor="default"
               >
                 {item}
               </Badge>
             ))}
           </Flex>
         </Box>
+
+        {/* Who I Work With */}
+        <Box>
+          <Text
+            fontSize="xs"
+            fontWeight="700"
+            color="brand.primary"
+            letterSpacing="widest"
+            textTransform="uppercase"
+            mb={3}
+          >
+            Clients & Partners
+          </Text>
+          <Heading
+            as="h2"
+            fontSize={{ base: "2xl", md: "3xl" }}
+            fontWeight="800"
+            color="gray.900"
+            letterSpacing="-0.025em"
+            mb={10}
+          >
+            Who I Work With
+          </Heading>
+
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} mb={10}>
+            {clients.map((c) => (
+              <Box
+                key={c.name}
+                bg="white"
+                borderWidth={1}
+                borderColor="gray.200"
+                rounded="xl"
+                p={6}
+                boxShadow="sm"
+                _hover={{ borderColor: "blue.200", boxShadow: "md" }}
+                transition="all 0.2s"
+              >
+                <Flex align="baseline" gap={2} mb={1}>
+                  <Text
+                    fontWeight="800"
+                    fontSize="lg"
+                    color="brand.primary"
+                    letterSpacing="-0.02em"
+                  >
+                    {c.name}
+                  </Text>
+                  <Text fontSize="xs" color="gray.400" fontWeight="500">
+                    — {c.full}
+                  </Text>
+                </Flex>
+                <Text fontSize="sm" color="gray.600" lineHeight="1.8">
+                  {c.description}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+
+          {/* CTA */}
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            align="center"
+            justify="space-between"
+            bg="gray.900"
+            rounded="xl"
+            p={7}
+            gap={4}
+          >
+            <Box>
+              <Heading
+                as="h3"
+                fontSize="lg"
+                fontWeight="700"
+                color="white"
+                mb={1}
+              >
+                Need these capabilities for your program?
+              </Heading>
+              <Text fontSize="sm" color="gray.400">
+                Let&apos;s discuss how I can support your organisation&apos;s
+                technology and data needs.
+              </Text>
+            </Box>
+            <Flex
+              as={Link}
+              href="/contact"
+              align="center"
+              gap={2}
+              bg="brand.primary"
+              color="white"
+              px={6}
+              py={3}
+              rounded="lg"
+              fontWeight="600"
+              fontSize="sm"
+              flexShrink={0}
+              _hover={{ bg: "#1e40af", textDecoration: "none" }}
+              transition="all 0.2s"
+            >
+              Start a Conversation
+              <Icon as={FaArrowRight} boxSize={3.5} />
+            </Flex>
+          </Flex>
+        </Box>
       </Container>
     </Box>
-  )
+  );
 }
