@@ -100,7 +100,7 @@ export default function Work() {
             bg="rgba(30, 41, 59, 0.5)"
             backdropFilter="blur(10px)"
             borderWidth={1}
-            borderColor="rgba(34, 211, 238, 0.2)"
+            borderColor="rgba(59, 130, 246, 0.2)"
             rounded="xl"
             p={8}
             maxW="3xl"
@@ -196,11 +196,11 @@ export default function Work() {
         </Box>
 
         <Box
-          bgGradient="linear(to-r, rgba(34, 211, 238, 0.1), rgba(132, 204, 22, 0.1))"
+          bgGradient="linear(to-r, rgba(59, 130, 246, 0.08), rgba(16, 185, 129, 0.08))"
           rounded="2xl"
           p={12}
           borderWidth={1}
-          borderColor="rgba(34, 211, 238, 0.2)"
+          borderColor="rgba(59, 130, 246, 0.2)"
         >
           <Heading as="h2" size="xl" textAlign="center" mb={8}>
             Impact at Scale

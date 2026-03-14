@@ -105,7 +105,7 @@ export default function About() {
                   rounded="full"
                   borderWidth={1}
                   borderColor="brand.secondary"
-                  bg="rgba(132, 204, 22, 0.08)"
+                  bg="rgba(16, 185, 129, 0.08)"
                   color="brand.secondary"
                   fontFamily="mono"
                   fontSize="xs"
@@ -120,7 +120,7 @@ export default function About() {
             bg="rgba(30, 41, 59, 0.5)"
             backdropFilter="blur(10px)"
             borderWidth={1}
-            borderColor="rgba(34, 211, 238, 0.2)"
+            borderColor="rgba(59, 130, 246, 0.2)"
             rounded="xl"
             p={8}
           >

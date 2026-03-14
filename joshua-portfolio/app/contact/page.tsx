@@ -275,7 +275,7 @@ export default function Contact() {
             <Box
               bg="rgba(30, 41, 59, 0.5)"
               borderWidth={1}
-              borderColor="rgba(34, 211, 238, 0.2)"
+              borderColor="rgba(59, 130, 246, 0.2)"
               rounded="xl"
               p={8}
             >
@@ -298,7 +298,7 @@ export default function Contact() {
             <Box
               bg="rgba(30, 41, 59, 0.5)"
               borderWidth={1}
-              borderColor="rgba(34, 211, 238, 0.2)"
+              borderColor="rgba(59, 130, 246, 0.2)"
               rounded="xl"
               p={8}
             >

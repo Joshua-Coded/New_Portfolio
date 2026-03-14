@@ -9,10 +9,10 @@ const theme = extendTheme({
   config,
   colors: {
     brand: {
-      primary: '#22d3ee',
-      secondary: '#84cc16',
-      navy: '#0f172a',
-      navyLight: '#1e293b',
+      primary: '#3B82F6',    // professional blue
+      secondary: '#10B981',  // emerald green
+      navy: '#0C1220',       // deep charcoal-navy
+      navyLight: '#1A2535',  // card/panel background
     },
   },
   styles: {
@@ -23,7 +23,7 @@ const theme = extendTheme({
       },
       '*::selection': {
         bg: 'brand.primary',
-        color: 'brand.navy',
+        color: 'white',
       },
     },
   },

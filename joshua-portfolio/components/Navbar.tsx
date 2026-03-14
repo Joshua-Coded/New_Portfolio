@@ -32,7 +32,7 @@ export default function Navbar() {
       position="fixed"
       top={0}
       w="full"
-      bg="rgba(15, 23, 42, 0.8)"
+      bg="rgba(12, 18, 32, 0.85)"
       backdropFilter="blur(10px)"
       borderBottom="1px"
       borderColor="whiteAlpha.200"

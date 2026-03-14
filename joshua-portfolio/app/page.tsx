@@ -89,7 +89,7 @@ export default function Home() {
                   rounded="full"
                   borderWidth={1}
                   borderColor="brand.primary"
-                  bg="rgba(34, 211, 238, 0.1)"
+                  bg="rgba(59, 130, 246, 0.1)"
                   color="brand.primary"
                   fontFamily="mono"
                 >
@@ -120,7 +120,7 @@ export default function Home() {
                 borderColor="brand.primary"
                 color="brand.primary"
                 fontWeight="bold"
-                _hover={{ bg: 'rgba(34, 211, 238, 0.1)' }}
+                _hover={{ bg: 'rgba(59, 130, 246, 0.1)' }}
                 transition="all 0.3s"
               >
                 Get In Touch
