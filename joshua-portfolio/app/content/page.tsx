@@ -17,19 +17,20 @@ import {
   Center,
 } from '@chakra-ui/react'
 import { FaChartLine, FaChartBar, FaCode, FaBriefcase, FaYoutube } from 'react-icons/fa'
-import { getYouTubeVideos, YOUTUBE_CHANNEL_ID } from '@/lib/api'
+import type { YouTubeVideo } from '@/lib/api'
 
 export default function Content() {
-  const [videos, setVideos] = useState<any[]>([])
+  const [videos, setVideos] = useState<YouTubeVideo[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchVideos() {
-      const data = await getYouTubeVideos(YOUTUBE_CHANNEL_ID, 6)
-      setVideos(data)
-      setLoading(false)
-    }
-    fetchVideos()
+    fetch('/api/youtube')
+      .then((res) => res.json())
+      .then((data: YouTubeVideo[]) => {
+        setVideos(data)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
   }, [])
 
   const contentAreas = [
@@ -121,9 +122,9 @@ export default function Content() {
                 </Text>
 
                 <Flex flexWrap="wrap" gap={2}>
-                  {area.topics.map((topic, i) => (
+                  {area.topics.map((topic) => (
                     <Badge
-                      key={i}
+                      key={topic}
                       px={3}
                       py={1}
                       fontSize="xs"
@@ -207,7 +208,7 @@ export default function Content() {
               textAlign="center"
             >
               <Text color="whiteAlpha.600">
-                No videos found. Add your YouTube API key to .env.local
+                No videos found. Add YOUTUBE_API_KEY and YOUTUBE_CHANNEL_ID to your environment variables.
               </Text>
             </Box>
           )}

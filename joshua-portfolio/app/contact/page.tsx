@@ -21,9 +21,16 @@ import {
   Flex,
 } from '@chakra-ui/react'
 
+interface FormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
 export default function Contact() {
   const toast = useToast()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
@@ -58,29 +65,61 @@ export default function Contact() {
     },
   ]
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    setTimeout(() => {
+    const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
+
+    if (!formId) {
       toast({
-        title: 'Message sent!',
-        description: "I'll get back to you soon.",
-        status: 'success',
+        title: 'Contact form not configured',
+        description: 'Set NEXT_PUBLIC_FORMSPREE_FORM_ID in your environment variables.',
+        status: 'warning',
         duration: 5000,
         isClosable: true,
         position: 'top',
       })
-      setFormData({ name: '', email: '', subject: '', message: '' })
       setIsSubmitting(false)
-    }, 1000)
+      return
+    }
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        toast({
+          title: 'Message sent!',
+          description: "I'll get back to you soon.",
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+          position: 'top',
+        })
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        throw new Error('Failed to send')
+      }
+    } catch {
+      toast({
+        title: 'Failed to send',
+        description: 'Please try again or email me directly at joshuaalana1220@gmail.com',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+        position: 'top',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -206,9 +245,9 @@ export default function Contact() {
                 Connect With Me
               </Heading>
               <VStack spacing={4} align="stretch">
-                {socialLinks.map((social, i) => (
+                {socialLinks.map((social) => (
                   <ChakraLink
-                    key={i}
+                    key={social.label}
                     href={social.href}
                     isExternal
                     _hover={{ textDecoration: 'none' }}
@@ -250,7 +289,7 @@ export default function Contact() {
               p={8}
             >
               <Text fontSize="lg" color="whiteAlpha.800" mb={4} fontStyle="italic">
-                "Building technology that solves actual problems, engaging stakeholders, 
+                "Building technology that solves actual problems, engaging stakeholders,
                 and constantly experimenting with new tools."
               </Text>
               <Text color="brand.primary" fontWeight="bold">

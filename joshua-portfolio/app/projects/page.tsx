@@ -16,32 +16,31 @@ import {
   HStack,
 } from '@chakra-ui/react'
 import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa'
-import { getGitHubRepos, GITHUB_USERNAME } from '@/lib/api'
+import { getGitHubRepos, GITHUB_USERNAME, type GitHubRepo } from '@/lib/api'
+
+const languageColors: Record<string, string> = {
+  JavaScript: 'yellow.400',
+  TypeScript: 'blue.400',
+  Python: 'green.400',
+  Java: 'red.400',
+  C: 'purple.400',
+  'C++': 'pink.400',
+  HTML: 'orange.400',
+  CSS: 'cyan.400',
+}
 
 export default function Projects() {
-  const [repos, setRepos] = useState<any[]>([])
+  const [repos, setRepos] = useState<GitHubRepo[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchRepos() {
-      const data = await getGitHubRepos(GITHUB_USERNAME, 9)
-      setRepos(data)
-      setLoading(false)
-    }
-    fetchRepos()
+    getGitHubRepos(GITHUB_USERNAME, 9)
+      .then((data) => {
+        setRepos(data)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
   }, [])
-
-  const languageColors: any = {
-    JavaScript: 'yellow.400',
-    TypeScript: 'blue.400',
-    Python: 'green.400',
-    Java: 'red.400',
-    C: 'purple.400',
-    'C++': 'pink.400',
-    HTML: 'orange.400',
-    CSS: 'cyan.400',
-    default: 'gray.400',
-  }
 
   return (
     <Box minH="100vh" pt={32} pb={20}>
@@ -117,7 +116,7 @@ export default function Projects() {
                           w={3}
                           h={3}
                           rounded="full"
-                          bg={languageColors[repo.language] || languageColors.default}
+                          bg={languageColors[repo.language] ?? 'gray.400'}
                         />
                         <Text fontSize="sm" color="whiteAlpha.600">
                           {repo.language}
