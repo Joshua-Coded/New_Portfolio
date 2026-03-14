@@ -73,23 +73,8 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
-
-    if (!formId) {
-      toast({
-        title: 'Contact form not configured',
-        description: 'Set NEXT_PUBLIC_FORMSPREE_FORM_ID in your environment variables.',
-        status: 'warning',
-        duration: 5000,
-        isClosable: true,
-        position: 'top',
-      })
-      setIsSubmitting(false)
-      return
-    }
-
     try {
-      const response = await fetch(`https://formspree.io/f/${formId}`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
