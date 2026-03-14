@@ -9,14 +9,13 @@ const theme = extendTheme({
   config,
   colors: {
     brand: {
-      primary: '#2563EB',    // blue-600
-      secondary: '#059669',  // emerald-600
-      navy: '#0F172A',       // headings & dark text
+      primary: '#1D4ED8',
+      secondary: '#059669',
+      navy: '#0F172A',
       navyLight: '#1E293B',
-      surface: '#F8FAFC',    // page background
-      card: '#FFFFFF',       // card background
-      muted: '#64748B',      // secondary text
-      border: '#E2E8F0',     // card borders
+      surface: '#F8FAFC',
+      muted: '#64748B',
+      border: '#E2E8F0',
     },
   },
   styles: {
@@ -24,17 +23,38 @@ const theme = extendTheme({
       body: {
         bg: '#F8FAFC',
         color: '#0F172A',
+        fontFamily: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
       },
       '*::selection': {
-        bg: '#2563EB',
+        bg: '#1D4ED8',
         color: 'white',
       },
     },
   },
   fonts: {
-    heading: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
-    body: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
+    heading: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
+    body: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
     mono: `'Courier New', monospace`,
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: '600',
+        borderRadius: '8px',
+      },
+    },
+    Input: {
+      variants: {
+        outline: {
+          field: {
+            borderRadius: '8px',
+            borderColor: '#E2E8F0',
+            _hover: { borderColor: '#1D4ED8' },
+            _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+          },
+        },
+      },
+    },
   },
 })
 
