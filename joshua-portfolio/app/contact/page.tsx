@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import {
   Box,
@@ -14,15 +14,16 @@ import {
   Input,
   Textarea,
   Button,
-  HStack,
   Icon,
   Link as ChakraLink,
   useToast,
   Flex,
+  Select,
 } from '@chakra-ui/react'
 
 interface FormData {
   name: string
+  organisation: string
   email: string
   subject: string
   message: string
@@ -32,6 +33,7 @@ export default function Contact() {
   const toast = useToast()
   const [formData, setFormData] = useState<FormData>({
     name: '',
+    organisation: '',
     email: '',
     subject: '',
     message: '',
@@ -39,12 +41,6 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const socialLinks = [
-    {
-      icon: FaYoutube,
-      label: "YouTube",
-      value: "@joshualana",
-      href: "https://youtube.com/@joshualana",
-    },
     {
       icon: FaLinkedin,
       label: "LinkedIn",
@@ -65,7 +61,7 @@ export default function Contact() {
     },
   ]
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -83,13 +79,13 @@ export default function Contact() {
       if (response.ok) {
         toast({
           title: 'Message sent!',
-          description: "I'll get back to you soon.",
+          description: "Thank you for reaching out. I'll respond within 48 hours.",
           status: 'success',
           duration: 5000,
           isClosable: true,
           position: 'top',
         })
-        setFormData({ name: '', email: '', subject: '', message: '' })
+        setFormData({ name: '', organisation: '', email: '', subject: '', message: '' })
       } else {
         throw new Error('Failed to send')
       }
@@ -115,11 +111,13 @@ export default function Contact() {
             <Text as="span" color="brand.secondary">&gt;</Text> Get_In_Touch
           </Heading>
           <Text fontSize="xl" color="whiteAlpha.800" maxW="3xl">
-            Let's build something amazing together or just talk tech
+            Whether you're looking for a technology partner, a consultant for your next program,
+            or want to discuss agricultural data systems — I'd love to connect.
           </Text>
         </VStack>
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
+          {/* Form */}
           <Box>
             <Heading as="h2" size="lg" color="brand.primary" mb={6}>
               Send a Message
@@ -134,21 +132,32 @@ export default function Contact() {
               rounded="xl"
               p={8}
             >
-              <VStack spacing={6}>
+              <VStack spacing={5}>
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Name</FormLabel>
+                  <FormLabel color="whiteAlpha.800">Full Name</FormLabel>
                   <Input
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder="Your full name"
                     bg="rgba(15, 23, 42, 0.5)"
                     borderColor="whiteAlpha.300"
                     _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{
-                      borderColor: 'brand.primary',
-                      boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)',
-                    }}
+                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
+                  />
+                </FormControl>
+
+                <FormControl>
+                  <FormLabel color="whiteAlpha.800">Organisation</FormLabel>
+                  <Input
+                    name="organisation"
+                    value={formData.organisation}
+                    onChange={handleChange}
+                    placeholder="IFAD, AGRA, AU, NGO..."
+                    bg="rgba(15, 23, 42, 0.5)"
+                    borderColor="whiteAlpha.300"
+                    _hover={{ borderColor: 'brand.primary' }}
+                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
                   />
                 </FormControl>
 
@@ -159,32 +168,33 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your.email@example.com"
+                    placeholder="your.email@organisation.org"
                     bg="rgba(15, 23, 42, 0.5)"
                     borderColor="whiteAlpha.300"
                     _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{
-                      borderColor: 'brand.primary',
-                      boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)',
-                    }}
+                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
                   />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Subject</FormLabel>
-                  <Input
+                  <FormLabel color="whiteAlpha.800">Enquiry Type</FormLabel>
+                  <Select
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="What's this about?"
+                    placeholder="Select enquiry type"
                     bg="rgba(15, 23, 42, 0.5)"
                     borderColor="whiteAlpha.300"
                     _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{
-                      borderColor: 'brand.primary',
-                      boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)',
-                    }}
-                  />
+                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
+                  >
+                    <option value="Consultancy / Project">Consultancy / Project</option>
+                    <option value="M&E System Design">M&E System Design</option>
+                    <option value="Data Systems & Analytics">Data Systems & Analytics</option>
+                    <option value="Tech Product Development">Tech Product Development</option>
+                    <option value="Partnership / Collaboration">Partnership / Collaboration</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                  </Select>
                 </FormControl>
 
                 <FormControl isRequired>
@@ -193,15 +203,12 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your message..."
+                    placeholder="Describe your project or enquiry..."
                     rows={6}
                     bg="rgba(15, 23, 42, 0.5)"
                     borderColor="whiteAlpha.300"
                     _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{
-                      borderColor: 'brand.primary',
-                      boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)',
-                    }}
+                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
                   />
                 </FormControl>
 
@@ -213,9 +220,7 @@ export default function Contact() {
                   color="brand.navy"
                   fontWeight="bold"
                   isLoading={isSubmitting}
-                  _hover={{
-                    transform: 'scale(1.02)',
-                  }}
+                  _hover={{ transform: 'scale(1.02)' }}
                   transition="all 0.2s"
                 >
                   Send Message
@@ -224,10 +229,11 @@ export default function Contact() {
             </Box>
           </Box>
 
+          {/* Right column */}
           <VStack spacing={8} align="stretch">
             <Box>
               <Heading as="h2" size="lg" color="brand.primary" mb={6}>
-                Connect With Me
+                Connect
               </Heading>
               <VStack spacing={4} align="stretch">
                 {socialLinks.map((social) => (
@@ -273,12 +279,34 @@ export default function Contact() {
               rounded="xl"
               p={8}
             >
+              <Heading as="h3" size="md" color="brand.secondary" mb={4}>
+                Open to opportunities in:
+              </Heading>
+              <VStack align="flex-start" spacing={2} color="whiteAlpha.800" fontSize="sm">
+                {[
+                  "Technology consultancy for development programs",
+                  "Data systems design and implementation",
+                  "M&E framework development",
+                  "Agricultural ICT advisory roles",
+                  "Research partnerships and collaborations",
+                ].map((item) => (
+                  <Text key={item}>→ {item}</Text>
+                ))}
+              </VStack>
+            </Box>
+
+            <Box
+              bg="rgba(30, 41, 59, 0.5)"
+              borderWidth={1}
+              borderColor="rgba(34, 211, 238, 0.2)"
+              rounded="xl"
+              p={8}
+            >
               <Text fontSize="lg" color="whiteAlpha.800" mb={4} fontStyle="italic">
-                "Building technology that solves actual problems, engaging stakeholders,
-                and constantly experimenting with new tools."
+                "Technology that does not serve people and communities is just expensive noise."
               </Text>
               <Text color="brand.primary" fontWeight="bold">
-                - Joshua Alana
+                — Joshua Alana
               </Text>
             </Box>
           </VStack>

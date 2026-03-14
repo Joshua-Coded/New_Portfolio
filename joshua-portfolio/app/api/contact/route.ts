@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
 export async function POST(req: NextRequest) {
-  const { name, email, subject, message } = await req.json()
+  const { name, organisation, email, subject, message } = await req.json()
 
   if (!name || !email || !subject || !message) {
     return NextResponse.json({ error: 'All fields are required' }, { status: 400 })
@@ -25,10 +25,11 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
       html: `
-        <h2>New message from your portfolio</h2>
+        <h2>New portfolio enquiry</h2>
         <p><strong>Name:</strong> ${name}</p>
+        ${organisation ? `<p><strong>Organisation:</strong> ${organisation}</p>` : ''}
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Enquiry Type:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br/>')}</p>
       `,
