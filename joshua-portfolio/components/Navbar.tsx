@@ -10,6 +10,7 @@ import {
   Stack,
   Container,
   Text,
+  Button,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
@@ -18,12 +19,10 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
 
   const links = [
-    { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/work', label: 'Work' },
     { href: '/expertise', label: 'Expertise' },
     { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' },
   ]
 
   return (
@@ -32,10 +31,9 @@ export default function Navbar() {
       position="fixed"
       top={0}
       w="full"
-      bg="rgba(12, 18, 32, 0.85)"
-      backdropFilter="blur(10px)"
+      bg="white"
       borderBottom="1px"
-      borderColor="whiteAlpha.200"
+      borderColor="gray.200"
       zIndex={1000}
     >
       <Container maxW="container.xl">
@@ -43,12 +41,14 @@ export default function Navbar() {
           <ChakraLink
             as={Link}
             href="/"
-            fontFamily="mono"
-            fontSize="xl"
-            fontWeight="bold"
-            _hover={{ textDecoration: 'none' }}
+            fontWeight="800"
+            fontSize="lg"
+            color="gray.900"
+            letterSpacing="-0.02em"
+            _hover={{ textDecoration: 'none', color: 'brand.primary' }}
+            transition="color 0.2s"
           >
-            <Text as="span" color="brand.primary">$</Text> joshua.alana
+            Joshua Alana
           </ChakraLink>
 
           <HStack as="nav" spacing={8} display={{ base: 'none', md: 'flex' }}>
@@ -57,17 +57,30 @@ export default function Navbar() {
                 key={link.href}
                 as={Link}
                 href={link.href}
-                color="whiteAlpha.800"
+                color="gray.600"
                 fontWeight="medium"
-                _hover={{
-                  color: 'brand.primary',
-                  textDecoration: 'none',
-                }}
+                fontSize="sm"
+                _hover={{ color: 'brand.primary', textDecoration: 'none' }}
                 transition="color 0.2s"
               >
                 {link.label}
               </ChakraLink>
             ))}
+          </HStack>
+
+          <HStack spacing={3} display={{ base: 'none', md: 'flex' }}>
+            <Button
+              as={Link}
+              href="/contact"
+              size="sm"
+              bg="brand.primary"
+              color="white"
+              fontWeight="semibold"
+              px={5}
+              _hover={{ bg: 'blue.700' }}
+            >
+              Contact
+            </Button>
           </HStack>
 
           <IconButton
@@ -77,24 +90,26 @@ export default function Navbar() {
             display={{ md: 'none' }}
             onClick={onToggle}
             variant="ghost"
-            color="whiteAlpha.800"
-            _hover={{ bg: 'whiteAlpha.100' }}
+            color="gray.600"
           />
         </Flex>
 
         {isOpen && (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as="nav" spacing={4}>
-              {links.map((link) => (
+          <Box pb={4} display={{ md: 'none' }} bg="white">
+            <Stack as="nav" spacing={1}>
+              {[...links, { href: '/contact', label: 'Contact' }].map((link) => (
                 <ChakraLink
                   key={link.href}
                   as={Link}
                   href={link.href}
-                  color="whiteAlpha.800"
-                  _hover={{
-                    color: 'brand.primary',
-                    textDecoration: 'none',
-                  }}
+                  display="block"
+                  px={3}
+                  py={2}
+                  rounded="md"
+                  color="gray.700"
+                  fontWeight="medium"
+                  fontSize="sm"
+                  _hover={{ color: 'brand.primary', bg: 'blue.50', textDecoration: 'none' }}
                   onClick={onToggle}
                 >
                   {link.label}

@@ -41,24 +41,9 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const socialLinks = [
-    {
-      icon: FaLinkedin,
-      label: "LinkedIn",
-      value: "Joshua Alana",
-      href: "https://www.linkedin.com/in/joshua-a-5760b3196/",
-    },
-    {
-      icon: FaGithub,
-      label: "GitHub",
-      value: "Joshua-Coded",
-      href: "https://github.com/Joshua-Coded",
-    },
-    {
-      icon: FaEnvelope,
-      label: "Email",
-      value: "joshuaalana1220@gmail.com",
-      href: "mailto:joshuaalana1220@gmail.com",
-    },
+    { icon: FaLinkedin, label: "LinkedIn", value: "Joshua Alana", href: "https://www.linkedin.com/in/joshua-a-5760b3196/" },
+    { icon: FaGithub, label: "GitHub", value: "Joshua-Coded", href: "https://github.com/Joshua-Coded" },
+    { icon: FaEnvelope, label: "Email", value: "joshuaalana1220@gmail.com", href: "mailto:joshuaalana1220@gmail.com" },
   ]
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -68,49 +53,44 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       if (response.ok) {
-        toast({
-          title: 'Message sent!',
-          description: "Thank you for reaching out. I'll respond within 48 hours.",
-          status: 'success',
-          duration: 5000,
-          isClosable: true,
-          position: 'top',
-        })
+        toast({ title: 'Message sent!', description: "I'll respond within 48 hours.", status: 'success', duration: 5000, isClosable: true, position: 'top' })
         setFormData({ name: '', organisation: '', email: '', subject: '', message: '' })
       } else {
-        throw new Error('Failed to send')
+        throw new Error('Failed')
       }
     } catch {
-      toast({
-        title: 'Failed to send',
-        description: 'Please try again or email me directly at joshuaalana1220@gmail.com',
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-        position: 'top',
-      })
+      toast({ title: 'Failed to send', description: 'Please email me directly at joshuaalana1220@gmail.com', status: 'error', duration: 5000, isClosable: true, position: 'top' })
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  const inputStyles = {
+    bg: "white",
+    borderColor: "gray.300",
+    _hover: { borderColor: 'brand.primary' },
+    _focus: { borderColor: 'brand.primary', boxShadow: '0 0 0 1px #2563EB' },
+    color: "gray.800",
+  }
+
   return (
-    <Box minH="100vh" pt={32} pb={20}>
+    <Box minH="100vh" bg="gray.50" pt={32} pb={20}>
       <Container maxW="container.xl">
-        <VStack spacing={6} align="flex-start" mb={16}>
-          <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="black" fontFamily="mono">
-            <Text as="span" color="brand.secondary">&gt;</Text> Get_In_Touch
+        <VStack spacing={4} align="flex-start" mb={16}>
+          <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase">
+            Let's Talk
+          </Text>
+          <Heading as="h1" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="800" color="gray.900" letterSpacing="-0.02em">
+            Get In Touch
           </Heading>
-          <Text fontSize="xl" color="whiteAlpha.800" maxW="3xl">
+          <Text fontSize="lg" color="gray.600" maxW="2xl" lineHeight="tall">
             Whether you're looking for a technology partner, a consultant for your next program,
             or want to discuss agricultural data systems — I'd love to connect.
           </Text>
@@ -119,75 +99,38 @@ export default function Contact() {
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
           {/* Form */}
           <Box>
-            <Heading as="h2" size="lg" color="brand.primary" mb={6}>
+            <Heading as="h2" size="md" fontWeight="700" color="gray.900" mb={6}>
               Send a Message
             </Heading>
             <Box
               as="form"
               onSubmit={handleSubmit}
-              bg="rgba(30, 41, 59, 0.5)"
-              backdropFilter="blur(10px)"
+              bg="white"
               borderWidth={1}
-              borderColor="whiteAlpha.200"
+              borderColor="gray.200"
               rounded="xl"
               p={8}
+              boxShadow="sm"
             >
               <VStack spacing={5}>
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Full Name</FormLabel>
-                  <Input
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    bg="rgba(15, 23, 42, 0.5)"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
-                  />
+                  <FormLabel color="gray.700" fontSize="sm" fontWeight="600">Full Name</FormLabel>
+                  <Input name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" {...inputStyles} />
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel color="whiteAlpha.800">Organisation</FormLabel>
-                  <Input
-                    name="organisation"
-                    value={formData.organisation}
-                    onChange={handleChange}
-                    placeholder="IFAD, AGRA, AU, NGO..."
-                    bg="rgba(15, 23, 42, 0.5)"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
-                  />
+                  <FormLabel color="gray.700" fontSize="sm" fontWeight="600">Organisation</FormLabel>
+                  <Input name="organisation" value={formData.organisation} onChange={handleChange} placeholder="IFAD, AGRA, AU, NGO..." {...inputStyles} />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Email</FormLabel>
-                  <Input
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@organisation.org"
-                    bg="rgba(15, 23, 42, 0.5)"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
-                  />
+                  <FormLabel color="gray.700" fontSize="sm" fontWeight="600">Email</FormLabel>
+                  <Input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your.email@organisation.org" {...inputStyles} />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Enquiry Type</FormLabel>
-                  <Select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Select enquiry type"
-                    bg="rgba(15, 23, 42, 0.5)"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
-                  >
+                  <FormLabel color="gray.700" fontSize="sm" fontWeight="600">Enquiry Type</FormLabel>
+                  <Select name="subject" value={formData.subject} onChange={handleChange} placeholder="Select enquiry type" {...inputStyles}>
                     <option value="Consultancy / Project">Consultancy / Project</option>
                     <option value="M&E System Design">M&E System Design</option>
                     <option value="Data Systems & Analytics">Data Systems & Analytics</option>
@@ -198,29 +141,19 @@ export default function Contact() {
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel color="whiteAlpha.800">Message</FormLabel>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your project or enquiry..."
-                    rows={6}
-                    bg="rgba(15, 23, 42, 0.5)"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ borderColor: 'brand.primary' }}
-                    _focus={{ borderColor: 'brand.primary', boxShadow: '0 0 0 1px var(--chakra-colors-brand-primary)' }}
-                  />
+                  <FormLabel color="gray.700" fontSize="sm" fontWeight="600">Message</FormLabel>
+                  <Textarea name="message" value={formData.message} onChange={handleChange} placeholder="Describe your project or enquiry..." rows={6} {...inputStyles} />
                 </FormControl>
 
                 <Button
                   type="submit"
                   w="full"
                   size="lg"
-                  bgGradient="linear(to-r, brand.primary, brand.secondary)"
-                  color="brand.navy"
-                  fontWeight="bold"
+                  bg="brand.primary"
+                  color="white"
+                  fontWeight="semibold"
                   isLoading={isSubmitting}
-                  _hover={{ transform: 'scale(1.02)' }}
+                  _hover={{ bg: 'blue.700', transform: 'translateY(-1px)', boxShadow: 'md' }}
                   transition="all 0.2s"
                 >
                   Send Message
@@ -230,41 +163,32 @@ export default function Contact() {
           </Box>
 
           {/* Right column */}
-          <VStack spacing={8} align="stretch">
+          <VStack spacing={6} align="stretch">
             <Box>
-              <Heading as="h2" size="lg" color="brand.primary" mb={6}>
+              <Heading as="h2" size="md" fontWeight="700" color="gray.900" mb={5}>
                 Connect
               </Heading>
-              <VStack spacing={4} align="stretch">
+              <VStack spacing={3} align="stretch">
                 {socialLinks.map((social) => (
-                  <ChakraLink
-                    key={social.label}
-                    href={social.href}
-                    isExternal
-                    _hover={{ textDecoration: 'none' }}
-                  >
+                  <ChakraLink key={social.label} href={social.href} isExternal _hover={{ textDecoration: 'none' }}>
                     <Flex
                       align="center"
                       gap={4}
                       p={4}
-                      bg="rgba(30, 41, 59, 0.5)"
+                      bg="white"
                       borderWidth={1}
-                      borderColor="whiteAlpha.200"
+                      borderColor="gray.200"
                       rounded="lg"
+                      boxShadow="sm"
                       transition="all 0.2s"
-                      _hover={{
-                        borderColor: 'brand.primary',
-                        transform: 'translateX(4px)',
-                      }}
+                      _hover={{ borderColor: 'blue.300', boxShadow: 'md', transform: 'translateX(3px)' }}
                     >
-                      <Icon as={social.icon} boxSize={6} color="brand.primary" />
-                      <Box flex={1}>
-                        <Text fontWeight="bold" color="white">
-                          {social.label}
-                        </Text>
-                        <Text fontSize="sm" color="whiteAlpha.600">
-                          {social.value}
-                        </Text>
+                      <Flex w={9} h={9} rounded="lg" bg="blue.50" align="center" justify="center" flexShrink={0}>
+                        <Icon as={social.icon} boxSize={4} color="brand.primary" />
+                      </Flex>
+                      <Box>
+                        <Text fontWeight="600" color="gray.900" fontSize="sm">{social.label}</Text>
+                        <Text fontSize="xs" color="gray.500">{social.value}</Text>
                       </Box>
                     </Flex>
                   </ChakraLink>
@@ -272,17 +196,11 @@ export default function Contact() {
               </VStack>
             </Box>
 
-            <Box
-              bg="rgba(30, 41, 59, 0.5)"
-              borderWidth={1}
-              borderColor="rgba(59, 130, 246, 0.2)"
-              rounded="xl"
-              p={8}
-            >
-              <Heading as="h3" size="md" color="brand.secondary" mb={4}>
+            <Box bg="white" borderWidth={1} borderColor="gray.200" rounded="xl" p={7} boxShadow="sm">
+              <Heading as="h3" size="sm" fontWeight="700" color="gray.900" mb={4}>
                 Open to opportunities in:
               </Heading>
-              <VStack align="flex-start" spacing={2} color="whiteAlpha.800" fontSize="sm">
+              <VStack align="flex-start" spacing={2}>
                 {[
                   "Technology consultancy for development programs",
                   "Data systems design and implementation",
@@ -290,24 +208,19 @@ export default function Contact() {
                   "Agricultural ICT advisory roles",
                   "Research partnerships and collaborations",
                 ].map((item) => (
-                  <Text key={item}>→ {item}</Text>
+                  <Flex key={item} align="center" gap={2}>
+                    <Box w={1.5} h={1.5} rounded="full" bg="brand.secondary" flexShrink={0} />
+                    <Text fontSize="sm" color="gray.600">{item}</Text>
+                  </Flex>
                 ))}
               </VStack>
             </Box>
 
-            <Box
-              bg="rgba(30, 41, 59, 0.5)"
-              borderWidth={1}
-              borderColor="rgba(59, 130, 246, 0.2)"
-              rounded="xl"
-              p={8}
-            >
-              <Text fontSize="lg" color="whiteAlpha.800" mb={4} fontStyle="italic">
+            <Box bg="blue.50" borderWidth={1} borderColor="blue.100" rounded="xl" p={7}>
+              <Text fontSize="md" color="gray.700" mb={3} fontStyle="italic" lineHeight="tall">
                 "Technology that does not serve people and communities is just expensive noise."
               </Text>
-              <Text color="brand.primary" fontWeight="bold">
-                — Joshua Alana
-              </Text>
+              <Text color="brand.primary" fontWeight="700" fontSize="sm">— Joshua Alana</Text>
             </Box>
           </VStack>
         </SimpleGrid>

@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   VStack,
-  HStack,
   SimpleGrid,
   Badge,
   Flex,
@@ -58,94 +57,78 @@ export default function About() {
   ]
 
   return (
-    <Box minH="100vh" pt={32} pb={20}>
+    <Box minH="100vh" bg="gray.50" pt={32} pb={20}>
       <Container maxW="container.xl">
-        <VStack spacing={6} align="flex-start" mb={16}>
-          <Heading as="h1" fontSize={{ base: "4xl", md: "6xl" }} fontWeight="black" fontFamily="mono">
-            <Text as="span" color="brand.secondary">&gt;</Text> About_Me
+        {/* Header */}
+        <VStack spacing={4} align="flex-start" mb={16}>
+          <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase">
+            Background
+          </Text>
+          <Heading as="h1" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="800" color="gray.900" letterSpacing="-0.02em">
+            About Me
           </Heading>
-          <Text fontSize="xl" color="whiteAlpha.800" maxW="3xl">
+          <Text fontSize="lg" color="gray.600" maxW="2xl" lineHeight="tall">
             A technology professional at the intersection of software engineering, data science, and agricultural development.
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={12} mb={20}>
-          <VStack align="flex-start" spacing={6}>
-            <Heading as="h2" size="xl" color="brand.primary">
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} mb={20}>
+          {/* Journey */}
+          <VStack align="flex-start" spacing={5}>
+            <Heading as="h2" size="lg" fontWeight="700" color="gray.900">
               My Background
             </Heading>
-            <Text fontSize="lg" color="whiteAlpha.800" lineHeight="tall">
+            <Text fontSize="md" color="gray.600" lineHeight="tall">
               As a Software Engineering graduate from{' '}
-              <Text as="span" color="brand.secondary" fontWeight="semibold">
-                African Leadership University
-              </Text>
-              , I work at{' '}
-              <Text as="span" color="brand.secondary" fontWeight="semibold">
-                AGRA
-              </Text>{' '}
+              <Text as="span" color="brand.secondary" fontWeight="semibold">African Leadership University</Text>,
+              I work at{' '}
+              <Text as="span" color="brand.primary" fontWeight="semibold">AGRA</Text>{' '}
               building data systems and technology products that support agricultural transformation across the continent.
             </Text>
-            <Text fontSize="lg" color="whiteAlpha.800" lineHeight="tall">
+            <Text fontSize="md" color="gray.600" lineHeight="tall">
               My work spans program monitoring, stakeholder engagement, M&E framework design, and the development
               of tools that help partner organizations — from national governments to international donors — make
               data-driven decisions.
             </Text>
-            <Text fontSize="lg" color="whiteAlpha.800" lineHeight="tall">
+            <Text fontSize="md" color="gray.600" lineHeight="tall">
               I bring together strong technical depth and a deep understanding of the{' '}
-              <Text as="span" color="brand.primary">African development context</Text>{' '}
+              <Text as="span" color="brand.primary" fontWeight="semibold">African development context</Text>{' '}
               to deliver solutions that are practical, scalable, and impactful.
             </Text>
-
-            <HStack flexWrap="wrap" gap={2} pt={2}>
-              {["AGRA", "IFAD", "African Union", "Agricultural Development", "M&E", "ICT4D"].map((tag) => (
-                <Badge
-                  key={tag}
-                  px={3}
-                  py={1}
-                  rounded="full"
-                  borderWidth={1}
-                  borderColor="brand.secondary"
-                  bg="rgba(16, 185, 129, 0.08)"
-                  color="brand.secondary"
-                  fontFamily="mono"
-                  fontSize="xs"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </HStack>
           </VStack>
 
+          {/* Principles */}
           <Box
-            bg="rgba(30, 41, 59, 0.5)"
-            backdropFilter="blur(10px)"
+            bg="white"
             borderWidth={1}
-            borderColor="rgba(59, 130, 246, 0.2)"
+            borderColor="gray.200"
             rounded="xl"
             p={8}
+            boxShadow="sm"
           >
-            <Heading as="h3" size="lg" color="brand.secondary" mb={6}>
+            <Heading as="h3" size="md" fontWeight="700" color="gray.900" mb={5}>
               Guiding Principles
             </Heading>
-            <Box borderLeft="4px" borderColor="brand.primary" pl={6} mb={8}>
-              <Text fontSize="lg" fontStyle="italic" color="whiteAlpha.800">
+            <Box borderLeft="3px" borderColor="brand.primary" pl={5} mb={8}>
+              <Text fontSize="md" fontStyle="italic" color="gray.600" lineHeight="tall">
                 "Technology that does not serve people and communities is just expensive noise."
               </Text>
             </Box>
 
-            <VStack spacing={4} align="flex-start">
+            <VStack spacing={5} align="flex-start">
               {principles.map((principle, i) => (
-                <Flex key={principle.number} gap={3}>
-                  <Text fontSize="2xl" color={i % 2 === 0 ? "brand.primary" : "brand.secondary"}>
+                <Flex key={principle.number} gap={4}>
+                  <Text
+                    fontSize="xl"
+                    fontWeight="800"
+                    color={i % 2 === 0 ? "brand.primary" : "brand.secondary"}
+                    minW="32px"
+                  >
                     {principle.number}
                   </Text>
                   <Box>
-                    <Text fontWeight="bold" color="white" mb={1}>
-                      {principle.title}
-                    </Text>
-                    <Text fontSize="sm" color="whiteAlpha.700">
-                      {principle.description}
-                    </Text>
+                    <Text fontWeight="700" color="gray.900" mb={1}>{principle.title}</Text>
+                    <Text fontSize="sm" color="gray.500">{principle.description}</Text>
                   </Box>
                 </Flex>
               ))}
@@ -155,36 +138,32 @@ export default function About() {
 
         {/* Timeline */}
         <Box mb={20}>
-          <Heading as="h2" size="xl" color="brand.primary" mb={12}>
+          <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase" mb={3}>
+            Experience
+          </Text>
+          <Heading as="h2" size="lg" fontWeight="700" color="gray.900" mb={10}>
             Professional Journey
           </Heading>
-          <VStack spacing={8} align="stretch">
+          <VStack spacing={0} align="stretch">
             {timeline.map((item, i) => (
-              <Flex key={item.year} gap={8}>
-                <Flex direction="column" align="center">
-                  <Box
-                    w={4}
-                    h={4}
-                    rounded="full"
-                    bg="brand.primary"
-                    transition="all 0.3s"
-                    _hover={{ transform: 'scale(1.5)' }}
-                  />
+              <Flex key={item.year} gap={6}>
+                <Flex direction="column" align="center" minW="20px">
+                  <Box w={3} h={3} rounded="full" bg="brand.primary" mt={1} flexShrink={0} />
                   {i < timeline.length - 1 && (
-                    <Box w="2px" h="full" bg="whiteAlpha.200" mt={2} />
+                    <Box w="1px" flex={1} bg="gray.200" my={1} />
                   )}
                 </Flex>
-                <Box pb={12} flex={1}>
-                  <Text fontFamily="mono" fontSize="sm" color="brand.secondary" mb={2}>
+                <Box pb={10}>
+                  <Text fontWeight="600" fontSize="xs" color="brand.secondary" textTransform="uppercase" letterSpacing="wide" mb={1}>
                     {item.year}
                   </Text>
-                  <Heading as="h3" size="lg" mb={1}>
+                  <Heading as="h3" size="md" fontWeight="700" color="gray.900" mb={1}>
                     {item.title}
                   </Heading>
-                  <Text color="brand.primary" fontWeight="semibold" mb={3}>
+                  <Text color="brand.primary" fontWeight="600" fontSize="sm" mb={3}>
                     {item.company}
                   </Text>
-                  <Text color="whiteAlpha.700" lineHeight="tall">
+                  <Text color="gray.600" fontSize="sm" lineHeight="tall">
                     {item.description}
                   </Text>
                 </Box>
@@ -195,23 +174,26 @@ export default function About() {
 
         {/* Skills */}
         <Box>
-          <Heading as="h2" size="xl" color="brand.primary" mb={12}>
+          <Text fontSize="xs" fontWeight="700" color="brand.primary" letterSpacing="widest" textTransform="uppercase" mb={3}>
             Technical Stack
+          </Text>
+          <Heading as="h2" size="lg" fontWeight="700" color="gray.900" mb={10}>
+            Skills & Tools
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
             {Object.entries(skills).map(([category, items]) => (
               <Box
                 key={category}
-                bg="rgba(30, 41, 59, 0.5)"
-                backdropFilter="blur(10px)"
+                bg="white"
                 borderWidth={1}
-                borderColor="whiteAlpha.200"
+                borderColor="gray.200"
                 rounded="xl"
                 p={6}
+                boxShadow="sm"
               >
-                <Heading as="h3" size="md" color="brand.secondary" fontFamily="mono" mb={4}>
+                <Text fontWeight="700" color="gray.900" fontSize="sm" mb={4}>
                   {category}
-                </Heading>
+                </Text>
                 <Flex flexWrap="wrap" gap={2}>
                   {items.map((skill) => (
                     <Badge
@@ -219,11 +201,11 @@ export default function About() {
                       px={3}
                       py={1}
                       rounded="full"
-                      bg="rgba(30, 41, 59, 0.5)"
-                      color="whiteAlpha.800"
-                      borderWidth={1}
-                      borderColor="whiteAlpha.300"
-                      _hover={{ borderColor: 'brand.primary', color: 'brand.primary' }}
+                      bg="gray.100"
+                      color="gray.700"
+                      fontWeight="500"
+                      fontSize="xs"
+                      _hover={{ bg: 'blue.50', color: 'brand.primary' }}
                       transition="all 0.2s"
                     >
                       {skill}
