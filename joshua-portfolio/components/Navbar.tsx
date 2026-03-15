@@ -33,10 +33,9 @@ export default function Navbar() {
       position="fixed"
       top={0}
       w="full"
-      bg="rgba(255,255,255,0.95)"
-      backdropFilter="blur(12px)"
-      borderBottom="1px"
-      borderColor="gray.100"
+      bg="rgba(11,17,32,0.92)"
+      backdropFilter="blur(16px)"
+      borderBottom="1px solid rgba(255,255,255,0.07)"
       zIndex={1000}
     >
       <Container maxW="container.xl">
@@ -48,9 +47,9 @@ export default function Navbar() {
             href="/"
             fontWeight="800"
             fontSize="md"
-            color="gray.900"
+            color="white"
             letterSpacing="-0.025em"
-            _hover={{ textDecoration: 'none', color: 'brand.primary' }}
+            _hover={{ textDecoration: 'none', color: 'blue.400' }}
             transition="color 0.15s"
           >
             Joshua Alana
@@ -70,9 +69,9 @@ export default function Navbar() {
                   rounded="full"
                   fontSize="sm"
                   fontWeight={active ? '600' : '500'}
-                  color={active ? 'brand.primary' : 'gray.600'}
-                  bg={active ? 'blue.50' : 'transparent'}
-                  _hover={{ color: 'brand.primary', bg: 'blue.50', textDecoration: 'none' }}
+                  color={active ? 'white' : 'gray.400'}
+                  bg={active ? 'rgba(255,255,255,0.1)' : 'transparent'}
+                  _hover={{ color: 'white', bg: 'rgba(255,255,255,0.08)', textDecoration: 'none' }}
                   transition="all 0.15s"
                 >
                   {link.label}
@@ -109,8 +108,8 @@ export default function Navbar() {
             display={{ md: 'none' }}
             onClick={onToggle}
             variant="ghost"
-            color="gray.600"
-            _hover={{ bg: 'gray.100' }}
+            color="gray.300"
+            _hover={{ bg: 'whiteAlpha.100' }}
           />
         </Flex>
 
@@ -119,9 +118,7 @@ export default function Navbar() {
           <Box
             pb={4}
             display={{ md: 'none' }}
-            bg="white"
-            borderTop="1px"
-            borderColor="gray.100"
+            borderTop="1px solid rgba(255,255,255,0.07)"
             mt={1}
           >
             <Stack spacing={1} px={1}>
@@ -136,11 +133,11 @@ export default function Navbar() {
                     px={3}
                     py={2.5}
                     rounded="md"
-                    color={active ? 'brand.primary' : 'gray.700'}
+                    color={active ? 'white' : 'gray.400'}
                     fontWeight={active ? '600' : '500'}
                     fontSize="sm"
-                    bg={active ? 'blue.50' : 'transparent'}
-                    _hover={{ color: 'brand.primary', bg: 'blue.50', textDecoration: 'none' }}
+                    bg={active ? 'rgba(255,255,255,0.1)' : 'transparent'}
+                    _hover={{ color: 'white', bg: 'rgba(255,255,255,0.08)', textDecoration: 'none' }}
                     onClick={onToggle}
                   >
                     {link.label}

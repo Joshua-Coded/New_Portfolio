@@ -46,7 +46,7 @@ const socialLinks = [
   },
   {
     icon: FaEnvelope,
-    href: 'mailto:alanajoshua535@gmail.com',
+    href: 'mailto:opportunityjobs290@gmail.com',
     label: 'Email',
     color: '#60A5FA',
   },
@@ -213,7 +213,7 @@ export default function Footer() {
                   <Icon as={FaMapMarkerAlt} boxSize={3} color="gray.500" />
                 </Flex>
                 <Box>
-                  <Text fontSize="sm" color="gray.300" fontWeight="500">Nairobi, Kenya</Text>
+                  <Text fontSize="sm" color="gray.300" fontWeight="500">Kigali, Rwanda</Text>
                   <Text fontSize="xs" color="gray.600">EAT · UTC+3</Text>
                 </Box>
               </Flex>
@@ -224,12 +224,12 @@ export default function Footer() {
                 </Flex>
                 <Box>
                   <ChakraLink
-                    href="mailto:alanajoshua535@gmail.com"
+                    href="mailto:opportunityjobs290@gmail.com"
                     fontSize="sm" color="gray.300" fontWeight="500"
                     _hover={{ color: 'white', textDecoration: 'none' }}
                     transition="color 0.15s"
                   >
-                    alanajoshua535@gmail.com
+                    opportunityjobs290@gmail.com
                   </ChakraLink>
                   <Text fontSize="xs" color="gray.600">Responds within 48h</Text>
                 </Box>
@@ -270,7 +270,7 @@ export default function Footer() {
           <HStack spacing={4} divider={<Text color="gray.700">·</Text>}>
             <Text fontSize="xs" color="gray.600">IT Consultant</Text>
             <Text fontSize="xs" color="gray.600">AGRA · AFSF</Text>
-            <Text fontSize="xs" color="gray.600">Nairobi, Kenya</Text>
+            <Text fontSize="xs" color="gray.600">Kigali, Rwanda</Text>
           </HStack>
         </Flex>
       </Container>

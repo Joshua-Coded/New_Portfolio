@@ -159,7 +159,7 @@ export default function Work() {
               IT Consultant
             </Heading>
             <Text fontSize="sm" color="gray.500" mb={6}>
-              2024 – Present · Nairobi, Kenya
+              2024 – Present · Kigali, Rwanda
             </Text>
 
             <List spacing={3}>

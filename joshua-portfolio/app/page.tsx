@@ -94,7 +94,7 @@ const techStack = ["Python", "Next.js", "PostgreSQL", "Power BI", "KoboToolbox",
 
 const credentials = [
   { label: "Role", value: "IT Consultant · AGRA" },
-  { label: "Location", value: "Nairobi, Kenya" },
+  { label: "Location", value: "Kigali, Rwanda" },
   { label: "Focus", value: "AFS Forum (AFSF)" },
   { label: "Status", value: "Available for engagements" },
 ];
@@ -307,7 +307,7 @@ export default function Home() {
                     <Icon as={FaGithub} boxSize={4} color="gray.300" />
                   </Flex>
                   <Flex
-                    as="a" href="mailto:alanajoshua535@gmail.com"
+                    as="a" href="mailto:opportunityjobs290@gmail.com"
                     w={9} h={9} rounded="lg" bg="whiteAlpha.100"
                     align="center" justify="center"
                     _hover={{ bg: "brand.primary" }} transition="all 0.2s"
@@ -318,7 +318,7 @@ export default function Home() {
                     align="center" gap={1.5} ml="auto"
                   >
                     <Icon as={FaMapMarkerAlt} boxSize={3} color="gray.500" />
-                    <Text fontSize="xs" color="gray.500">Nairobi, Kenya</Text>
+                    <Text fontSize="xs" color="gray.500">Kigali, Rwanda</Text>
                   </Flex>
                 </Flex>
               </Box>

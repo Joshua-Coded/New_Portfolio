@@ -58,8 +58,8 @@ const socialLinks = [
   {
     icon: FaEnvelope,
     label: "Email",
-    value: "alanajoshua535@gmail.com",
-    href: "mailto:alanajoshua535@gmail.com",
+    value: "opportunityjobs290@gmail.com",
+    href: "mailto:opportunityjobs290@gmail.com",
     accent: "#1D4ED8",
     accentBg: "#EFF6FF",
   },
@@ -124,7 +124,7 @@ export default function Contact() {
     } catch {
       toast({
         title: "Failed to send",
-        description: "Please email me directly at alanajoshua535@gmail.com",
+        description: "Please email me directly at opportunityjobs290@gmail.com",
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -481,7 +481,7 @@ export default function Contact() {
                     </Flex>
                     <Box>
                       <Text fontSize="sm" fontWeight="600" color="gray.900">
-                        Nairobi, Kenya
+                        Kigali, Rwanda
                       </Text>
                       <Text fontSize="xs" color="gray.500">
                         Open to remote & travel

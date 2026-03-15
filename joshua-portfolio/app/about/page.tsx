@@ -27,7 +27,7 @@ const timeline = [
     period: "2024 – Present",
     title: "IT Consultant",
     organisation: "AGRA — Alliance for a Green Revolution in Africa",
-    location: "Nairobi, Kenya",
+    location: "Kigali, Rwanda",
     description:
       "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across multiple African countries under the AFS Forum (AFSF).",
   },
@@ -69,9 +69,9 @@ const skills: Record<string, string[]> = {
 };
 
 const profileInfo = [
-  { icon: FaMapMarkerAlt, label: "Location", value: "Nairobi, Kenya" },
+  { icon: FaMapMarkerAlt, label: "Location", value: "Kigali, Rwanda" },
   { icon: FaBuilding, label: "Organisation", value: "AGRA" },
-  { icon: FaEnvelope, label: "Email", value: "alanajoshua535@gmail.com" },
+  { icon: FaEnvelope, label: "Email", value: "opportunityjobs290@gmail.com" },
   { icon: FaLinkedin, label: "LinkedIn", value: "in/joshua-a-5760b3196" },
 ];
 
