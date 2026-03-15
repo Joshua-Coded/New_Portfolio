@@ -29,7 +29,7 @@ const timeline = [
     organisation: "AGRA — Alliance for a Green Revolution in Africa",
     location: "Nairobi, Kenya",
     description:
-      "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across 15+ African countries under the AFS Forum (AFSF).",
+      "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across multiple African countries under the AFS Forum (AFSF).",
   },
   {
     period: "2024",
@@ -77,35 +77,21 @@ const profileInfo = [
 
 export default function About() {
   return (
-    <Box minH="100vh" bg="gray.50" pt={{ base: 28, md: 32 }} pb={20}>
-      <Container maxW="container.xl">
+    <Box minH="100vh" bg="#F8F7F4">
 
-        {/* Page Header */}
-        <VStack spacing={4} align="flex-start" mb={16}>
-          <Text
-            fontSize="xs"
-            fontWeight="700"
-            color="brand.primary"
-            letterSpacing="widest"
-            textTransform="uppercase"
-          >
-            Background
-          </Text>
-          <Heading
-            as="h1"
-            fontSize={{ base: "4xl", md: "5xl" }}
-            fontWeight="800"
-            color="gray.900"
-            letterSpacing="-0.03em"
-          >
-            About Me
-          </Heading>
-          <Text fontSize="lg" color="gray.600" maxW="2xl" lineHeight="1.8">
-            A technology professional at the intersection of software
-            engineering, data science, and international agricultural
-            development.
-          </Text>
-        </VStack>
+      {/* Dark hero */}
+      <Box position="relative" bg="#0B1120" pt={{ base: 28, md: 36 }} pb={{ base: 14, md: 18 }} overflow="hidden">
+        <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.18) 0%, transparent 65%)" pointerEvents="none" />
+        <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
+        <Container maxW="container.xl" position="relative">
+          <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={4}>Background</Text>
+          <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="white" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>About Me</Heading>
+          <Text fontSize="lg" color="gray.500" maxW="540px" lineHeight="1.8">A technology professional at the intersection of software engineering, data science, and agricultural development.</Text>
+        </Container>
+      </Box>
+
+      <Box bg="#F8F7F4" py={16}>
+      <Container maxW="container.xl">
 
         {/* Two-column: Bio + Profile Card */}
         <Grid
@@ -428,6 +414,7 @@ export default function About() {
           </SimpleGrid>
         </Box>
       </Container>
+      </Box>
     </Box>
   );
 }

@@ -58,7 +58,7 @@ const allProjects = [
       'Track and monitor commitments made at AFSF summits in real time. Supports filtering by organisation, thematic area, and year — enabling transparent accountability across the Forum\'s member network.',
     stats: [
       { value: '9', label: 'Thematic Areas' },
-      { value: '2023–26', label: 'Year Coverage' },
+      { value: '2024–25', label: 'Year Coverage' },
       { value: 'Live', label: 'Commitment Data' },
     ],
     tech: ['React', 'Node.js', 'REST API', 'Data Visualization'],

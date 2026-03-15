@@ -27,6 +27,7 @@ import {
   HStack,
   Divider,
   Badge,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 
 const services = [
@@ -87,13 +88,6 @@ const processSteps = [
     description:
       "Build, test, and deploy with thorough documentation and capacity-building support for your teams.",
   },
-];
-
-const metrics = [
-  { value: "15+", label: "African Countries", sub: "Active programs" },
-  { value: "5M+", label: "Farmers Reached", sub: "Program beneficiaries" },
-  { value: "100+", label: "Stakeholders", sub: "Partners engaged" },
-  { value: "$50M+", label: "Programs", sub: "Investment supported" },
 ];
 
 const techStack = ["Python", "Next.js", "PostgreSQL", "Power BI", "KoboToolbox", "Docker"];
@@ -492,64 +486,33 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* ── IMPACT METRICS ───────────────────────────────────────── */}
-      <Box
-        py={24}
-        position="relative"
-        bg="#0B1120"
-        overflow="hidden"
-      >
-        <Box
-          position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 70% 50% at 50% 50%, rgba(29,78,216,0.2) 0%, transparent 70%)"
-          pointerEvents="none"
-        />
-        <Box
-          position="absolute" inset={0}
-          bgImage="linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                   linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)"
-          bgSize="60px 60px"
-          pointerEvents="none"
-        />
-        <Container maxW="container.xl" position="relative">
-          <VStack spacing={3} align="center" textAlign="center" mb={16}>
-            <Text fontSize="xs" fontWeight="700" color="blue.400"
-              letterSpacing="widest" textTransform="uppercase">
-              Track Record
-            </Text>
-            <Heading
-              as="h2"
-              fontSize={{ base: "3xl", md: "44px" }}
-              fontWeight="800"
-              color="white"
-              letterSpacing="-0.03em"
-            >
-              Development Reach
-            </Heading>
-          </VStack>
-
-          <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8} textAlign="center">
-            {metrics.map((m) => (
-              <Box key={m.label}>
-                <Heading
-                  as="div"
-                  fontSize={{ base: "4xl", md: "56px" }}
-                  fontWeight="800"
-                  bgGradient="linear(135deg, #60A5FA, #34D399)"
-                  bgClip="text"
-                  color="transparent"
-                  letterSpacing="-0.03em"
-                  lineHeight="1"
-                  mb={3}
-                >
-                  {m.value}
-                </Heading>
-                <Text fontWeight="700" color="white" fontSize="sm" mb={1}>
-                  {m.label}
-                </Text>
-                <Text fontSize="xs" color="gray.500">
-                  {m.sub}
-                </Text>
+      {/* ── LIVE WORK ── */}
+      <Box py={20} bg="#0F172A" borderTop="1px solid rgba(255,255,255,0.05)">
+        <Container maxW="container.xl">
+          <Flex direction={{ base: 'column', md: 'row' }} align={{ base: 'flex-start', md: 'center' }} justify="space-between" gap={6} mb={10}>
+            <Box>
+              <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={3}>Live Platforms</Text>
+              <Heading as="h2" fontSize={{ base: '3xl', md: '44px' }} fontWeight="800" color="white" letterSpacing="-0.03em">
+                7 Deployed Projects
+              </Heading>
+            </Box>
+            <ChakraLink as={Link} href="/projects" display="inline-flex" alignItems="center" gap={2} color="gray.400" fontSize="sm" fontWeight="600" _hover={{ color: 'white', textDecoration: 'none' }} transition="color 0.15s" flexShrink={0}>
+              View all projects <Icon as={FaArrowRight} boxSize={3} />
+            </ChakraLink>
+          </Flex>
+          <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={4}>
+            {[
+              { name: 'AFSF Community of Practice', category: 'Community Platform', accent: '#16a34a' },
+              { name: 'AFSF Commitments Tracker', category: 'M&E / Data', accent: '#2563eb' },
+              { name: 'AFSF Forum 2026 Registration', category: 'Event Platform', accent: '#7C3AED' },
+              { name: 'Food Safety Certification', category: 'Certification', accent: '#D97706' },
+              { name: 'HavenBridge Development', category: 'Property Dev', accent: '#b45309' },
+              { name: 'AFS DealRoom', category: 'FinTech / AI', accent: '#0D9488' },
+              { name: 'Swift Trading Services', category: 'Corporate', accent: '#DC2626' },
+            ].map((p) => (
+              <Box key={p.name} as={Link} href="/projects" p={5} rounded="xl" bg="rgba(255,255,255,0.04)" border="1px solid rgba(255,255,255,0.07)" transition="all 0.2s" _hover={{ bg: 'rgba(255,255,255,0.07)', borderColor: 'rgba(255,255,255,0.12)', transform: 'translateY(-2px)' }} display="block">
+                <Text fontSize="xs" fontWeight="700" color={p.accent} mb={2} textTransform="uppercase" letterSpacing="wide">{p.category}</Text>
+                <Text fontSize="sm" fontWeight="600" color="gray.300" lineHeight="1.5">{p.name}</Text>
               </Box>
             ))}
           </SimpleGrid>
