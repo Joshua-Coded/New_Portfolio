@@ -240,7 +240,7 @@ export default function Contact() {
                         name="organisation"
                         value={formData.organisation}
                         onChange={handleChange}
-                        placeholder="IFAD, AGRA, World Bank…"
+                        placeholder="Organisation or company name…"
                         {...inputStyles}
                       />
                     </FormControl>

@@ -29,7 +29,7 @@ const timeline = [
     organisation: "AGRA — Alliance for a Green Revolution in Africa",
     location: "Nairobi, Kenya",
     description:
-      "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across 15+ African countries. Supporting the AFS Forum and key agricultural transformation initiatives in partnership with IFAD, World Bank, and African Union member states.",
+      "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across 15+ African countries under the AFS Forum (AFSF).",
   },
   {
     period: "2024",
@@ -125,10 +125,7 @@ export default function About() {
                 </Text>
                 , where he leads the development of technology products, data
                 management systems, and monitoring &amp; evaluation frameworks
-                that track program performance across Sub-Saharan Africa. His
-                work directly supports initiatives in partnership with IFAD, the
-                African Union, the World Bank, and national governments across
-                15+ countries.
+                under the AFS Forum (AFSF) across Sub-Saharan Africa.
               </Text>
               <Text fontSize="md" color="gray.600" lineHeight="1.9">
                 A graduate of{" "}

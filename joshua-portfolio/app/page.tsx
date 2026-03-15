@@ -92,7 +92,7 @@ const metrics = [
   { value: "$50M+", label: "Programs Supported", sub: "Investment portfolios" },
 ];
 
-const ecosystem = ["AGRA", "IFAD", "African Union", "World Bank", "FAO", "GIZ"];
+const techStack = ["Python", "Next.js", "PostgreSQL", "Power BI", "KoboToolbox", "Docker"];
 
 const credentials = [
   "African Leadership University Alumni",
@@ -147,9 +147,9 @@ export default function Home() {
                 lineHeight="1.8"
                 mb={10}
               >
-                IT Consultant helping IFAD, AU, AGRA, and development partners
-                design data systems, M&amp;E frameworks, and agricultural
-                technology solutions.
+                IT Consultant at AGRA designing data systems, M&amp;E
+                frameworks, and agricultural technology solutions across
+                Africa.
               </Text>
 
               <HStack spacing={3} flexWrap="wrap">
@@ -257,7 +257,7 @@ export default function Home() {
                       Joshua Alana
                     </Text>
                     <Text fontSize="sm" color="gray.400">
-                      IT Consultant @ AGRA
+                      IT Consultant · AGRA
                     </Text>
                   </Box>
                 </Flex>
@@ -310,17 +310,17 @@ export default function Home() {
               textTransform="uppercase"
               flexShrink={0}
             >
-              Ecosystem
+              Tech Stack
             </Text>
-            {ecosystem.map((org) => (
+            {techStack.map((item) => (
               <Text
-                key={org}
+                key={item}
                 fontSize="sm"
                 fontWeight="600"
                 color="gray.400"
                 letterSpacing="-0.01em"
               >
-                {org}
+                {item}
               </Text>
             ))}
           </Flex>

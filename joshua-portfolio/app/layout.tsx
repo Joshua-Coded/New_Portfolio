@@ -12,8 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Joshua Alana | IT Consultant & M&E Specialist',
-  description: 'Technology Consultant driving agricultural transformation and development impact across Africa. IT Consultant at AGRA, Software Engineer, M&E Specialist.',
-  keywords: ['IT Consultant', 'AGRA', 'M&E', 'Agricultural Technology', 'Africa', 'Data Systems'],
+  description: 'Technology Consultant specialising in data systems, M&E frameworks, and agricultural technology for development programmes across Africa.',
+  keywords: ['IT Consultant', 'M&E', 'Agricultural Technology', 'Africa', 'Data Systems', 'Software Engineer'],
   openGraph: {
     title: 'Joshua Alana | IT Consultant & M&E Specialist',
     description: 'Technology Consultant driving agricultural transformation and development impact across Africa.',

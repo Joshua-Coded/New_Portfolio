@@ -61,7 +61,7 @@ const services = [
     icon: FaChartBar,
     title: "M&E Framework Design",
     description:
-      "Results frameworks and monitoring systems aligned with IFAD, AU, and donor reporting standards.",
+      "Results frameworks and monitoring systems aligned with international donor reporting standards.",
     accent: "#7C3AED",
     accentBg: "#F5F3FF",
     deliverables: [
@@ -116,16 +116,16 @@ const services = [
 ];
 
 const frameworks = [
-  "IFAD Results Framework",
-  "AU Agenda 2063",
   "OECD DAC Criteria",
-  "AGRA M&E Standards",
   "SDG 2 — Zero Hunger",
   "Theory of Change",
   "DCED Standards",
   "MEAL Frameworks",
   "Logical Framework Analysis",
   "Results-Based Management",
+  "Beneficiary Tracking",
+  "Data Quality Assurance",
+  "Impact Measurement",
 ];
 
 const clients = [
@@ -133,25 +133,25 @@ const clients = [
     name: "AGRA",
     full: "Alliance for a Green Revolution in Africa",
     description:
-      "Current employer. Leading tech product development, M&E systems, and data infrastructure for pan-African agricultural programs.",
+      "Current employer. Leading tech product development, M&E systems, and data infrastructure for pan-African agricultural programs under the AFS Forum (AFSF).",
   },
   {
-    name: "IFAD",
-    full: "International Fund for Agricultural Development",
+    name: "NGOs & INGOs",
+    full: "International Non-Governmental Organisations",
     description:
-      "M&E frameworks and data systems aligned to IFAD's Results and Impact Management System (RIMS) standards.",
+      "Data systems and M&E frameworks for humanitarian and development organisations operating across multiple African countries.",
   },
   {
-    name: "African Union",
-    full: "African Union Commission",
+    name: "Government Agencies",
+    full: "National & County Government Partners",
     description:
-      "Technology and data solutions supporting the AU's Agenda 2063 agricultural transformation goals.",
+      "Technology solutions and digital tools that support government-led agricultural programs and public sector data reporting.",
   },
   {
-    name: "World Bank",
-    full: "World Bank Group",
+    name: "Development Partners",
+    full: "Bilateral & Multilateral Donors",
     description:
-      "Impact assessment systems and performance analytics for World Bank-financed agricultural programs.",
+      "Impact assessment systems and performance analytics that meet international donor reporting and accountability standards.",
   },
 ];
 

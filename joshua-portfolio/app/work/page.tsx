@@ -63,7 +63,7 @@ const caseStudies = [
     categoryColor: { bg: "green.50", color: "green.700" },
     accent: "#059669",
     challenge:
-      "AGRA's partner programs lacked standardised measurement approaches aligned to IFAD and donor standards.",
+      "AGRA's partner programs lacked standardised measurement approaches aligned to donor reporting standards.",
     approach:
       "Co-designed Theory of Change, indicator sets, and logframes accepted by 20+ partner organisations.",
     impactStat: "20+",
