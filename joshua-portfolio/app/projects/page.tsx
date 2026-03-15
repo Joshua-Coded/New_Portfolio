@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {
   Box,
   Container,
@@ -52,6 +53,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS'],
     href: 'https://thematic-platform-k1h1.vercel.app/',
+    image: '/projects/thematic-platform.png',
   },
   {
     id: 2,
@@ -73,6 +75,7 @@ const featuredProjects = [
     ],
     tech: ['React', 'Node.js', 'REST API', 'Data Visualization'],
     href: 'https://me-platform-jf7p.vercel.app/tracker',
+    image: '/projects/commitments-tracker.png',
   },
   {
     id: 3,
@@ -94,6 +97,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js', 'TypeScript', 'Form Management', 'Email Automation'],
     href: 'https://afsf-event-registration-system.vercel.app/',
+    image: '/projects/event-registration.png.png',
   },
   {
     id: 4,
@@ -115,6 +119,73 @@ const featuredProjects = [
     ],
     tech: ['React', 'PostgreSQL', 'Document Management', 'PDF Generation'],
     href: 'https://afsf-food-cerfitication-platform-vg.vercel.app/',
+    image: '/projects/food-certification.png',
+  },
+]
+
+const additionalProjects = [
+  {
+    id: 5,
+    icon: FaUsers,
+    category: 'Property Development',
+    categoryColor: { bg: 'yellow.50', color: 'yellow.700' },
+    accent: '#b45309',
+    accentBg: '#FFFBEB',
+    gradientFrom: '#102a43',
+    gradientTo: '#243b53',
+    title: 'HavenBridge Development',
+    subtitle: 'Building Communities. Delivering Impact.',
+    description:
+      'A values-led property development platform bridging institutional capability with community insight to deliver dignified, culturally-aligned housing solutions — from modular homes and childcare centres to aged care and community housing.',
+    stats: [
+      { value: '150+', label: 'Projects Delivered' },
+      { value: '25+', label: 'Gov. Partnerships' },
+      { value: 'A+', label: 'Industry Rating' },
+    ],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'CMS Integration'],
+    href: 'https://haven-bridge-beta.vercel.app/',
+  },
+  {
+    id: 6,
+    icon: FaChartLine,
+    category: 'FinTech / Investment',
+    categoryColor: { bg: 'teal.50', color: 'teal.700' },
+    accent: '#0D9488',
+    accentBg: '#F0FDFA',
+    gradientFrom: '#134e4a',
+    gradientTo: '#0d9488',
+    title: 'African Food Systems DealRoom',
+    subtitle: 'Connecting MSMEs and Investors Through AI & Blockchain',
+    description:
+      'An interactive investment matchmaking dashboard connecting African food systems MSMEs with investors. Leverages AI and blockchain technology to facilitate transparent deal flow and accelerate investment into food systems value chains.',
+    stats: [
+      { value: 'AI', label: 'Powered Matching' },
+      { value: 'Blockchain', label: 'Verified Deals' },
+      { value: 'Pan-Africa', label: 'Coverage' },
+    ],
+    tech: ['React', 'AI/ML', 'Blockchain', 'Data Dashboard'],
+    href: 'https://afsdmp.vercel.app/',
+  },
+  {
+    id: 7,
+    icon: FaCheckCircle,
+    category: 'Corporate Platform',
+    categoryColor: { bg: 'red.50', color: 'red.700' },
+    accent: '#DC2626',
+    accentBg: '#FEF2F2',
+    gradientFrom: '#0A0A0B',
+    gradientTo: '#7f1d1d',
+    title: 'Swift Trading Services',
+    subtitle: 'Telecommunications Excellence — Rwanda & Africa',
+    description:
+      'Corporate platform for a premier telecommunications infrastructure and network consultancy. Showcases solutions across street lighting, electrical systems, telecom equipment supply, and machinery services for public and private sector clients across Africa.',
+    stats: [
+      { value: '4', label: 'Service Verticals' },
+      { value: 'Rwanda', label: 'HQ Market' },
+      { value: 'B2B', label: 'Enterprise Focus' },
+    ],
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'E-Commerce'],
+    href: 'https://swift-trading-services.vercel.app/',
   },
 ]
 
@@ -205,66 +276,86 @@ export default function Projects() {
                 transition="all 0.2s"
                 _hover={{ boxShadow: 'lg', borderColor: 'gray.300' }}
               >
-                <Grid templateColumns={{ base: '1fr', lg: '320px 1fr' }}>
-                  {/* Left: gradient banner */}
+                <Grid templateColumns={{ base: '1fr', lg: '380px 1fr' }}>
+                  {/* Left: screenshot or gradient */}
                   <GridItem
-                    bgGradient={`linear(to-br, ${project.gradientFrom}, ${project.gradientTo})`}
-                    p={8}
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="space-between"
-                    minH={{ base: '180px', lg: 'auto' }}
                     position="relative"
+                    minH={{ base: '220px', lg: 'auto' }}
                     overflow="hidden"
+                    bgGradient={`linear(to-br, ${project.gradientFrom}, ${project.gradientTo})`}
                   >
-                    {/* Decorative circle */}
-                    <Box
-                      position="absolute"
-                      bottom="-40px"
-                      right="-40px"
-                      w="160px"
-                      h="160px"
-                      rounded="full"
-                      bg="whiteAlpha.100"
-                      pointerEvents="none"
-                    />
-                    <Box
-                      position="absolute"
-                      top="-20px"
-                      left="-20px"
-                      w="80px"
-                      h="80px"
-                      rounded="full"
-                      bg="whiteAlpha.100"
-                      pointerEvents="none"
-                    />
-                    <Flex
-                      w={14}
-                      h={14}
-                      rounded="xl"
-                      bg="whiteAlpha.200"
-                      align="center"
-                      justify="center"
-                      position="relative"
-                    >
-                      <Icon as={project.icon} boxSize={6} color="white" />
-                    </Flex>
-                    <Box position="relative">
+                    {'image' in project && project.image ? (
+                      <Image
+                        src={project.image as string}
+                        alt={project.title}
+                        fill
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        sizes="380px"
+                      />
+                    ) : (
+                      <>
+                        <Box
+                          position="absolute"
+                          bottom="-40px"
+                          right="-40px"
+                          w="160px"
+                          h="160px"
+                          rounded="full"
+                          bg="whiteAlpha.100"
+                          pointerEvents="none"
+                        />
+                        <Box
+                          position="absolute"
+                          top="-20px"
+                          left="-20px"
+                          w="80px"
+                          h="80px"
+                          rounded="full"
+                          bg="whiteAlpha.100"
+                          pointerEvents="none"
+                        />
+                        <Flex
+                          position="absolute"
+                          top={8}
+                          left={8}
+                          w={14}
+                          h={14}
+                          rounded="xl"
+                          bg="whiteAlpha.200"
+                          align="center"
+                          justify="center"
+                        >
+                          <Icon as={project.icon} boxSize={6} color="white" />
+                        </Flex>
+                      </>
+                    )}
+                    {/* Overlay badge always visible */}
+                    <Box position="absolute" bottom={4} left={4}>
                       <Badge
                         px={3}
                         py={1}
                         rounded="full"
-                        bg="whiteAlpha.200"
+                        bg="blackAlpha.600"
                         color="white"
                         fontSize="xs"
                         fontWeight="600"
-                        mb={3}
-                        display="inline-flex"
+                        backdropFilter="blur(8px)"
                       >
                         {project.category}
                       </Badge>
-                      <Text fontSize="xs" color="whiteAlpha.700" fontWeight="600">
-                        Project {String(idx + 1).padStart(2, '0')}
+                    </Box>
+                    <Box position="absolute" top={4} right={4}>
+                      <Text
+                        fontSize="xs"
+                        color="whiteAlpha.800"
+                        fontWeight="700"
+                        bg="blackAlpha.400"
+                        px={2}
+                        py={1}
+                        rounded="md"
+                        backdropFilter="blur(8px)"
+                      >
+                        {String(idx + 1).padStart(2, '0')}
                       </Text>
                     </Box>
                   </GridItem>
@@ -320,6 +411,194 @@ export default function Projects() {
                       </SimpleGrid>
 
                       {/* Tech + Link */}
+                      <Flex
+                        justify="space-between"
+                        align="center"
+                        flexWrap="wrap"
+                        gap={3}
+                        mt="auto"
+                      >
+                        <Flex flexWrap="wrap" gap={1.5}>
+                          {project.tech.map((t) => (
+                            <Badge
+                              key={t}
+                              px={2}
+                              py={0.5}
+                              rounded="md"
+                              bg="gray.100"
+                              color="gray.600"
+                              fontWeight="500"
+                              fontSize="xs"
+                            >
+                              {t}
+                            </Badge>
+                          ))}
+                        </Flex>
+                        <ChakraLink
+                          href={project.href}
+                          isExternal
+                          display="flex"
+                          alignItems="center"
+                          gap={2}
+                          bg={project.accent}
+                          color="white"
+                          px={5}
+                          py={2}
+                          rounded="lg"
+                          fontSize="xs"
+                          fontWeight="700"
+                          _hover={{ opacity: 0.9, textDecoration: 'none' }}
+                          transition="all 0.15s"
+                          flexShrink={0}
+                        >
+                          View Live
+                          <Icon as={FaExternalLinkAlt} boxSize={3} />
+                        </ChakraLink>
+                      </Flex>
+                    </Flex>
+                  </GridItem>
+                </Grid>
+              </Box>
+            ))}
+          </VStack>
+        </Box>
+
+        {/* Additional Projects */}
+        <Box mb={20}>
+          <Text
+            fontSize="xs"
+            fontWeight="700"
+            color="gray.400"
+            letterSpacing="widest"
+            textTransform="uppercase"
+            mb={8}
+          >
+            More Projects
+          </Text>
+
+          <VStack spacing={6} align="stretch">
+            {additionalProjects.map((project, idx) => (
+              <Box
+                key={project.id}
+                bg="white"
+                borderWidth={1}
+                borderColor="gray.200"
+                rounded="2xl"
+                overflow="hidden"
+                boxShadow="sm"
+                transition="all 0.2s"
+                _hover={{ boxShadow: 'lg', borderColor: 'gray.300' }}
+              >
+                <Grid templateColumns={{ base: '1fr', lg: '380px 1fr' }}>
+                  {/* Left: gradient banner */}
+                  <GridItem
+                    position="relative"
+                    minH={{ base: '220px', lg: 'auto' }}
+                    overflow="hidden"
+                    bgGradient={`linear(to-br, ${project.gradientFrom}, ${project.gradientTo})`}
+                  >
+                    <Box
+                      position="absolute"
+                      bottom="-40px"
+                      right="-40px"
+                      w="160px"
+                      h="160px"
+                      rounded="full"
+                      bg="whiteAlpha.100"
+                      pointerEvents="none"
+                    />
+                    <Flex
+                      position="absolute"
+                      top={8}
+                      left={8}
+                      w={14}
+                      h={14}
+                      rounded="xl"
+                      bg="whiteAlpha.200"
+                      align="center"
+                      justify="center"
+                    >
+                      <Icon as={project.icon} boxSize={6} color="white" />
+                    </Flex>
+                    <Box position="absolute" bottom={4} left={4}>
+                      <Badge
+                        px={3}
+                        py={1}
+                        rounded="full"
+                        bg="blackAlpha.600"
+                        color="white"
+                        fontSize="xs"
+                        fontWeight="600"
+                        backdropFilter="blur(8px)"
+                      >
+                        {project.category}
+                      </Badge>
+                    </Box>
+                    <Box position="absolute" top={4} right={4}>
+                      <Text
+                        fontSize="xs"
+                        color="whiteAlpha.800"
+                        fontWeight="700"
+                        bg="blackAlpha.400"
+                        px={2}
+                        py={1}
+                        rounded="md"
+                        backdropFilter="blur(8px)"
+                      >
+                        {String(idx + 5).padStart(2, '0')}
+                      </Text>
+                    </Box>
+                  </GridItem>
+
+                  {/* Right: content */}
+                  <GridItem p={{ base: 6, md: 8 }}>
+                    <Flex direction="column" h="full" gap={5}>
+                      <Box>
+                        <Text fontSize="xs" color="gray.400" fontWeight="600" mb={1}>
+                          {project.subtitle}
+                        </Text>
+                        <Heading
+                          as="h2"
+                          fontSize={{ base: 'xl', md: '2xl' }}
+                          fontWeight="800"
+                          color="gray.900"
+                          letterSpacing="-0.025em"
+                          mb={3}
+                        >
+                          {project.title}
+                        </Heading>
+                        <Text fontSize="sm" color="gray.600" lineHeight="1.8">
+                          {project.description}
+                        </Text>
+                      </Box>
+
+                      <SimpleGrid columns={3} spacing={4}>
+                        {project.stats.map((stat) => (
+                          <Box
+                            key={stat.label}
+                            bg="gray.50"
+                            rounded="lg"
+                            p={3}
+                            borderWidth={1}
+                            borderColor="gray.100"
+                          >
+                            <Text
+                              fontSize="lg"
+                              fontWeight="800"
+                              color={project.accent}
+                              letterSpacing="-0.02em"
+                              lineHeight="1"
+                              mb={1}
+                            >
+                              {stat.value}
+                            </Text>
+                            <Text fontSize="xs" color="gray.500" fontWeight="500">
+                              {stat.label}
+                            </Text>
+                          </Box>
+                        ))}
+                      </SimpleGrid>
+
                       <Flex
                         justify="space-between"
                         align="center"
