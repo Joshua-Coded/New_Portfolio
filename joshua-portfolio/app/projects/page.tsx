@@ -1,7 +1,8 @@
-'use client'
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { GITHUB_USERNAME, getGitHubRepos, type GitHubRepo } from "@/lib/api";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import {
   Box,
   Container,
@@ -30,7 +31,6 @@ import {
   FaChartLine,
   FaClipboardList,
 } from 'react-icons/fa'
-import { getGitHubRepos, GITHUB_USERNAME, type GitHubRepo } from '@/lib/api'
 
 const featuredProjects = [
   {
@@ -144,6 +144,7 @@ const additionalProjects = [
     ],
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'CMS Integration'],
     href: 'https://haven-bridge-beta.vercel.app/',
+    image: '/projects/haven-bridge.png',
   },
   {
     id: 6,
@@ -165,6 +166,7 @@ const additionalProjects = [
     ],
     tech: ['React', 'AI/ML', 'Blockchain', 'Data Dashboard'],
     href: 'https://afsdmp.vercel.app/',
+    image: '/projects/deal-room.png',
   },
   {
     id: 7,
@@ -186,6 +188,7 @@ const additionalProjects = [
     ],
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'E-Commerce'],
     href: 'https://swift-trading-services.vercel.app/',
+    image: '/projects/swift-trading.png',
   },
 ]
 
