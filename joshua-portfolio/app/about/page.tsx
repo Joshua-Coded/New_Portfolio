@@ -21,6 +21,32 @@ import {
   FaLinkedin,
   FaCheckCircle,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
+const MotionSimpleGrid = motion(SimpleGrid);
+const MotionVStack = motion(VStack);
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -24 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 24 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const stagger = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
 
 const timeline = [
   {
@@ -84,9 +110,21 @@ export default function About() {
         <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.18) 0%, transparent 65%)" pointerEvents="none" />
         <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
         <Container maxW="container.xl" position="relative">
-          <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={4}>Background</Text>
-          <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="white" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>About Me</Heading>
-          <Text fontSize="lg" color="gray.500" maxW="540px" lineHeight="1.8">A technology professional at the intersection of software engineering, data science, and agricultural development.</Text>
+          <MotionBox
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            <MotionBox variants={fadeUp}>
+              <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={4}>Background</Text>
+            </MotionBox>
+            <MotionBox variants={fadeUp}>
+              <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="white" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>About Me</Heading>
+            </MotionBox>
+            <MotionBox variants={fadeUp}>
+              <Text fontSize="lg" color="gray.500" maxW="540px" lineHeight="1.8">A technology professional at the intersection of software engineering, data science, and agricultural development.</Text>
+            </MotionBox>
+          </MotionBox>
         </Container>
       </Box>
 
@@ -102,186 +140,213 @@ export default function About() {
         >
           {/* LEFT: Bio */}
           <GridItem>
-            <VStack align="flex-start" spacing={5}>
-              <Text fontSize="md" color="gray.600" lineHeight="1.9">
-                Joshua Alana is an IT Consultant and Software Engineer currently
-                at the{" "}
-                <Text as="span" color="brand.primary" fontWeight="600">
-                  Alliance for a Green Revolution in Africa (AGRA)
+            <MotionVStack
+              align="flex-start"
+              spacing={5}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={stagger}
+            >
+              <MotionBox variants={fadeLeft}>
+                <Text fontSize="md" color="gray.600" lineHeight="1.9">
+                  Joshua Alana is an IT Consultant and Software Engineer currently
+                  at the{" "}
+                  <Text as="span" color="brand.primary" fontWeight="600">
+                    Alliance for a Green Revolution in Africa (AGRA)
+                  </Text>
+                  , where he leads the development of technology products, data
+                  management systems, and monitoring &amp; evaluation frameworks
+                  under the AFS Forum (AFSF) across Sub-Saharan Africa.
                 </Text>
-                , where he leads the development of technology products, data
-                management systems, and monitoring &amp; evaluation frameworks
-                under the AFS Forum (AFSF) across Sub-Saharan Africa.
-              </Text>
-              <Text fontSize="md" color="gray.600" lineHeight="1.9">
-                A graduate of{" "}
-                <Text as="span" color="brand.secondary" fontWeight="600">
-                  African Leadership University
-                </Text>{" "}
-                with a degree in Software Engineering, Joshua brings deep
-                technical expertise in full-stack development, machine learning,
-                and systems architecture. He has applied this foundation to
-                build scalable data pipelines, automated reporting tools, and
-                stakeholder management platforms that serve some of Africa&apos;s
-                most complex development programs.
-              </Text>
-              <Text fontSize="md" color="gray.600" lineHeight="1.9">
-                His approach combines rigorous technical execution with a nuanced
-                understanding of the African development context — designing
-                solutions that are practical in low-connectivity environments,
-                aligned with international M&amp;E standards, and built for
-                long-term organizational adoption. He is passionate about
-                evidence-based decision making and the role that well-designed
-                information systems play in driving agricultural transformation.
-              </Text>
+              </MotionBox>
+              <MotionBox variants={fadeLeft}>
+                <Text fontSize="md" color="gray.600" lineHeight="1.9">
+                  A graduate of{" "}
+                  <Text as="span" color="brand.secondary" fontWeight="600">
+                    African Leadership University
+                  </Text>{" "}
+                  with a degree in Software Engineering, Joshua brings deep
+                  technical expertise in full-stack development, machine learning,
+                  and systems architecture. He has applied this foundation to
+                  build scalable data pipelines, automated reporting tools, and
+                  stakeholder management platforms that serve some of Africa&apos;s
+                  most complex development programs.
+                </Text>
+              </MotionBox>
+              <MotionBox variants={fadeLeft}>
+                <Text fontSize="md" color="gray.600" lineHeight="1.9">
+                  His approach combines rigorous technical execution with a nuanced
+                  understanding of the African development context — designing
+                  solutions that are practical in low-connectivity environments,
+                  aligned with international M&amp;E standards, and built for
+                  long-term organizational adoption. He is passionate about
+                  evidence-based decision making and the role that well-designed
+                  information systems play in driving agricultural transformation.
+                </Text>
+              </MotionBox>
 
-              {/* Philosophy card */}
-              <Box
-                w="full"
-                bg="white"
-                borderWidth={1}
-                borderColor="gray.200"
-                borderLeft="4px solid"
-                borderLeftColor="brand.navy"
-                rounded="xl"
-                p={7}
-                boxShadow="sm"
-                mt={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontStyle="italic"
-                  color="gray.700"
-                  lineHeight="1.9"
-                  mb={4}
+              <MotionBox variants={fadeLeft} w="full">
+                <Box
+                  w="full"
+                  bg="white"
+                  borderWidth={1}
+                  borderColor="gray.200"
+                  borderLeft="4px solid"
+                  borderLeftColor="brand.navy"
+                  rounded="xl"
+                  p={7}
+                  boxShadow="sm"
+                  mt={2}
                 >
-                  &ldquo;Technology that does not serve people and communities
-                  is just expensive noise. Every system I build must trace a
-                  clear line back to development impact.&rdquo;
-                </Text>
-                <Text color="brand.primary" fontWeight="700" fontSize="sm">
-                  — Joshua Alana
-                </Text>
-              </Box>
-            </VStack>
+                  <Text
+                    fontSize="md"
+                    fontStyle="italic"
+                    color="gray.700"
+                    lineHeight="1.9"
+                    mb={4}
+                  >
+                    &ldquo;Technology that does not serve people and communities
+                    is just expensive noise. Every system I build must trace a
+                    clear line back to development impact.&rdquo;
+                  </Text>
+                  <Text color="brand.primary" fontWeight="700" fontSize="sm">
+                    — Joshua Alana
+                  </Text>
+                </Box>
+              </MotionBox>
+            </MotionVStack>
           </GridItem>
 
           {/* RIGHT: Profile card */}
           <GridItem>
-            <Box
-              bg="gray.900"
-              color="white"
-              rounded="2xl"
-              p={8}
-              position="sticky"
-              top="96px"
-              overflow="hidden"
+            <MotionBox
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeRight}
             >
-              {/* Glow */}
               <Box
-                position="absolute"
-                top="-50px"
-                right="-50px"
-                w="180px"
-                h="180px"
-                rounded="full"
-                bg="blue.600"
-                opacity={0.12}
-                filter="blur(50px)"
-                pointerEvents="none"
-              />
-
-              {/* Avatar */}
-              <Flex align="center" gap={4} mb={5}>
-                <Flex
-                  w="80px"
-                  h="80px"
+                bg="gray.900"
+                color="white"
+                rounded="2xl"
+                p={8}
+                position="sticky"
+                top="96px"
+                overflow="hidden"
+              >
+                <Box
+                  position="absolute"
+                  top="-50px"
+                  right="-50px"
+                  w="180px"
+                  h="180px"
                   rounded="full"
-                  bg="brand.primary"
-                  align="center"
-                  justify="center"
-                  flexShrink={0}
-                >
-                  <Text fontWeight="800" fontSize="2xl" color="white" letterSpacing="-0.02em">
-                    JA
+                  bg="blue.600"
+                  opacity={0.12}
+                  filter="blur(50px)"
+                  pointerEvents="none"
+                />
+                <Flex align="center" gap={4} mb={5}>
+                  <Flex
+                    w="80px"
+                    h="80px"
+                    rounded="full"
+                    bg="brand.primary"
+                    align="center"
+                    justify="center"
+                    flexShrink={0}
+                  >
+                    <Text fontWeight="800" fontSize="2xl" color="white" letterSpacing="-0.02em">
+                      JA
+                    </Text>
+                  </Flex>
+                  <Box>
+                    <Text fontWeight="700" fontSize="lg" color="white" letterSpacing="-0.01em">
+                      Joshua Alana
+                    </Text>
+                    <Text fontSize="sm" color="gray.400" mt={0.5}>
+                      IT Consultant & Software Engineer
+                    </Text>
+                  </Box>
+                </Flex>
+                <Flex align="center" gap={2} mb={6}>
+                  <Box w={2} h={2} rounded="full" bg="green.400" />
+                  <Text fontSize="xs" color="green.400" fontWeight="600">
+                    Available for Engagements
                   </Text>
                 </Flex>
-                <Box>
-                  <Text fontWeight="700" fontSize="lg" color="white" letterSpacing="-0.01em">
-                    Joshua Alana
-                  </Text>
-                  <Text fontSize="sm" color="gray.400" mt={0.5}>
-                    IT Consultant & Software Engineer
-                  </Text>
-                </Box>
-              </Flex>
-
-              {/* Availability badge */}
-              <Flex align="center" gap={2} mb={6}>
-                <Box w={2} h={2} rounded="full" bg="green.400" />
-                <Text fontSize="xs" color="green.400" fontWeight="600">
-                  Available for Engagements
-                </Text>
-              </Flex>
-
-              <Divider borderColor="gray.700" mb={6} />
-
-              {/* Info rows */}
-              <VStack align="flex-start" spacing={4}>
-                {profileInfo.map((item) => (
-                  <Flex key={item.label} align="center" gap={3}>
-                    <Flex
-                      w={8}
-                      h={8}
-                      rounded="md"
-                      bg="gray.800"
-                      align="center"
-                      justify="center"
-                      flexShrink={0}
-                    >
-                      <Icon as={item.icon} boxSize={3.5} color="gray.400" />
+                <Divider borderColor="gray.700" mb={6} />
+                <VStack align="flex-start" spacing={4}>
+                  {profileInfo.map((item) => (
+                    <Flex key={item.label} align="center" gap={3}>
+                      <Flex
+                        w={8}
+                        h={8}
+                        rounded="md"
+                        bg="gray.800"
+                        align="center"
+                        justify="center"
+                        flexShrink={0}
+                      >
+                        <Icon as={item.icon} boxSize={3.5} color="gray.400" />
+                      </Flex>
+                      <Box>
+                        <Text fontSize="xs" color="gray.500" fontWeight="600" textTransform="uppercase" letterSpacing="wide">
+                          {item.label}
+                        </Text>
+                        <Text fontSize="sm" color="gray.300" mt={0.5}>
+                          {item.value}
+                        </Text>
+                      </Box>
                     </Flex>
-                    <Box>
-                      <Text fontSize="xs" color="gray.500" fontWeight="600" textTransform="uppercase" letterSpacing="wide">
-                        {item.label}
-                      </Text>
-                      <Text fontSize="sm" color="gray.300" mt={0.5}>
-                        {item.value}
-                      </Text>
-                    </Box>
-                  </Flex>
-                ))}
-              </VStack>
-            </Box>
+                  ))}
+                </VStack>
+              </Box>
+            </MotionBox>
           </GridItem>
         </Grid>
 
         {/* Professional Timeline */}
         <Box mb={20}>
-          <Text
-            fontSize="xs"
-            fontWeight="700"
-            color="brand.primary"
-            letterSpacing="widest"
-            textTransform="uppercase"
-            mb={3}
-          >
-            Experience
-          </Text>
-          <Heading
-            as="h2"
-            fontSize={{ base: "2xl", md: "3xl" }}
-            fontWeight="800"
-            color="gray.900"
-            letterSpacing="-0.025em"
+          <MotionBox
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
             mb={10}
           >
-            Professional Journey
-          </Heading>
+            <Text
+              fontSize="xs"
+              fontWeight="700"
+              color="brand.primary"
+              letterSpacing="widest"
+              textTransform="uppercase"
+              mb={3}
+            >
+              Experience
+            </Text>
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="800"
+              color="gray.900"
+              letterSpacing="-0.025em"
+            >
+              Professional Journey
+            </Heading>
+          </MotionBox>
 
           <VStack spacing={0} align="stretch">
             {timeline.map((item, i) => (
-              <Flex key={item.period} gap={6}>
+              <MotionFlex
+                key={item.period}
+                gap={6}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] } as any}
+              >
                 <Flex direction="column" align="center" minW="20px">
                   <Box
                     w={3}
@@ -343,38 +408,53 @@ export default function About() {
                     {item.description}
                   </Text>
                 </Box>
-              </Flex>
+              </MotionFlex>
             ))}
           </VStack>
         </Box>
 
         {/* Skills */}
         <Box>
-          <Text
-            fontSize="xs"
-            fontWeight="700"
-            color="brand.primary"
-            letterSpacing="widest"
-            textTransform="uppercase"
-            mb={3}
-          >
-            Technical Stack
-          </Text>
-          <Heading
-            as="h2"
-            fontSize={{ base: "2xl", md: "3xl" }}
-            fontWeight="800"
-            color="gray.900"
-            letterSpacing="-0.025em"
+          <MotionBox
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
             mb={10}
           >
-            Skills &amp; Tools
-          </Heading>
+            <Text
+              fontSize="xs"
+              fontWeight="700"
+              color="brand.primary"
+              letterSpacing="widest"
+              textTransform="uppercase"
+              mb={3}
+            >
+              Technical Stack
+            </Text>
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="800"
+              color="gray.900"
+              letterSpacing="-0.025em"
+            >
+              Skills &amp; Tools
+            </Heading>
+          </MotionBox>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+          <MotionSimpleGrid
+            columns={{ base: 1, md: 2 }}
+            spacing={5}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+          >
             {Object.entries(skills).map(([category, items]) => (
-              <Box
+              <MotionBox
                 key={category}
+                variants={fadeUp}
                 bg="white"
                 borderWidth={1}
                 borderColor="gray.200"
@@ -409,9 +489,9 @@ export default function About() {
                     </Badge>
                   ))}
                 </Flex>
-              </Box>
+              </MotionBox>
             ))}
-          </SimpleGrid>
+          </MotionSimpleGrid>
         </Box>
       </Container>
       </Box>

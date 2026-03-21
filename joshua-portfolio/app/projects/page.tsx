@@ -24,6 +24,21 @@ import {
   FaLeaf,
   FaGraduationCap,
 } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+
+const MotionBox = motion(Box)
+const MotionFlex = motion(Flex)
+const MotionVStack = motion(VStack)
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+}
+
+const stagger = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+}
 
 const allProjects = [
   {
@@ -212,38 +227,45 @@ export default function Projects() {
           pointerEvents="none"
         />
         <Container maxW="container.xl" position="relative">
-          <Flex
+          <MotionFlex
             direction={{ base: 'column', md: 'row' }}
             align={{ base: 'flex-start', md: 'flex-end' }}
             justify="space-between"
             gap={6}
+            initial="hidden"
+            animate="show"
+            variants={stagger}
           >
-            <Box>
-              <Text fontSize="xs" fontWeight="700" color="blue.400"
-                letterSpacing="widest" textTransform="uppercase" mb={4}>
-                Selected Work
-              </Text>
-              <Heading
-                as="h1"
-                fontSize={{ base: '5xl', md: '7xl' }}
-                fontWeight="800" color="white"
-                letterSpacing="-0.04em" lineHeight="0.95" mb={6}
-              >
-                Projects
-              </Heading>
-              <Text fontSize="lg" color="gray.500" maxW="520px" lineHeight="1.8">
-                Live platforms deployed across Africa — from agricultural data
-                infrastructure and investment marketplaces to event systems
-                and community platforms.
-              </Text>
-            </Box>
-            <Box textAlign={{ base: 'left', md: 'right' }} flexShrink={0}>
-              <Text fontSize="5xl" fontWeight="800" color="white" letterSpacing="-0.04em">
-                {allProjects.length}
-              </Text>
-              <Text fontSize="sm" color="gray.500" fontWeight="500">Live Platforms</Text>
-            </Box>
-          </Flex>
+            <MotionBox variants={fadeUp}>
+              <Box>
+                <Text fontSize="xs" fontWeight="700" color="blue.400"
+                  letterSpacing="widest" textTransform="uppercase" mb={4}>
+                  Selected Work
+                </Text>
+                <Heading
+                  as="h1"
+                  fontSize={{ base: '5xl', md: '7xl' }}
+                  fontWeight="800" color="white"
+                  letterSpacing="-0.04em" lineHeight="0.95" mb={6}
+                >
+                  Projects
+                </Heading>
+                <Text fontSize="lg" color="gray.500" maxW="520px" lineHeight="1.8">
+                  Live platforms deployed across Africa — from agricultural data
+                  infrastructure and investment marketplaces to event systems
+                  and community platforms.
+                </Text>
+              </Box>
+            </MotionBox>
+            <MotionBox variants={fadeUp}>
+              <Box textAlign={{ base: 'left', md: 'right' }} flexShrink={0}>
+                <Text fontSize="5xl" fontWeight="800" color="white" letterSpacing="-0.04em">
+                  {allProjects.length}
+                </Text>
+                <Text fontSize="sm" color="gray.500" fontWeight="500">Live Platforms</Text>
+              </Box>
+            </MotionBox>
+          </MotionFlex>
         </Container>
       </Box>
 
@@ -254,8 +276,12 @@ export default function Projects() {
             {allProjects.map((project, idx) => {
               const isEven = idx % 2 === 0
               return (
-                <Box
+                <MotionBox
                   key={project.id}
+                  initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] } as any}
                   borderTop="1px solid rgba(255,255,255,0.07)"
                   py={{ base: 12, md: 16 }}
                   _last={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
@@ -384,7 +410,7 @@ export default function Projects() {
                       </ChakraLink>
                     </GridItem>
                   </Grid>
-                </Box>
+                </MotionBox>
               )
             })}
           </VStack>
@@ -392,7 +418,16 @@ export default function Projects() {
       </Box>
 
       {/* BOTTOM CTA */}
-      <Box borderTop="1px solid rgba(255,255,255,0.07)" py={20} position="relative" overflow="hidden">
+      <MotionBox
+        borderTop="1px solid rgba(255,255,255,0.07)"
+        py={20}
+        position="relative"
+        overflow="hidden"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 } as any}
+      >
         <Box
           position="absolute" inset={0}
           bgImage="radial-gradient(ellipse 50% 80% at 50% 100%, rgba(29,78,216,0.15) 0%, transparent 70%)"
@@ -429,7 +464,7 @@ export default function Projects() {
             </ChakraLink>
           </Flex>
         </Container>
-      </Box>
+      </MotionBox>
     </Box>
   )
 }

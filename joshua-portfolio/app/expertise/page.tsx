@@ -27,6 +27,31 @@ import {
 } from "react-icons/fa";
 import { MdCheckCircle } from "react-icons/md";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
+const MotionSimpleGrid = motion(SimpleGrid);
+const MotionFlex = motion(Flex);
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const stagger = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const staggerFast = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.05 } },
+};
+
+const heroStagger = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
 
 const services = [
   {
@@ -164,9 +189,21 @@ export default function Expertise() {
         <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.18) 0%, transparent 65%)" pointerEvents="none" />
         <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
         <Container maxW="container.xl" position="relative">
-          <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={4}>Capabilities</Text>
-          <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="white" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>Expertise &amp; Services</Heading>
-          <Text fontSize="lg" color="gray.500" maxW="540px" lineHeight="1.8">Technology, data, and M&amp;E capabilities tailored for development organisations working across African food systems.</Text>
+          <MotionBox
+            initial="hidden"
+            animate="show"
+            variants={heroStagger}
+          >
+            <MotionBox variants={fadeUp}>
+              <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={4}>Capabilities</Text>
+            </MotionBox>
+            <MotionBox variants={fadeUp}>
+              <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="white" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>Expertise &amp; Services</Heading>
+            </MotionBox>
+            <MotionBox variants={fadeUp}>
+              <Text fontSize="lg" color="gray.500" maxW="540px" lineHeight="1.8">Technology, data, and M&amp;E capabilities tailored for development organisations working across African food systems.</Text>
+            </MotionBox>
+          </MotionBox>
         </Container>
       </Box>
 
@@ -175,10 +212,18 @@ export default function Expertise() {
 
         {/* Service Cards */}
         <Box mb={20}>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+          <MotionSimpleGrid
+            columns={{ base: 1, md: 2, lg: 3 }}
+            spacing={6}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+          >
             {services.map((s) => (
-              <Box
+              <MotionBox
                 key={s.title}
+                variants={fadeUp}
                 bg="white"
                 borderWidth={1}
                 borderColor="gray.200"
@@ -259,13 +304,17 @@ export default function Expertise() {
                     ))}
                   </List>
                 </Box>
-              </Box>
+              </MotionBox>
             ))}
-          </SimpleGrid>
+          </MotionSimpleGrid>
         </Box>
 
         {/* Frameworks & Standards */}
-        <Box
+        <MotionBox
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
           bg="white"
           borderWidth={1}
           borderColor="gray.200"
@@ -299,56 +348,81 @@ export default function Expertise() {
             </Text>
           </VStack>
 
-          <Flex flexWrap="wrap" gap={3} justify="center">
+          <MotionFlex
+            flexWrap="wrap"
+            gap={3}
+            justify="center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={staggerFast}
+          >
             {frameworks.map((item) => (
-              <Badge
-                key={item}
-                px={4}
-                py={2}
-                rounded="full"
-                bg="gray.50"
-                color="gray.700"
-                fontWeight="600"
-                fontSize="sm"
-                borderWidth={1}
-                borderColor="gray.200"
-                _hover={{ bg: "blue.50", color: "brand.primary", borderColor: "blue.200" }}
-                transition="all 0.2s"
-                cursor="default"
-              >
-                {item}
-              </Badge>
+              <MotionBox key={item} variants={fadeUp}>
+                <Badge
+                  px={4}
+                  py={2}
+                  rounded="full"
+                  bg="gray.50"
+                  color="gray.700"
+                  fontWeight="600"
+                  fontSize="sm"
+                  borderWidth={1}
+                  borderColor="gray.200"
+                  _hover={{ bg: "blue.50", color: "brand.primary", borderColor: "blue.200" }}
+                  transition="all 0.2s"
+                  cursor="default"
+                >
+                  {item}
+                </Badge>
+              </MotionBox>
             ))}
-          </Flex>
-        </Box>
+          </MotionFlex>
+        </MotionBox>
 
         {/* Who I Work With */}
         <Box>
-          <Text
-            fontSize="xs"
-            fontWeight="700"
-            color="brand.primary"
-            letterSpacing="widest"
-            textTransform="uppercase"
-            mb={3}
-          >
-            Clients & Partners
-          </Text>
-          <Heading
-            as="h2"
-            fontSize={{ base: "2xl", md: "3xl" }}
-            fontWeight="800"
-            color="gray.900"
-            letterSpacing="-0.025em"
+          <MotionBox
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
             mb={10}
           >
-            Who I Work With
-          </Heading>
+            <Text
+              fontSize="xs"
+              fontWeight="700"
+              color="brand.primary"
+              letterSpacing="widest"
+              textTransform="uppercase"
+              mb={3}
+            >
+              Clients & Partners
+            </Text>
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="800"
+              color="gray.900"
+              letterSpacing="-0.025em"
+            >
+              Who I Work With
+            </Heading>
+          </MotionBox>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} mb={10}>
+          <MotionSimpleGrid
+            columns={{ base: 1, md: 2 }}
+            spacing={5}
+            mb={10}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
+          >
             {clients.map((c) => (
-              <Box
+              <MotionBox
                 key={c.name}
+                variants={fadeUp}
                 bg="white"
                 borderWidth={1}
                 borderColor="gray.200"
@@ -374,55 +448,62 @@ export default function Expertise() {
                 <Text fontSize="sm" color="gray.600" lineHeight="1.8">
                   {c.description}
                 </Text>
-              </Box>
+              </MotionBox>
             ))}
-          </SimpleGrid>
+          </MotionSimpleGrid>
 
           {/* CTA */}
-          <Flex
-            direction={{ base: "column", md: "row" }}
-            align="center"
-            justify="space-between"
-            bg="gray.900"
-            rounded="xl"
-            p={7}
-            gap={4}
+          <MotionBox
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 } as any}
           >
-            <Box>
-              <Heading
-                as="h3"
-                fontSize="lg"
-                fontWeight="700"
-                color="white"
-                mb={1}
-              >
-                Need these capabilities for your program?
-              </Heading>
-              <Text fontSize="sm" color="gray.400">
-                Let&apos;s discuss how I can support your organisation&apos;s
-                technology and data needs.
-              </Text>
-            </Box>
             <Flex
-              as={Link}
-              href="/contact"
+              direction={{ base: "column", md: "row" }}
               align="center"
-              gap={2}
-              bg="brand.primary"
-              color="white"
-              px={6}
-              py={3}
-              rounded="lg"
-              fontWeight="600"
-              fontSize="sm"
-              flexShrink={0}
-              _hover={{ bg: "#1e40af", textDecoration: "none" }}
-              transition="all 0.2s"
+              justify="space-between"
+              bg="gray.900"
+              rounded="xl"
+              p={7}
+              gap={4}
             >
-              Start a Conversation
-              <Icon as={FaArrowRight} boxSize={3.5} />
+              <Box>
+                <Heading
+                  as="h3"
+                  fontSize="lg"
+                  fontWeight="700"
+                  color="white"
+                  mb={1}
+                >
+                  Need these capabilities for your program?
+                </Heading>
+                <Text fontSize="sm" color="gray.400">
+                  Let&apos;s discuss how I can support your organisation&apos;s
+                  technology and data needs.
+                </Text>
+              </Box>
+              <Flex
+                as={Link}
+                href="/contact"
+                align="center"
+                gap={2}
+                bg="brand.primary"
+                color="white"
+                px={6}
+                py={3}
+                rounded="lg"
+                fontWeight="600"
+                fontSize="sm"
+                flexShrink={0}
+                _hover={{ bg: "#1e40af", textDecoration: "none" }}
+                transition="all 0.2s"
+              >
+                Start a Conversation
+                <Icon as={FaArrowRight} boxSize={3.5} />
+              </Flex>
             </Flex>
-          </Flex>
+          </MotionBox>
         </Box>
       </Container>
       </Box>
