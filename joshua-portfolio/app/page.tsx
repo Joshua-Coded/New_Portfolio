@@ -493,7 +493,7 @@ export default function Home() {
             <Box>
               <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={3}>Live Platforms</Text>
               <Heading as="h2" fontSize={{ base: '3xl', md: '44px' }} fontWeight="800" color="white" letterSpacing="-0.03em">
-                7 Deployed Projects
+                8 Deployed Projects
               </Heading>
             </Box>
             <ChakraLink as={Link} href="/projects" display="inline-flex" alignItems="center" gap={2} color="gray.400" fontSize="sm" fontWeight="600" _hover={{ color: 'white', textDecoration: 'none' }} transition="color 0.15s" flexShrink={0}>
@@ -509,6 +509,7 @@ export default function Home() {
               { name: 'HavenBridge Development', category: 'Property Dev', accent: '#b45309' },
               { name: 'AFS DealRoom', category: 'FinTech / AI', accent: '#0D9488' },
               { name: 'Swift Trading Services', category: 'Corporate', accent: '#DC2626' },
+              { name: 'Student Opportunity Board', category: 'EdTech / Web3', accent: '#7C3AED' },
             ].map((p) => (
               <Box key={p.name} as={Link} href="/projects" p={5} rounded="xl" bg="rgba(255,255,255,0.04)" border="1px solid rgba(255,255,255,0.07)" transition="all 0.2s" _hover={{ bg: 'rgba(255,255,255,0.07)', borderColor: 'rgba(255,255,255,0.12)', transform: 'translateY(-2px)' }} display="block">
                 <Text fontSize="xs" fontWeight="700" color={p.accent} mb={2} textTransform="uppercase" letterSpacing="wide">{p.category}</Text>
