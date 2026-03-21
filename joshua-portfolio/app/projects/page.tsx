@@ -142,7 +142,7 @@ const allProjects = [
       { value: 'Pan-Africa', label: 'Coverage' },
     ],
     tech: ['React', 'AI/ML', 'Blockchain', 'Data Dashboard'],
-    href: 'https://afsdmp.vercel.app/',
+    href: 'https://afsf-dealroom-platform.vercel.app/',
     image: '/projects/deal-room.png',
   },
   {
