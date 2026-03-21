@@ -22,6 +22,7 @@ import {
   FaClipboardList,
   FaBuilding,
   FaLeaf,
+  FaGraduationCap,
 } from 'react-icons/fa'
 
 const allProjects = [
@@ -147,6 +148,26 @@ const allProjects = [
   },
   {
     id: 7,
+    icon: FaGraduationCap,
+    category: 'EdTech / Web3',
+    accent: '#7C3AED',
+    gradientFrom: '#2e1065',
+    gradientTo: '#7c3aed',
+    title: 'Student Opportunity Board',
+    subtitle: 'Peer-to-Peer Opportunities — Powered by Crypto',
+    description:
+      'A peer-to-peer platform where students post and apply for opportunities — from gigs to internships — and get paid seamlessly via cryptocurrency. Bridges the gap between student talent and real-world demand with Web3-native payments.',
+    stats: [
+      { value: 'P2P', label: 'Student Network' },
+      { value: 'Crypto', label: 'Payments' },
+      { value: 'Live', label: 'Platform' },
+    ],
+    tech: ['Next.js', 'TypeScript', 'Web3', 'Crypto Payments'],
+    href: 'https://student-opportunity-board-smzb.vercel.app/',
+    image: '/projects/student-opportunity-board.png',
+  },
+  {
+    id: 8,
     icon: FaCheckCircle,
     category: 'Corporate Platform',
     accent: '#DC2626',
