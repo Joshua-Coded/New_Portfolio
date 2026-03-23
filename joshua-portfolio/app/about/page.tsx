@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import {
   Box,
   Container,
@@ -388,17 +387,12 @@ export default function About() {
                     <Box position="relative">
                       <Box
                         w="72px" h="72px" rounded="full"
-                        overflow="hidden" flexShrink={0}
+                        flexShrink={0}
                         border="2px solid rgba(255,255,255,0.1)"
-                      >
-                        <Image
-                          src="/Joshua_Alana.jpg"
-                          alt="Joshua Alana"
-                          width={72}
-                          height={72}
-                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                        />
-                      </Box>
+                        bgImage="url('/Joshua_Alana.jpg')"
+                        bgSize="cover"
+                        bgPosition="center"
+                      />
                       <Box
                         position="absolute" bottom={0} right={0}
                         w={4} h={4} rounded="full" bg="green.400"
