@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Box,
   Container,
@@ -385,15 +386,19 @@ export default function About() {
                   {/* Avatar + name */}
                   <Flex align="center" gap={4} mb={5}>
                     <Box position="relative">
-                      <Flex
+                      <Box
                         w="72px" h="72px" rounded="full"
-                        bgGradient="linear(135deg, #1D4ED8, #059669)"
-                        align="center" justify="center" flexShrink={0}
+                        overflow="hidden" flexShrink={0}
+                        border="2px solid rgba(255,255,255,0.1)"
                       >
-                        <Text fontWeight="800" fontSize="2xl" color="white" letterSpacing="-0.02em">
-                          JA
-                        </Text>
-                      </Flex>
+                        <Image
+                          src="/Joshua_Alana.jpg"
+                          alt="Joshua Alana"
+                          width={72}
+                          height={72}
+                          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                        />
+                      </Box>
                       <Box
                         position="absolute" bottom={0} right={0}
                         w={4} h={4} rounded="full" bg="green.400"
