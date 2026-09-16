@@ -227,24 +227,25 @@ const allProjects = [
 
 export default function Projects() {
   return (
-    <Box minH="100vh" bg="#0B1120">
+    <Box minH="100vh" bg="#F8F7F4">
 
       {/* HERO */}
       <Box
         position="relative"
+        bg="white"
         pt={{ base: 32, md: 40 }}
         pb={{ base: 16, md: 20 }}
         overflow="hidden"
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,78,216,0.2) 0%, transparent 65%)"
+          bgImage="radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,78,216,0.08) 0%, transparent 65%)"
           pointerEvents="none"
         />
         <Box
           position="absolute" inset={0}
-          bgImage="linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                   linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)"
+          bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)"
           bgSize="60px 60px"
           pointerEvents="none"
         />
@@ -260,19 +261,19 @@ export default function Projects() {
           >
             <MotionBox variants={fadeUp}>
               <Box>
-                <Text fontSize="xs" fontWeight="700" color="blue.400"
+                <Text fontSize="xs" fontWeight="700" color="blue.600"
                   letterSpacing="widest" textTransform="uppercase" mb={4}>
                   Selected Work
                 </Text>
                 <Heading
                   as="h1"
                   fontSize={{ base: '5xl', md: '7xl' }}
-                  fontWeight="800" color="white"
+                  fontWeight="800" color="gray.900"
                   letterSpacing="-0.04em" lineHeight="0.95" mb={6}
                 >
                   Projects
                 </Heading>
-                <Text fontSize="lg" color="gray.500" maxW="520px" lineHeight="1.8">
+                <Text fontSize="lg" color="gray.600" maxW="520px" lineHeight="1.8">
                   Live platforms deployed across Africa — from agricultural data
                   infrastructure and investment marketplaces to event systems
                   and community platforms.
@@ -281,10 +282,10 @@ export default function Projects() {
             </MotionBox>
             <MotionBox variants={fadeUp}>
               <Box textAlign={{ base: 'left', md: 'right' }} flexShrink={0}>
-                <Text fontSize="5xl" fontWeight="800" color="white" letterSpacing="-0.04em">
+                <Text fontSize="5xl" fontWeight="800" color="gray.900" letterSpacing="-0.04em">
                   {allProjects.length}
                 </Text>
-                <Text fontSize="sm" color="gray.500" fontWeight="500">Live Platforms</Text>
+                <Text fontSize="sm" color="gray.600" fontWeight="500">Live Platforms</Text>
               </Box>
             </MotionBox>
           </MotionFlex>
@@ -304,9 +305,9 @@ export default function Projects() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] } as any}
-                  borderTop="1px solid rgba(255,255,255,0.07)"
+                  borderTop="1px solid #E2E8F0"
                   py={{ base: 12, md: 16 }}
-                  _last={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+                  _last={{ borderBottom: '1px solid #E2E8F0' }}
                 >
                   <Grid
                     templateColumns={{ base: '1fr', lg: '1fr 1fr' }}
@@ -319,12 +320,11 @@ export default function Projects() {
                         <Text fontSize="xs" fontWeight="800" color="gray.600" letterSpacing="widest">
                           {String(idx + 1).padStart(2, '0')}
                         </Text>
-                        <Box w="24px" h="1px" bg="rgba(255,255,255,0.1)" />
+                        <Box w="24px" h="1px" bg="gray.300" />
                         <Badge
                           px={3} py={1} rounded="full"
-                          bg="rgba(255,255,255,0.06)" color="gray.400"
+                          bg="gray.100" color="gray.600"
                           fontSize="xs" fontWeight="600"
-                          border="1px solid rgba(255,255,255,0.08)"
                         >
                           {project.category}
                         </Badge>
@@ -333,18 +333,18 @@ export default function Projects() {
                       <Heading
                         as="h2"
                         fontSize={{ base: '3xl', md: '4xl' }}
-                        fontWeight="800" color="white"
+                        fontWeight="800" color="gray.900"
                         letterSpacing="-0.03em" lineHeight="1.1" mb={3}
                       >
                         {project.title}
                       </Heading>
 
-                      <Text fontSize="xs" color="gray.600" fontWeight="600" mb={5}
+                      <Text fontSize="xs" color="gray.500" fontWeight="600" mb={5}
                         textTransform="uppercase" letterSpacing="wide">
                         {project.subtitle}
                       </Text>
 
-                      <Text fontSize="md" color="gray.400" lineHeight="1.9" mb={8}>
+                      <Text fontSize="md" color="gray.600" lineHeight="1.9" mb={8}>
                         {project.description}
                       </Text>
 
@@ -359,7 +359,7 @@ export default function Projects() {
                             >
                               {stat.value}
                             </Text>
-                            <Text fontSize="xs" color="gray.600" fontWeight="500"
+                            <Text fontSize="xs" color="gray.500" fontWeight="500"
                               textTransform="uppercase" letterSpacing="wide">
                               {stat.label}
                             </Text>
@@ -371,9 +371,8 @@ export default function Projects() {
                       <Flex flexWrap="wrap" gap={2} mb={8}>
                         {project.tech.map((t) => (
                           <Badge key={t} px={3} py={1} rounded="full"
-                            bg="rgba(255,255,255,0.05)" color="gray.400"
-                            fontWeight="500" fontSize="xs"
-                            border="1px solid rgba(255,255,255,0.08)">
+                            bg="gray.100" color="gray.600"
+                            fontWeight="500" fontSize="xs">
                             {t}
                           </Badge>
                         ))}
@@ -383,7 +382,7 @@ export default function Projects() {
                       <ChakraLink
                         href={project.href} isExternal
                         display="inline-flex" alignItems="center" gap={3}
-                        color="white" fontWeight="700" fontSize="sm"
+                        color="gray.900" fontWeight="700" fontSize="sm"
                         _hover={{ textDecoration: 'none', gap: '20px' }}
                         transition="gap 0.2s"
                       >
@@ -407,7 +406,7 @@ export default function Projects() {
                           rounded="2xl"
                           overflow="hidden"
                           h={{ base: '240px', md: '340px', lg: '400px' }}
-                          border="1px solid rgba(255,255,255,0.07)"
+                          border="1px solid #E2E8F0"
                           transition="all 0.35s cubic-bezier(0.4,0,0.2,1)"
                           _hover={{
                             transform: 'scale(1.025)',
@@ -440,53 +439,60 @@ export default function Projects() {
       </Box>
 
       {/* BOTTOM CTA */}
-      <MotionBox
-        borderTop="1px solid rgba(255,255,255,0.07)"
-        py={20}
-        position="relative"
-        overflow="hidden"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 } as any}
-      >
-        <Box
-          position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 50% 80% at 50% 100%, rgba(29,78,216,0.15) 0%, transparent 70%)"
-          pointerEvents="none"
-        />
-        <Container maxW="container.xl" position="relative">
-          <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between" gap={8}>
-            <Box>
-              <Text fontSize="xs" fontWeight="700" color="blue.400"
-                letterSpacing="widest" textTransform="uppercase" mb={3}>
-                Let's Build Together
-              </Text>
-              <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }}
-                fontWeight="800" color="white" letterSpacing="-0.03em" lineHeight="1.1">
-                Have a project in mind?
-              </Heading>
-            </Box>
-            <ChakraLink
-              href="/contact"
-              display="inline-flex" alignItems="center" gap={3}
-              bgGradient="linear(135deg, #1D4ED8, #2563EB)"
-              color="white" px={8} py={4} rounded="xl"
-              fontSize="sm" fontWeight="700" flexShrink={0}
-              _hover={{
-                bgGradient: 'linear(135deg, #1e40af, #1D4ED8)',
-                textDecoration: 'none',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 16px 40px rgba(29,78,216,0.4)',
-              }}
-              transition="all 0.2s"
+      <Box py={24} bg="#F8F7F4">
+        <Container maxW="container.xl">
+          <MotionBox
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 } as any}
+          >
+            <Box
+              bg="#0B1120"
+              rounded="3xl"
+              p={{ base: 10, md: 14 }}
+              position="relative"
+              overflow="hidden"
             >
-              Start a Conversation
-              <Icon as={FaExternalLinkAlt} boxSize={3.5} />
-            </ChakraLink>
-          </Flex>
+              <Box
+                position="absolute" inset={0}
+                bgImage="radial-gradient(ellipse 50% 80% at 50% 100%, rgba(29,78,216,0.25) 0%, transparent 70%)"
+                pointerEvents="none"
+                rounded="3xl"
+              />
+              <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between" gap={8} position="relative">
+                <Box>
+                  <Text fontSize="xs" fontWeight="700" color="blue.400"
+                    letterSpacing="widest" textTransform="uppercase" mb={3}>
+                    Let's Build Together
+                  </Text>
+                  <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }}
+                    fontWeight="800" color="white" letterSpacing="-0.03em" lineHeight="1.1">
+                    Have a project in mind?
+                  </Heading>
+                </Box>
+                <ChakraLink
+                  href="/contact"
+                  display="inline-flex" alignItems="center" gap={3}
+                  bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                  color="white" px={8} py={4} rounded="xl"
+                  fontSize="sm" fontWeight="700" flexShrink={0}
+                  _hover={{
+                    bgGradient: 'linear(135deg, #1e40af, #1D4ED8)',
+                    textDecoration: 'none',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 16px 40px rgba(29,78,216,0.4)',
+                  }}
+                  transition="all 0.2s"
+                >
+                  Start a Conversation
+                  <Icon as={FaExternalLinkAlt} boxSize={3.5} />
+                </ChakraLink>
+              </Flex>
+            </Box>
+          </MotionBox>
         </Container>
-      </MotionBox>
+      </Box>
     </Box>
   )
 }
