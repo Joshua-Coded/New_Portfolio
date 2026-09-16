@@ -24,6 +24,7 @@ import {
   FaLeaf,
   FaGraduationCap,
   FaCompass,
+  FaBolt,
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
@@ -184,23 +185,23 @@ const allProjects = [
   },
   {
     id: 8,
-    icon: FaGraduationCap,
-    category: 'EdTech / Web3',
-    accent: '#7C3AED',
-    gradientFrom: '#2e1065',
-    gradientTo: '#7c3aed',
-    title: 'Student Opportunity Board',
-    subtitle: 'Peer-to-Peer Opportunities — Powered by Crypto',
+    icon: FaBolt,
+    category: 'Task Marketplace',
+    accent: '#EA580C',
+    gradientFrom: '#1e1b4b',
+    gradientTo: '#4338ca',
+    title: 'Zana',
+    subtitle: "Africa's Short-Task Marketplace",
     description:
-      'A peer-to-peer platform where students post and apply for opportunities — from gigs to internships — and get paid seamlessly via cryptocurrency. Bridges the gap between student talent and real-world demand with Web3-native payments.',
+      "Connects African businesses with skilled professionals for short-duration work — design, social media, video, research, writing, and AI annotation — that would otherwise get assigned through WhatsApp groups with no contract or guaranteed payment. Escrowed payments lock funds when a task is posted and release to the worker's mobile money within minutes of approval, no bank account needed.",
     stats: [
-      { value: 'P2P', label: 'Student Network' },
-      { value: 'Crypto', label: 'Payments' },
-      { value: 'Live', label: 'Platform' },
+      { value: '96+', label: 'Active Professionals' },
+      { value: '4 min', label: 'Avg. Payout Time' },
+      { value: '100%', label: 'Escrow Protected' },
     ],
-    tech: ['Next.js', 'TypeScript', 'Web3', 'Crypto Payments'],
-    href: 'https://student-opportunity-board-smzb.vercel.app/',
-    image: '/projects/student-opportunity-board.png',
+    tech: ['Next.js', 'TypeScript', 'Mobile Money API', 'Escrow Payments'],
+    href: 'https://useopportunityboard.com/',
+    image: '/projects/zana-hero.png',
   },
   {
     id: 9,

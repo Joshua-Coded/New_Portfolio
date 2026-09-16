@@ -633,7 +633,7 @@ export default function Home() {
               { name: 'HavenBridge Development', category: 'Property Dev', accent: '#b45309' },
               { name: 'AFS DealRoom', category: 'FinTech / AI', accent: '#0D9488' },
               { name: 'Swift Trading Services', category: 'Corporate', accent: '#DC2626' },
-              { name: 'Student Opportunity Board', category: 'EdTech / Web3', accent: '#7C3AED' },
+              { name: 'Zana', category: 'Task Marketplace', accent: '#EA580C' },
             ].map((p) => (
               <MotionBox
                 key={p.name}
