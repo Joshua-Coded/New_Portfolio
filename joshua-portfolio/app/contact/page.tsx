@@ -171,24 +171,24 @@ export default function Contact() {
   return (
     <Box minH="100vh" bg="#F8F7F4">
 
-      {/* ── DARK HERO ─────────────────────────────────────────────── */}
+      {/* ── HERO ─────────────────────────────────────────────────── */}
       <Box
         position="relative"
-        bg="#0B1120"
+        bg="white"
         pt={{ base: 28, md: 36 }}
         pb={{ base: 14, md: 18 }}
         overflow="hidden"
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(29,78,216,0.25) 0%, transparent 60%),
-                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(5,150,105,0.15) 0%, transparent 55%)"
+          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(29,78,216,0.09) 0%, transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(5,150,105,0.08) 0%, transparent 55%)"
           pointerEvents="none"
         />
         <Box
           position="absolute" inset={0}
-          bgImage="linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                   linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)"
+          bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)"
           bgSize="60px 60px"
           pointerEvents="none"
         />
@@ -196,10 +196,10 @@ export default function Contact() {
           <MotionBox initial="hidden" animate="show" variants={stagger}>
             <MotionBox variants={fadeUp}>
               <Flex align="center" gap={2} mb={4}>
-                <Box w={2} h={2} rounded="full" bg="green.400"
+                <Box w={2} h={2} rounded="full" bg="green.500"
                   sx={{ animation: "pulse 2s infinite" }}
                 />
-                <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase">
+                <Text fontSize="xs" fontWeight="700" color="blue.600" letterSpacing="widest" textTransform="uppercase">
                   Let&apos;s Talk
                 </Text>
               </Flex>
@@ -209,7 +209,7 @@ export default function Contact() {
                 as="h1"
                 fontSize={{ base: "5xl", md: "7xl" }}
                 fontWeight="800"
-                color="white"
+                color="gray.900"
                 letterSpacing="-0.04em"
                 lineHeight="0.95"
                 mb={6}
@@ -234,7 +234,7 @@ export default function Contact() {
               </Heading>
             </MotionBox>
             <MotionBox variants={fadeUp}>
-              <Text fontSize="lg" color="gray.400" maxW="540px" lineHeight="1.8">
+              <Text fontSize="lg" color="gray.600" maxW="540px" lineHeight="1.8">
                 Whether you&apos;re looking for a technology partner or want to discuss
                 agricultural data systems — I&apos;d love to connect.
               </Text>

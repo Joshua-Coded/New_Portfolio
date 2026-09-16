@@ -12,7 +12,7 @@ const items = [
 export function TechMarquee() {
   const doubled = [...items, ...items]
   return (
-    <Box overflow="hidden" py={5} bg="#0F172A" borderTop="1px solid rgba(255,255,255,0.05)">
+    <Box overflow="hidden" py={5} bg="#F8FAFC" borderTop="1px solid rgba(15,23,42,0.06)" borderBottom="1px solid rgba(15,23,42,0.06)">
       <MotionFlex
         align="center"
         animate={{ x: ['0%', '-50%'] }}
@@ -21,8 +21,8 @@ export function TechMarquee() {
       >
         {doubled.map((item, i) => (
           <Flex key={i} align="center" gap={8} flexShrink={0} px={4}>
-            <Box w="3px" h="3px" rounded="full" bg="rgba(255,255,255,0.2)" flexShrink={0} />
-            <Text fontSize="sm" fontWeight="600" color="gray.500" whiteSpace="nowrap">
+            <Box w="3px" h="3px" rounded="full" bg="rgba(15,23,42,0.25)" flexShrink={0} />
+            <Text fontSize="sm" fontWeight="600" color="gray.600" whiteSpace="nowrap">
               {item}
             </Text>
           </Flex>
