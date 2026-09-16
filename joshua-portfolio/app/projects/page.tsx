@@ -181,7 +181,7 @@ const allProjects = [
     ],
     tech: ['React', 'AI/ML', 'Blockchain', 'Data Dashboard'],
     href: 'https://afsf-dealroom-platform.vercel.app/',
-    image: '/projects/deal-room.png',
+    image: '/projects/deal-room-hero.png',
   },
   {
     id: 8,
