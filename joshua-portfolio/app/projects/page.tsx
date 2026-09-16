@@ -23,6 +23,7 @@ import {
   FaBuilding,
   FaLeaf,
   FaGraduationCap,
+  FaCompass,
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
@@ -43,6 +44,46 @@ const stagger = {
 const allProjects = [
   {
     id: 1,
+    icon: FaChartLine,
+    category: 'M&E / Data Systems',
+    accent: '#2563eb',
+    gradientFrom: '#1e3a8a',
+    gradientTo: '#2563eb',
+    title: 'AFSF Monitoring & Evaluation Platform',
+    subtitle: 'CAADP-Aligned Commitment Tracking — AFS Forum',
+    description:
+      'A full-stack M&E platform for the African Food Systems Forum, tracking commitments, CAADP-aligned indicators, and results across 65+ partner organisations. The public-facing commitment tracker — used by 5,000+ visitors — includes a live implementation-status dashboard, filterable commitment explorer, and per-commitment detail pages with progress timelines and strategic-objective alignment. Also powers an internal operations suite (budgets, inventory, purchase requests) and partnership/waiver management dashboards for AFSF staff.',
+    stats: [
+      { value: '65+', label: 'Partner Organisations' },
+      { value: '5,000+', label: 'Public Visitors' },
+      { value: '<2s', label: 'Tracker Load Time' },
+    ],
+    tech: ['Next.js', 'Chakra UI', 'Neon Postgres', 'Vercel'],
+    href: 'https://me-platform-jf7p.vercel.app/tracker',
+    image: '/projects/afsf-me-landing.png',
+  },
+  {
+    id: 2,
+    icon: FaCompass,
+    category: 'Marketplace / Travel',
+    accent: '#059669',
+    gradientFrom: '#052e16',
+    gradientTo: '#059669',
+    title: 'IDTM Rwanda',
+    subtitle: 'Local Tourism Marketplace',
+    description:
+      "A full-stack marketplace connecting Rwanda's local guides, artisans, food hosts, and homestay providers directly with travelers — removing the \"no marketing budget\" barrier that keeps genuine local experiences invisible next to big platforms with professional photography and ad spend. Multi-role accounts let a single login hold visitor, provider, and ambassador access with a dashboard switcher, and an ambassador program lets trusted local reps onboard and manage listings for non-tech-savvy providers.",
+    stats: [
+      { value: '94', label: 'Lighthouse Performance' },
+      { value: '100', label: 'Accessibility Score' },
+      { value: '3-in-1', label: 'Visitor / Provider / Ambassador' },
+    ],
+    tech: ['Next.js 15', 'TypeScript', 'Drizzle ORM', 'NextAuth v5'],
+    href: 'https://www.idtmarkets.com',
+    image: '/projects/idtm-hero.png',
+  },
+  {
+    id: 3,
     icon: FaUsers,
     category: 'Community Platform',
     accent: '#16a34a',
@@ -62,27 +103,7 @@ const allProjects = [
     image: '/projects/thematic-platform.png',
   },
   {
-    id: 2,
-    icon: FaChartLine,
-    category: 'M&E / Data Systems',
-    accent: '#2563eb',
-    gradientFrom: '#1e3a8a',
-    gradientTo: '#2563eb',
-    title: 'AFSF Yearly Commitments Tracker',
-    subtitle: 'M&E Platform — AFS Forum',
-    description:
-      'Track and monitor commitments made at AFSF summits in real time. Supports filtering by organisation, thematic area, and year — enabling transparent accountability across the Forum\'s member network.',
-    stats: [
-      { value: '9', label: 'Thematic Areas' },
-      { value: '2024–25', label: 'Year Coverage' },
-      { value: 'Live', label: 'Commitment Data' },
-    ],
-    tech: ['React', 'Node.js', 'REST API', 'Data Visualization'],
-    href: 'https://me-platform-jf7p.vercel.app/tracker',
-    image: '/projects/commitments-tracker.png',
-  },
-  {
-    id: 3,
+    id: 4,
     icon: FaClipboardList,
     category: 'Event Platform',
     accent: '#7C3AED',
@@ -102,7 +123,7 @@ const allProjects = [
     image: '/projects/event-registration.png.png',
   },
   {
-    id: 4,
+    id: 5,
     icon: FaLeaf,
     category: 'Certification Platform',
     accent: '#D97706',
@@ -122,7 +143,7 @@ const allProjects = [
     image: '/projects/food-certification.png',
   },
   {
-    id: 5,
+    id: 6,
     icon: FaBuilding,
     category: 'Property Development',
     accent: '#b45309',
@@ -142,7 +163,7 @@ const allProjects = [
     image: '/projects/haven-bridge.png',
   },
   {
-    id: 6,
+    id: 7,
     icon: FaChartLine,
     category: 'FinTech / Investment',
     accent: '#0D9488',
@@ -162,7 +183,7 @@ const allProjects = [
     image: '/projects/deal-room.png',
   },
   {
-    id: 7,
+    id: 8,
     icon: FaGraduationCap,
     category: 'EdTech / Web3',
     accent: '#7C3AED',
@@ -182,7 +203,7 @@ const allProjects = [
     image: '/projects/student-opportunity-board.png',
   },
   {
-    id: 8,
+    id: 9,
     icon: FaCheckCircle,
     category: 'Corporate Platform',
     accent: '#DC2626',

@@ -127,7 +127,7 @@ const credentials = [
 ];
 
 const impactStats = [
-  { to: 8, suffix: "", label: "Deployed Platforms" },
+  { to: 9, suffix: "", label: "Deployed Platforms" },
   { to: 5, suffix: "+", label: "Countries Reached" },
   { to: 6000, suffix: "+", label: "Expected Attendees" },
   { to: 200, suffix: "+", label: "Certified Members" },
@@ -609,7 +609,7 @@ export default function Home() {
             <Box>
               <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={3}>Live Platforms</Text>
               <Heading as="h2" fontSize={{ base: '3xl', md: '44px' }} fontWeight="800" color="white" letterSpacing="-0.03em">
-                8 Deployed Projects
+                9 Deployed Projects
               </Heading>
             </Box>
             <ChakraLink as={Link} href="/projects" display="inline-flex" alignItems="center" gap={2} color="gray.400" fontSize="sm" fontWeight="600" _hover={{ color: 'white', textDecoration: 'none' }} transition="color 0.15s" flexShrink={0}>
@@ -625,8 +625,9 @@ export default function Home() {
             variants={stagger}
           >
             {[
+              { name: 'AFSF Monitoring & Evaluation Platform', category: 'M&E / Data', accent: '#2563eb' },
+              { name: 'IDTM Rwanda', category: 'Marketplace / Travel', accent: '#059669' },
               { name: 'AFSF Community of Practice', category: 'Community Platform', accent: '#16a34a' },
-              { name: 'AFSF Commitments Tracker', category: 'M&E / Data', accent: '#2563eb' },
               { name: 'AFSF Forum 2026 Registration', category: 'Event Platform', accent: '#7C3AED' },
               { name: 'Food Safety Certification', category: 'Certification', accent: '#D97706' },
               { name: 'HavenBridge Development', category: 'Property Dev', accent: '#b45309' },
