@@ -127,7 +127,7 @@ const skills: { category: string; items: string[]; accent: string; accentBg: str
 ];
 
 const impactStats = [
-  { to: 8, suffix: "", label: "Deployed Platforms" },
+  { to: 9, suffix: "", label: "Deployed Platforms" },
   { to: 5, suffix: "+", label: "Countries Reached" },
   { to: 6000, suffix: "+", label: "Expected Attendees" },
   { to: 200, suffix: "+", label: "Certified Members" },
