@@ -7,10 +7,6 @@ import {
   FaUsers,
   FaSeedling,
   FaArrowRight,
-  FaLinkedin,
-  FaGithub,
-  FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 import {
   Box,
@@ -25,7 +21,6 @@ import {
   Grid,
   GridItem,
   HStack,
-  Divider,
   Badge,
   Link as ChakraLink,
 } from "@chakra-ui/react";
@@ -117,13 +112,6 @@ const processSteps = [
     description:
       "Build, test, and deploy with thorough documentation and capacity-building support for your teams.",
   },
-];
-
-const credentials = [
-  { label: "Role", value: "IT Consultant · AGRA" },
-  { label: "Location", value: "Kigali, Rwanda" },
-  { label: "Focus", value: "AFS Forum (AFSF)" },
-  { label: "Status", value: "Available for engagements" },
 ];
 
 const impactStats = [
@@ -274,111 +262,80 @@ export default function Home() {
               </MotionVStack>
             </GridItem>
 
-            {/* RIGHT: Profile card */}
+            {/* RIGHT: Portrait */}
             <GridItem display={{ base: "none", lg: "block" }}>
               <MotionBox
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] } as any}
+                position="relative"
               >
+                {/* Ambient glow */}
+                <Box
+                  position="absolute" top="-50px" right="-50px"
+                  w="240px" h="240px" rounded="full"
+                  bg="blue.600" opacity={0.18} filter="blur(70px)"
+                  pointerEvents="none"
+                />
+                <Box
+                  position="absolute" bottom="-30px" left="-30px"
+                  w="200px" h="200px" rounded="full"
+                  bg="green.500" opacity={0.14} filter="blur(60px)"
+                  pointerEvents="none"
+                />
+
+                {/* Offset outline frame — creative depth layer */}
+                <Box
+                  position="absolute" inset="16px"
+                  border="1px solid rgba(255,255,255,0.12)"
+                  rounded="3xl"
+                  transform="rotate(3deg)"
+                  pointerEvents="none"
+                />
+
+                {/* Portrait frame */}
                 <MotionBox
-                  bg="rgba(255,255,255,0.04)"
-                  backdropFilter="blur(20px)"
-                  border="1px solid rgba(255,255,255,0.08)"
-                  rounded="2xl"
-                  p={7}
                   position="relative"
+                  rounded="3xl"
                   overflow="hidden"
-                  animate={{ y: [0, -8, 0] }}
+                  h={{ lg: "460px", xl: "500px" }}
+                  border="1px solid rgba(255,255,255,0.12)"
+                  boxShadow="0 30px 90px rgba(0,0,0,0.5)"
+                  animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" } as any}
                 >
                   <Box
-                    position="absolute" top="-60px" right="-60px"
-                    w="200px" h="200px" rounded="full"
-                    bg="blue.600" opacity={0.12} filter="blur(60px)"
+                    position="absolute" inset={0}
+                    bgImage="url('/Joshua_Alana.jpg')"
+                    bgSize="cover"
+                    bgPosition="top center"
+                  />
+                  <Box
+                    position="absolute" inset={0}
+                    bgGradient="linear(to-b, transparent 55%, rgba(11,17,32,0.6))"
                     pointerEvents="none"
                   />
                   <Box
-                    position="absolute" bottom="-40px" left="-40px"
-                    w="160px" h="160px" rounded="full"
-                    bg="green.500" opacity={0.08} filter="blur(40px)"
+                    position="absolute" inset={0}
+                    bgGradient="linear(180deg, rgba(29,78,216,0.15) 0%, transparent 30%)"
                     pointerEvents="none"
                   />
-
-                  <Flex align="center" gap={4} mb={6}>
-                    <Box position="relative">
-                      <Box
-                        w="72px" h="72px" rounded="full"
-                        flexShrink={0}
-                        border="2px solid rgba(255,255,255,0.1)"
-                        bgImage="url('/Joshua_Alana.jpg')"
-                        bgSize="cover"
-                        bgPosition="center"
-                      />
-                      <Box
-                        position="absolute" bottom={0} right={0}
-                        w={4} h={4} rounded="full" bg="green.400"
-                        border="2px solid" borderColor="gray.900"
-                      />
-                    </Box>
-                    <Box>
-                      <Text fontWeight="700" fontSize="lg" color="white" letterSpacing="-0.01em">
-                        Joshua Alana
-                      </Text>
-                      <Text fontSize="sm" color="gray.400" mt={0.5}>
-                        IT Consultant & Software Engineer
-                      </Text>
-                    </Box>
-                  </Flex>
-
-                  <Divider borderColor="whiteAlpha.100" mb={5} />
-
-                  <VStack align="flex-start" spacing={3} mb={6}>
-                    {credentials.map((c) => (
-                      <Flex key={c.label} justify="space-between" w="full">
-                        <Text fontSize="xs" color="gray.500" fontWeight="600" textTransform="uppercase" letterSpacing="wide">
-                          {c.label}
-                        </Text>
-                        <Text fontSize="xs" color="gray.300" fontWeight="500" textAlign="right" maxW="55%">
-                          {c.value}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </VStack>
-
-                  <Divider borderColor="whiteAlpha.100" mb={5} />
-
-                  <Flex gap={3} justify="center">
-                    <Flex
-                      as="a" href="https://www.linkedin.com/in/joshua-a-5760b3196/" target="_blank"
-                      w={9} h={9} rounded="lg" bg="whiteAlpha.100"
-                      align="center" justify="center"
-                      _hover={{ bg: "blue.600" }} transition="all 0.2s"
-                    >
-                      <Icon as={FaLinkedin} boxSize={4} color="gray.300" />
-                    </Flex>
-                    <Flex
-                      as="a" href="https://github.com/Joshua-Coded" target="_blank"
-                      w={9} h={9} rounded="lg" bg="whiteAlpha.100"
-                      align="center" justify="center"
-                      _hover={{ bg: "gray.600" }} transition="all 0.2s"
-                    >
-                      <Icon as={FaGithub} boxSize={4} color="gray.300" />
-                    </Flex>
-                    <Flex
-                      as="a" href="mailto:opportunityjobs290@gmail.com"
-                      w={9} h={9} rounded="lg" bg="whiteAlpha.100"
-                      align="center" justify="center"
-                      _hover={{ bg: "brand.primary" }} transition="all 0.2s"
-                    >
-                      <Icon as={FaEnvelope} boxSize={4} color="gray.300" />
-                    </Flex>
-                    <Flex align="center" gap={1.5} ml="auto">
-                      <Icon as={FaMapMarkerAlt} boxSize={3} color="gray.500" />
-                      <Text fontSize="xs" color="gray.500">Kigali, Rwanda</Text>
-                    </Flex>
-                  </Flex>
+                  {/* Brand-gradient accent line */}
+                  <Box
+                    position="absolute" bottom={0} left={0} right={0} h="4px"
+                    bgGradient="linear(90deg, #60A5FA, #34D399)"
+                  />
                 </MotionBox>
+
+                {/* Rotated gradient chip — decorative signature mark */}
+                <Box
+                  position="absolute" top="-18px" left="-18px"
+                  w="52px" h="52px"
+                  bgGradient="linear(135deg, #60A5FA, #34D399)"
+                  rounded="xl"
+                  transform="rotate(12deg)"
+                  boxShadow="0 14px 34px rgba(52,211,153,0.35)"
+                />
               </MotionBox>
             </GridItem>
           </Grid>
