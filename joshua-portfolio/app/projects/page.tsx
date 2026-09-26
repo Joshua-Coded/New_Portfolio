@@ -282,7 +282,7 @@ export default function Projects() {
             </MotionBox>
             <MotionBox variants={fadeUp}>
               <Box textAlign={{ base: 'left', md: 'right' }} flexShrink={0}>
-                <Text fontSize="5xl" fontWeight="800" color="gray.900" letterSpacing="-0.04em">
+                <Text fontFamily="heading" fontSize="5xl" fontWeight="600" color="gray.900" letterSpacing="-0.02em">
                   {allProjects.length}
                 </Text>
                 <Text fontSize="sm" color="gray.600" fontWeight="500">Live Platforms</Text>
@@ -353,9 +353,10 @@ export default function Projects() {
                         {project.stats.map((stat) => (
                           <Box key={stat.label}>
                             <Text
-                              fontSize="2xl" fontWeight="800"
+                              fontFamily="heading"
+                              fontSize="2xl" fontWeight="600"
                               color={project.accent}
-                              letterSpacing="-0.025em" lineHeight="1" mb={1}
+                              letterSpacing="-0.015em" lineHeight="1" mb={1}
                             >
                               {stat.value}
                             </Text>

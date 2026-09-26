@@ -215,20 +215,7 @@ export default function Contact() {
                 mb={6}
               >
                 Get In{" "}
-                <Box
-                  as="span"
-                  bgGradient="linear(135deg, #60A5FA, #34D399)"
-                  bgClip="text"
-                  color="transparent"
-                  sx={{
-                    backgroundSize: "200% 100%",
-                    animation: "shimmer 4s linear infinite",
-                    "@keyframes shimmer": {
-                      "0%": { backgroundPosition: "0% 50%" },
-                      "100%": { backgroundPosition: "200% 50%" },
-                    },
-                  }}
-                >
+                <Box as="span" color="brand.primary" fontStyle="italic">
                   Touch
                 </Box>
               </Heading>
@@ -590,16 +577,15 @@ export default function Contact() {
                       pointerEvents="none"
                     />
                     <Text
-                      fontSize="sm" color="gray.300" mb={4}
-                      fontStyle="italic" lineHeight="1.8" position="relative"
+                      fontFamily="heading"
+                      fontSize="md" color="gray.200" mb={4} fontWeight="500"
+                      fontStyle="italic" lineHeight="1.6" position="relative"
                     >
                       &ldquo;Technology that does not serve people and communities
                       is just expensive noise.&rdquo;
                     </Text>
                     <Text
-                      bgGradient="linear(135deg, #60A5FA, #34D399)"
-                      bgClip="text"
-                      color="transparent"
+                      color="blue.300"
                       fontWeight="700"
                       fontSize="xs"
                       position="relative"

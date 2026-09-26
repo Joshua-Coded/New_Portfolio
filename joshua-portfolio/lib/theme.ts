@@ -32,7 +32,7 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
+    heading: `var(--font-newsreader), Georgia, 'Times New Roman', serif`,
     body: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
     mono: `'Courier New', monospace`,
   },
@@ -83,8 +83,8 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
-        fontWeight: 800,
-        letterSpacing: '-0.025em',
+        fontWeight: 600,
+        letterSpacing: '-0.015em',
       },
     },
   },

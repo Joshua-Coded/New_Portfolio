@@ -183,20 +183,7 @@ export default function Home() {
                     letterSpacing="-0.03em"
                   >
                     Building{" "}
-                    <Box
-                      as="span"
-                      bgGradient="linear(135deg, #60A5FA, #34D399)"
-                      bgClip="text"
-                      color="transparent"
-                      sx={{
-                        backgroundSize: "200% 100%",
-                        animation: "shimmer 4s linear infinite",
-                        "@keyframes shimmer": {
-                          "0%": { backgroundPosition: "0% 50%" },
-                          "100%": { backgroundPosition: "200% 50%" },
-                        },
-                      }}
-                    >
+                    <Box as="span" color="brand.primary" fontStyle="italic">
                       Technology
                     </Box>
                     {" "}for{"\n"}Development Impact
@@ -359,12 +346,11 @@ export default function Home() {
             {impactStats.map((stat) => (
               <MotionBox key={stat.label} variants={fadeUp} textAlign="center">
                 <Text
+                  fontFamily="heading"
                   fontSize={{ base: "4xl", md: "52px" }}
-                  fontWeight="800"
-                  bgGradient="linear(135deg, gray.900, gray.500)"
-                  bgClip="text"
-                  color="transparent"
-                  letterSpacing="-0.04em"
+                  fontWeight="600"
+                  color="gray.900"
+                  letterSpacing="-0.02em"
                   lineHeight="1"
                   mb={2}
                 >
@@ -664,12 +650,7 @@ export default function Home() {
                   maxW="600px"
                 >
                   Ready to work{" "}
-                  <Box
-                    as="span"
-                    bgGradient="linear(135deg, #60A5FA, #34D399)"
-                    bgClip="text"
-                    color="transparent"
-                  >
+                  <Box as="span" color="blue.300" fontStyle="italic">
                     together?
                   </Box>
                 </Heading>
