@@ -140,7 +140,7 @@ export default function About() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <Box
         position="relative"
-        bg="white"
+        bg="#F8F7F4"
         pt={{ base: 28, md: 36 }}
         pb={{ base: 14, md: 18 }}
         overflow="hidden"
@@ -197,9 +197,9 @@ export default function About() {
       {/* ── IMPACT STATS ─────────────────────────────────────────── */}
       <Box
         py={16}
-        bg="#F8FAFC"
-        borderTop="1px solid rgba(15,23,42,0.06)"
-        borderBottom="1px solid rgba(15,23,42,0.06)"
+        bg="#F8F7F4"
+        borderTop="1px solid rgba(15,23,42,0.08)"
+        borderBottom="1px solid rgba(15,23,42,0.08)"
       >
         <Container maxW="container.xl">
           <MotionSimpleGrid

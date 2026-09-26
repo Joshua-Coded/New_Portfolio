@@ -174,7 +174,7 @@ export default function Contact() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <Box
         position="relative"
-        bg="white"
+        bg="#F8F7F4"
         pt={{ base: 28, md: 36 }}
         pb={{ base: 14, md: 18 }}
         overflow="hidden"

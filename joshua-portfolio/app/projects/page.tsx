@@ -232,7 +232,7 @@ export default function Projects() {
       {/* HERO */}
       <Box
         position="relative"
-        bg="white"
+        bg="#F8F7F4"
         pt={{ base: 32, md: 40 }}
         pb={{ base: 16, md: 20 }}
         overflow="hidden"

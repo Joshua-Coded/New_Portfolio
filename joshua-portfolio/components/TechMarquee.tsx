@@ -12,7 +12,7 @@ const items = [
 export function TechMarquee() {
   const doubled = [...items, ...items]
   return (
-    <Box overflow="hidden" py={5} bg="#F8FAFC" borderTop="1px solid rgba(15,23,42,0.06)" borderBottom="1px solid rgba(15,23,42,0.06)">
+    <Box overflow="hidden" py={5} bg="#F8F7F4" borderTop="1px solid rgba(15,23,42,0.08)" borderBottom="1px solid rgba(15,23,42,0.08)">
       <MotionFlex
         align="center"
         animate={{ x: ['0%', '-50%'] }}

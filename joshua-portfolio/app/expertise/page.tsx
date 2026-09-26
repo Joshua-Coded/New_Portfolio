@@ -185,7 +185,7 @@ export default function Expertise() {
     <Box minH="100vh" bg="#F8F7F4">
 
       {/* Hero */}
-      <Box position="relative" bg="white" pt={{ base: 28, md: 36 }} pb={{ base: 14, md: 18 }} overflow="hidden">
+      <Box position="relative" bg="#F8F7F4" pt={{ base: 28, md: 36 }} pb={{ base: 14, md: 18 }} overflow="hidden">
         <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.08) 0%, transparent 65%)" pointerEvents="none" />
         <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
         <Container maxW="container.xl" position="relative">

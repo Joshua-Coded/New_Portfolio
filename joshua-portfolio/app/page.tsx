@@ -128,7 +128,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <Box
         position="relative"
-        bg="white"
+        bg="#F8F7F4"
         pt={{ base: 28, md: 36 }}
         pb={{ base: 20, md: 28 }}
         overflow="hidden"
@@ -333,7 +333,7 @@ export default function Home() {
       <TechMarquee />
 
       {/* ── IMPACT STATS ─────────────────────────────────────────── */}
-      <Box py={20} bg="white">
+      <Box py={20} bg="#F8F7F4">
         <Container maxW="container.xl">
           <MotionSimpleGrid
             columns={{ base: 2, md: 4 }}
