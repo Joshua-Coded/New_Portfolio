@@ -59,7 +59,7 @@ const services = [
     title: "Agricultural Technology",
     description:
       "End-to-end technology solutions designed for food systems and agricultural development programs across Sub-Saharan Africa.",
-    accent: "#1D4ED8",
+    accent: "brand.primary",
     accentBg: "#EFF6FF",
     deliverables: [
       "Agricultural data management platforms",
@@ -186,7 +186,7 @@ export default function Expertise() {
 
       {/* Hero */}
       <Box position="relative" bg="#F8F7F4" pt={{ base: 28, md: 36 }} pb={{ base: 14, md: 18 }} overflow="hidden">
-        <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.08) 0%, transparent 65%)" pointerEvents="none" />
+        <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(166,99,29,0.08) 0%, transparent 65%)" pointerEvents="none" />
         <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
         <Container maxW="container.xl" position="relative">
           <MotionBox
@@ -195,7 +195,7 @@ export default function Expertise() {
             variants={heroStagger}
           >
             <MotionBox variants={fadeUp}>
-              <Text fontSize="xs" fontWeight="700" color="blue.600" letterSpacing="widest" textTransform="uppercase" mb={4}>Capabilities</Text>
+              <Text fontSize="xs" fontWeight="700" color="brand.primaryDark" letterSpacing="widest" textTransform="uppercase" mb={4}>Capabilities</Text>
             </MotionBox>
             <MotionBox variants={fadeUp}>
               <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="gray.900" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>Expertise &amp; Services</Heading>
@@ -226,7 +226,7 @@ export default function Expertise() {
                 variants={fadeUp}
                 bg="white"
                 borderWidth={1}
-                borderColor="gray.200"
+                borderColor="brand.border"
                 borderTop={`3px solid ${s.accent}`}
                 rounded="xl"
                 p={7}
@@ -317,7 +317,7 @@ export default function Expertise() {
           variants={fadeUp}
           bg="white"
           borderWidth={1}
-          borderColor="gray.200"
+          borderColor="brand.border"
           rounded="2xl"
           p={10}
           boxShadow="sm"
@@ -368,7 +368,7 @@ export default function Expertise() {
                   fontWeight="600"
                   fontSize="sm"
                   borderWidth={1}
-                  borderColor="gray.200"
+                  borderColor="brand.border"
                   _hover={{ bg: "blue.50", color: "brand.primary", borderColor: "blue.200" }}
                   transition="all 0.2s"
                   cursor="default"
@@ -425,7 +425,7 @@ export default function Expertise() {
                 variants={fadeUp}
                 bg="white"
                 borderWidth={1}
-                borderColor="gray.200"
+                borderColor="brand.border"
                 rounded="xl"
                 p={6}
                 boxShadow="sm"
@@ -496,7 +496,7 @@ export default function Expertise() {
                 fontWeight="600"
                 fontSize="sm"
                 flexShrink={0}
-                _hover={{ bg: "#1e40af", textDecoration: "none" }}
+                _hover={{ bg: "brand.primaryDark", textDecoration: "none" }}
                 transition="all 0.2s"
               >
                 Start a Conversation

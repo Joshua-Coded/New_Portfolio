@@ -48,19 +48,19 @@ const socialLinks = [
     icon: FaEnvelope,
     href: 'mailto:opportunityjobs290@gmail.com',
     label: 'Email',
-    color: '#60A5FA',
+    color: 'brand.primaryLight',
   },
 ]
 
 export default function Footer() {
   return (
-    <Box as="footer" bg="#0B1120" position="relative" overflow="hidden">
+    <Box as="footer" bg="brand.navy" position="relative" overflow="hidden">
       {/* Background glow */}
       <Box
         position="absolute" top="-100px" left="50%"
         transform="translateX(-50%)"
         w="800px" h="300px"
-        bgGradient="radial(ellipse, rgba(29,78,216,0.15) 0%, transparent 70%)"
+        bgGradient="radial(ellipse, rgba(166,99,29,0.15) 0%, transparent 70%)"
         pointerEvents="none"
       />
       <Box
@@ -97,7 +97,7 @@ export default function Footer() {
             display="inline-flex"
             alignItems="center"
             gap={2}
-            bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+            bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
             color="white"
             px={7}
             py={3.5}
@@ -106,10 +106,10 @@ export default function Footer() {
             fontWeight="700"
             flexShrink={0}
             _hover={{
-              bgGradient: 'linear(135deg, #1e40af, #1D4ED8)',
+              bgGradient: 'linear(135deg, brand.primaryDark, brand.primary)',
               textDecoration: 'none',
               transform: 'translateY(-2px)',
-              boxShadow: '0 12px 32px rgba(29,78,216,0.4)',
+              boxShadow: '0 12px 32px rgba(166,99,29,0.4)',
             }}
             transition="all 0.2s"
           >
@@ -139,9 +139,9 @@ export default function Footer() {
 
             {/* Availability */}
             <Flex align="center" gap={2} mb={6}>
-              <Box w={2} h={2} rounded="full" bg="green.400" flexShrink={0}
+              <Box w={2} h={2} rounded="full" bg="brand.status" flexShrink={0}
                 sx={{ animation: 'pulse 2s infinite' }} />
-              <Text fontSize="xs" color="green.400" fontWeight="600">
+              <Text fontSize="xs" color="brand.status" fontWeight="600">
                 Available for engagements
               </Text>
             </Flex>

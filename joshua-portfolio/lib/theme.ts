@@ -8,25 +8,33 @@ const config = {
 const theme = extendTheme({
   config,
   colors: {
+    // "Sahel Dusk" — charcoal-green surface, ochre primary accent, terracotta
+    // secondary accent. Replaces the previous navy/indigo/green system.
     brand: {
-      primary: '#1D4ED8',
-      secondary: '#059669',
-      navy: '#0F172A',
-      navyLight: '#1E293B',
-      surface: '#F8FAFC',
-      muted: '#64748B',
-      border: '#E2E8F0',
+      primary: '#A6631D',      // golden ochre — CTAs, hero emphasis word, links
+      primaryDark: '#8F551A',  // gradient/hover start, or accent text on light bg
+      primaryLight: '#C17817', // gradient/hover end, lighter tint
+      primaryTint: '#D9A056',  // light ochre for text/icons on dark surfaces
+      secondary: '#A8492B',    // burnt terracotta — secondary accent
+      secondaryDark: '#8A3B22',
+      secondaryLight: '#C2624A',
+      navy: '#1B2620',         // deep charcoal-green dark surface (was navy blue)
+      navyLight: '#243530',
+      surface: '#F8F7F4',      // warm off-white base
+      muted: '#6B6058',        // warm muted text
+      border: '#E3DCCF',       // warm border/divider
+      status: '#5B7A4B',       // moss green — "available" status dot only
     },
   },
   styles: {
     global: {
       body: {
-        bg: '#FFFFFF',
-        color: '#0F172A',
+        bg: '#F8F7F4',
+        color: '#211B16',
         fontFamily: `var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`,
       },
       '*::selection': {
-        bg: '#1D4ED8',
+        bg: '#A6631D',
         color: 'white',
       },
     },
@@ -49,10 +57,10 @@ const theme = extendTheme({
         outline: {
           field: {
             borderRadius: '8px',
-            borderColor: '#E2E8F0',
+            borderColor: '#E3DCCF',
             bg: 'white',
-            _hover: { borderColor: '#1D4ED8' },
-            _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+            _hover: { borderColor: '#A6631D' },
+            _focus: { borderColor: '#A6631D', boxShadow: '0 0 0 1px #A6631D' },
           },
         },
       },
@@ -61,10 +69,10 @@ const theme = extendTheme({
       variants: {
         outline: {
           borderRadius: '8px',
-          borderColor: '#E2E8F0',
+          borderColor: '#E3DCCF',
           bg: 'white',
-          _hover: { borderColor: '#1D4ED8' },
-          _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+          _hover: { borderColor: '#A6631D' },
+          _focus: { borderColor: '#A6631D', boxShadow: '0 0 0 1px #A6631D' },
         },
       },
     },
@@ -73,10 +81,10 @@ const theme = extendTheme({
         outline: {
           field: {
             borderRadius: '8px',
-            borderColor: '#E2E8F0',
+            borderColor: '#E3DCCF',
             bg: 'white',
-            _hover: { borderColor: '#1D4ED8' },
-            _focus: { borderColor: '#1D4ED8', boxShadow: '0 0 0 1px #1D4ED8' },
+            _hover: { borderColor: '#A6631D' },
+            _focus: { borderColor: '#A6631D', boxShadow: '0 0 0 1px #A6631D' },
           },
         },
       },

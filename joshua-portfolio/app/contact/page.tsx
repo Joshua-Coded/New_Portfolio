@@ -73,8 +73,8 @@ const socialLinks = [
     label: "LinkedIn",
     value: "Joshua Alana",
     href: "https://www.linkedin.com/in/joshua-a-5760b3196/",
-    accent: "#60A5FA",
-    hoverBg: "blue.600",
+    accent: "brand.primaryLight",
+    hoverBg: "brand.primaryDark",
   },
   {
     icon: FaGithub,
@@ -89,8 +89,8 @@ const socialLinks = [
     label: "Email",
     value: "opportunityjobs290@gmail.com",
     href: "mailto:opportunityjobs290@gmail.com",
-    accent: "#34D399",
-    hoverBg: "green.600",
+    accent: "brand.secondaryLight",
+    hoverBg: "brand.secondaryDark",
   },
 ];
 
@@ -158,9 +158,9 @@ export default function Contact() {
 
   const inputStyles = {
     bg: "gray.50",
-    borderColor: "gray.200",
-    _hover: { borderColor: "blue.400", bg: "white" },
-    _focus: { borderColor: "blue.500", boxShadow: "0 0 0 1px #3B82F6", bg: "white" },
+    borderColor: "brand.border",
+    _hover: { borderColor: "brand.primaryTint", bg: "white" },
+    _focus: { borderColor: "brand.primary", boxShadow: "0 0 0 1px #A6631D", bg: "white" },
     color: "gray.800",
     fontSize: "sm",
     h: "46px",
@@ -181,8 +181,8 @@ export default function Contact() {
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(29,78,216,0.09) 0%, transparent 60%),
-                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(5,150,105,0.08) 0%, transparent 55%)"
+          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(166,99,29,0.09) 0%, transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(168,73,43,0.08) 0%, transparent 55%)"
           pointerEvents="none"
         />
         <Box
@@ -196,10 +196,10 @@ export default function Contact() {
           <MotionBox initial="hidden" animate="show" variants={stagger}>
             <MotionBox variants={fadeUp}>
               <Flex align="center" gap={2} mb={4}>
-                <Box w={2} h={2} rounded="full" bg="green.500"
+                <Box w={2} h={2} rounded="full" bg="brand.status"
                   sx={{ animation: "pulse 2s infinite" }}
                 />
-                <Text fontSize="xs" fontWeight="700" color="blue.600" letterSpacing="widest" textTransform="uppercase">
+                <Text fontSize="xs" fontWeight="700" color="brand.primaryDark" letterSpacing="widest" textTransform="uppercase">
                   Let&apos;s Talk
                 </Text>
               </Flex>
@@ -250,7 +250,7 @@ export default function Contact() {
                 <Box
                   bg="white"
                   borderWidth={1}
-                  borderColor="gray.100"
+                  borderColor="brand.border"
                   rounded="2xl"
                   p={{ base: 6, md: 10 }}
                   boxShadow="0 4px 24px rgba(0,0,0,0.06)"
@@ -260,7 +260,7 @@ export default function Contact() {
                   <Box
                     position="absolute" top="-60px" right="-60px"
                     w="200px" h="200px" rounded="full"
-                    bg="blue.400" opacity={0.04} filter="blur(60px)"
+                    bg="brand.primaryTint" opacity={0.04} filter="blur(60px)"
                     pointerEvents="none"
                   />
 
@@ -337,9 +337,9 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="Select enquiry type"
                           bg="gray.50"
-                          borderColor="gray.200"
-                          _hover={{ borderColor: "blue.400", bg: "white" }}
-                          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px #3B82F6", bg: "white" }}
+                          borderColor="brand.border"
+                          _hover={{ borderColor: "brand.primaryTint", bg: "white" }}
+                          _focus={{ borderColor: "brand.primary", boxShadow: "0 0 0 1px #A6631D", bg: "white" }}
                           color="gray.800"
                           fontSize="sm"
                           h="46px"
@@ -369,9 +369,9 @@ export default function Contact() {
                           placeholder="Describe your project, program context, or enquiry…"
                           rows={6}
                           bg="gray.50"
-                          borderColor="gray.200"
-                          _hover={{ borderColor: "blue.400", bg: "white" }}
-                          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px #3B82F6", bg: "white" }}
+                          borderColor="brand.border"
+                          _hover={{ borderColor: "brand.primaryTint", bg: "white" }}
+                          _focus={{ borderColor: "brand.primary", boxShadow: "0 0 0 1px #A6631D", bg: "white" }}
                           color="gray.800"
                           fontSize="sm"
                           rounded="lg"
@@ -384,7 +384,7 @@ export default function Contact() {
                         type="submit"
                         w="full"
                         h="52px"
-                        bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                        bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                         color="white"
                         fontWeight="700"
                         fontSize="sm"
@@ -392,9 +392,9 @@ export default function Contact() {
                         loadingText="Sending…"
                         rightIcon={<FaArrowRight size={12} />}
                         _hover={{
-                          bgGradient: "linear(135deg, #1e40af, #1D4ED8)",
+                          bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
                           transform: "translateY(-2px)",
-                          boxShadow: "0 12px 32px rgba(29,78,216,0.4)",
+                          boxShadow: "0 12px 32px rgba(166,99,29,0.4)",
                         }}
                         transition="all 0.2s"
                       >
@@ -420,7 +420,7 @@ export default function Contact() {
                 {/* Social links — dark glassmorphism */}
                 <MotionBox variants={fadeRight}>
                   <Box
-                    bg="#0D1627"
+                    bg="brand.navy"
                     border="1px solid rgba(255,255,255,0.08)"
                     rounded="2xl"
                     p={6}
@@ -430,7 +430,7 @@ export default function Contact() {
                     <Box
                       position="absolute" top="-50px" right="-50px"
                       w="160px" h="160px" rounded="full"
-                      bg="blue.600" opacity={0.1} filter="blur(50px)"
+                      bg="brand.primaryDark" opacity={0.1} filter="blur(50px)"
                       pointerEvents="none"
                     />
                     <Text
@@ -485,7 +485,7 @@ export default function Contact() {
                 {/* Availability card — dark */}
                 <MotionBox variants={fadeRight}>
                   <Box
-                    bg="#0D1627"
+                    bg="brand.navy"
                     border="1px solid rgba(255,255,255,0.08)"
                     rounded="2xl"
                     p={6}
@@ -495,7 +495,7 @@ export default function Contact() {
                     <Box
                       position="absolute" bottom="-40px" left="-40px"
                       w="140px" h="140px" rounded="full"
-                      bg="green.500" opacity={0.08} filter="blur(40px)"
+                      bg="brand.secondary" opacity={0.08} filter="blur(40px)"
                       pointerEvents="none"
                     />
                     <Text
@@ -506,8 +506,8 @@ export default function Contact() {
                     </Text>
                     <VStack align="flex-start" spacing={4} mb={5}>
                       <Flex align="center" gap={3}>
-                        <Flex w={8} h={8} rounded="md" bg="rgba(52,211,153,0.1)" align="center" justify="center">
-                          <Box w={2} h={2} rounded="full" bg="green.400"
+                        <Flex w={8} h={8} rounded="md" bg="rgba(194,98,74,0.1)" align="center" justify="center">
+                          <Box w={2} h={2} rounded="full" bg="brand.status"
                             sx={{ animation: "pulse 2s infinite" }}
                           />
                         </Flex>
@@ -519,8 +519,8 @@ export default function Contact() {
                         </Box>
                       </Flex>
                       <Flex align="center" gap={3}>
-                        <Flex w={8} h={8} rounded="md" bg="rgba(96,165,250,0.1)" align="center" justify="center">
-                          <Icon as={FaMapMarkerAlt} boxSize={3.5} color="blue.400" />
+                        <Flex w={8} h={8} rounded="md" bg="rgba(193,120,23,0.1)" align="center" justify="center">
+                          <Icon as={FaMapMarkerAlt} boxSize={3.5} color="brand.primaryTint" />
                         </Flex>
                         <Box>
                           <Text fontSize="sm" fontWeight="600" color="gray.200">Kigali, Rwanda</Text>
@@ -549,7 +549,7 @@ export default function Contact() {
                     <VStack align="flex-start" spacing={2}>
                       {openTo.map((item) => (
                         <Flex key={item} align="flex-start" gap={2.5}>
-                          <Icon as={FaCheckCircle} boxSize={3} color="green.400" flexShrink={0} mt={0.5} />
+                          <Icon as={FaCheckCircle} boxSize={3} color="brand.status" flexShrink={0} mt={0.5} />
                           <Text fontSize="xs" color="gray.400" lineHeight="1.6">
                             {item}
                           </Text>
@@ -562,9 +562,9 @@ export default function Contact() {
                 {/* Quote — dark with gradient text */}
                 <MotionBox variants={fadeRight}>
                   <Box
-                    bg="#0B1120"
+                    bg="brand.navy"
                     borderLeft="3px solid"
-                    borderLeftColor="blue.500"
+                    borderLeftColor="brand.primary"
                     rounded="xl"
                     p={6}
                     position="relative"
@@ -573,7 +573,7 @@ export default function Contact() {
                     <Box
                       position="absolute" top="-30px" right="-30px"
                       w="120px" h="120px" rounded="full"
-                      bg="blue.600" opacity={0.12} filter="blur(40px)"
+                      bg="brand.primaryDark" opacity={0.12} filter="blur(40px)"
                       pointerEvents="none"
                     />
                     <Text
@@ -585,7 +585,7 @@ export default function Contact() {
                       is just expensive noise.&rdquo;
                     </Text>
                     <Text
-                      color="blue.300"
+                      color="brand.primaryTint"
                       fontWeight="700"
                       fontSize="xs"
                       position="relative"

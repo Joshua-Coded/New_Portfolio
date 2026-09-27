@@ -60,8 +60,8 @@ const services = [
     title: "Agricultural Technology",
     description:
       "Digital platforms and data systems that drive food security programs across Sub-Saharan Africa.",
-    accent: "#60A5FA",
-    accentBg: "rgba(96,165,250,0.1)",
+    accent: "brand.primaryLight",
+    accentBg: "rgba(193,120,23,0.1)",
     link: "/expertise",
   },
   {
@@ -69,8 +69,8 @@ const services = [
     title: "Data & M&E Systems",
     description:
       "End-to-end monitoring frameworks and data pipelines that measure program performance at scale.",
-    accent: "#34D399",
-    accentBg: "rgba(52,211,153,0.1)",
+    accent: "brand.secondaryLight",
+    accentBg: "rgba(194,98,74,0.1)",
     link: "/expertise",
   },
   {
@@ -135,8 +135,8 @@ export default function Home() {
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(29,78,216,0.09) 0%, transparent 60%),
-                   radial-gradient(ellipse 50% 40% at 10% 80%, rgba(5,150,105,0.08) 0%, transparent 55%)"
+          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(166,99,29,0.09) 0%, transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 10% 80%, rgba(168,73,43,0.08) 0%, transparent 55%)"
           pointerEvents="none"
         />
         <Box
@@ -164,7 +164,7 @@ export default function Home() {
               >
                 <MotionBox variants={fadeUp} mb={7}>
                   <Flex align="center" gap={2}>
-                    <Box w={2} h={2} rounded="full" bg="green.500" flexShrink={0}
+                    <Box w={2} h={2} rounded="full" bg="brand.status" flexShrink={0}
                       sx={{ animation: "pulse 2s infinite" }}
                     />
                     <Text fontSize="sm" color="gray.600" fontWeight="500">
@@ -208,16 +208,16 @@ export default function Home() {
                       as={Link}
                       href="/expertise"
                       size="lg"
-                      bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                      bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                       color="white"
                       px={8}
                       h="52px"
                       fontSize="sm"
                       fontWeight="600"
                       _hover={{
-                        bgGradient: "linear(135deg, #1e40af, #1D4ED8)",
+                        bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
                         transform: "translateY(-2px)",
-                        boxShadow: "0 12px 32px rgba(29,78,216,0.4)",
+                        boxShadow: "0 12px 32px rgba(166,99,29,0.4)",
                       }}
                       transition="all 0.2s"
                       rightIcon={<FaArrowRight size={12} />}
@@ -261,13 +261,13 @@ export default function Home() {
                 <Box
                   position="absolute" top="-50px" right="-50px"
                   w="240px" h="240px" rounded="full"
-                  bg="blue.500" opacity={0.14} filter="blur(70px)"
+                  bg="brand.primary" opacity={0.14} filter="blur(70px)"
                   pointerEvents="none"
                 />
                 <Box
                   position="absolute" bottom="-30px" left="-30px"
                   w="200px" h="200px" rounded="full"
-                  bg="green.500" opacity={0.12} filter="blur(60px)"
+                  bg="brand.secondary" opacity={0.12} filter="blur(60px)"
                   pointerEvents="none"
                 />
 
@@ -299,18 +299,18 @@ export default function Home() {
                   />
                   <Box
                     position="absolute" inset={0}
-                    bgGradient="linear(to-b, transparent 55%, rgba(11,17,32,0.6))"
+                    bgGradient="linear(to-b, transparent 55%, rgba(27,38,32,0.6))"
                     pointerEvents="none"
                   />
                   <Box
                     position="absolute" inset={0}
-                    bgGradient="linear(180deg, rgba(29,78,216,0.15) 0%, transparent 30%)"
+                    bgGradient="linear(180deg, rgba(166,99,29,0.15) 0%, transparent 30%)"
                     pointerEvents="none"
                   />
                   {/* Brand-gradient accent line */}
                   <Box
                     position="absolute" bottom={0} left={0} right={0} h="4px"
-                    bgGradient="linear(90deg, #60A5FA, #34D399)"
+                    bgGradient="linear(90deg, brand.primaryLight, brand.secondaryLight)"
                   />
                 </MotionBox>
 
@@ -318,10 +318,10 @@ export default function Home() {
                 <Box
                   position="absolute" top="-18px" left="-18px"
                   w="52px" h="52px"
-                  bgGradient="linear(135deg, #60A5FA, #34D399)"
+                  bgGradient="linear(135deg, brand.primaryLight, brand.secondaryLight)"
                   rounded="xl"
                   transform="rotate(12deg)"
-                  boxShadow="0 14px 34px rgba(52,211,153,0.35)"
+                  boxShadow="0 14px 34px rgba(194,98,74,0.35)"
                 />
               </MotionBox>
             </GridItem>
@@ -413,14 +413,14 @@ export default function Home() {
                 variants={fadeUp}
                 bg="white"
                 borderWidth={1}
-                borderColor="gray.100"
+                borderColor="brand.border"
                 rounded="2xl"
                 p={7}
                 transition="all 0.25s"
                 _hover={{
                   boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
                   transform: "translateY(-4px)",
-                  borderColor: "gray.200",
+                  borderColor: "brand.border",
                 }}
               >
                 <Flex
@@ -504,14 +504,14 @@ export default function Home() {
                       bg="gray.50"
                       rounded="xl"
                       borderWidth={1}
-                      borderColor="gray.100"
+                      borderColor="brand.border"
                       align="flex-start"
                       transition="all 0.2s"
-                      _hover={{ bg: "white", boxShadow: "0 8px 32px rgba(0,0,0,0.06)", borderColor: "gray.200" }}
+                      _hover={{ bg: "white", boxShadow: "0 8px 32px rgba(0,0,0,0.06)", borderColor: "brand.border" }}
                     >
                       <Flex
                         w={10} h={10} rounded="full"
-                        bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                        bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                         align="center" justify="center" flexShrink={0}
                       >
                         <Text fontSize="xs" fontWeight="800" color="white">
@@ -536,7 +536,7 @@ export default function Home() {
       </Box>
 
       {/* ── LIVE WORK ── */}
-      <Box py={20} bg="#0F172A" borderTop="1px solid rgba(255,255,255,0.05)">
+      <Box py={20} bg="brand.navy" borderTop="1px solid rgba(255,255,255,0.05)">
         <Container maxW="container.xl">
           <MotionFlex
             direction={{ base: 'column', md: 'row' }}
@@ -550,7 +550,7 @@ export default function Home() {
             transition={{ duration: 0.6 } as any}
           >
             <Box>
-              <Text fontSize="xs" fontWeight="700" color="blue.400" letterSpacing="widest" textTransform="uppercase" mb={3}>Live Platforms</Text>
+              <Text fontSize="xs" fontWeight="700" color="brand.primaryTint" letterSpacing="widest" textTransform="uppercase" mb={3}>Live Platforms</Text>
               <Heading as="h2" fontSize={{ base: '3xl', md: '44px' }} fontWeight="800" color="white" letterSpacing="-0.03em">
                 9 Deployed Projects
               </Heading>
@@ -609,7 +609,7 @@ export default function Home() {
             transition={{ duration: 0.7 } as any}
           >
             <Box
-              bg="#0B1120"
+              bg="brand.navy"
               rounded="3xl"
               p={{ base: 10, md: 16 }}
               position="relative"
@@ -618,7 +618,7 @@ export default function Home() {
             >
               <Box
                 position="absolute" inset={0}
-                bgImage="radial-gradient(ellipse 60% 70% at 50% 0%, rgba(29,78,216,0.3) 0%, transparent 65%)"
+                bgImage="radial-gradient(ellipse 60% 70% at 50% 0%, rgba(166,99,29,0.3) 0%, transparent 65%)"
                 pointerEvents="none"
                 rounded="3xl"
               />
@@ -650,7 +650,7 @@ export default function Home() {
                   maxW="600px"
                 >
                   Ready to work{" "}
-                  <Box as="span" color="blue.300" fontStyle="italic">
+                  <Box as="span" color="brand.primaryTint" fontStyle="italic">
                     together?
                   </Box>
                 </Heading>
@@ -663,16 +663,16 @@ export default function Home() {
                     as={Link}
                     href="/contact"
                     size="lg"
-                    bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                    bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                     color="white"
                     fontWeight="700"
                     px={8}
                     h="52px"
                     fontSize="sm"
                     _hover={{
-                      bgGradient: "linear(135deg, #1e40af, #1D4ED8)",
+                      bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
                       transform: "translateY(-2px)",
-                      boxShadow: "0 12px 32px rgba(29,78,216,0.5)",
+                      boxShadow: "0 12px 32px rgba(166,99,29,0.5)",
                     }}
                     transition="all 0.2s"
                     rightIcon={<FaArrowRight size={12} />}

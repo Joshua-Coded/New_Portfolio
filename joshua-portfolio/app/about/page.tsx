@@ -68,8 +68,8 @@ const timeline = [
     title: "IT Consultant",
     organisation: "AGRA — Alliance for a Green Revolution in Africa",
     location: "Kigali, Rwanda",
-    accent: "#60A5FA",
-    accentBg: "rgba(96,165,250,0.08)",
+    accent: "brand.primaryLight",
+    accentBg: "rgba(193,120,23,0.08)",
     description:
       "Leading the development of technology products, data management systems, and monitoring & evaluation frameworks that track program performance across multiple African countries under the AFS Forum (AFSF).",
   },
@@ -78,8 +78,8 @@ const timeline = [
     title: "Software Engineering Graduate",
     organisation: "African Leadership University",
     location: "Kigali, Rwanda",
-    accent: "#34D399",
-    accentBg: "rgba(52,211,153,0.08)",
+    accent: "brand.secondaryLight",
+    accentBg: "rgba(194,98,74,0.08)",
     description:
       "Specialized in low-level systems engineering, artificial intelligence & machine learning, full-stack web development, and blockchain technologies. Built a strong academic foundation in technology applied to African development contexts.",
   },
@@ -99,15 +99,15 @@ const skills: { category: string; items: string[]; accent: string; accentBg: str
   {
     category: "Programming",
     items: ["Python", "JavaScript", "TypeScript", "R", "SQL", "C"],
-    accent: "#60A5FA",
-    accentBg: "rgba(96,165,250,0.1)",
+    accent: "brand.primaryLight",
+    accentBg: "rgba(193,120,23,0.1)",
     icon: FaCode,
   },
   {
     category: "Data & Analytics",
     items: ["Power BI", "Tableau", "PostgreSQL", "TensorFlow", "Statistical Modeling"],
-    accent: "#34D399",
-    accentBg: "rgba(52,211,153,0.1)",
+    accent: "brand.secondaryLight",
+    accentBg: "rgba(194,98,74,0.1)",
     icon: FaChartBar,
   },
   {
@@ -147,8 +147,8 @@ export default function About() {
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(29,78,216,0.09) 0%, transparent 60%),
-                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(5,150,105,0.08) 0%, transparent 55%)"
+          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(166,99,29,0.09) 0%, transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 5% 90%, rgba(168,73,43,0.08) 0%, transparent 55%)"
           pointerEvents="none"
         />
         <Box
@@ -162,7 +162,7 @@ export default function About() {
           <MotionBox initial="hidden" animate="show" variants={stagger}>
             <MotionBox variants={fadeUp}>
               <Text
-                fontSize="xs" fontWeight="700" color="blue.600"
+                fontSize="xs" fontWeight="700" color="brand.primaryDark"
                 letterSpacing="widest" textTransform="uppercase" mb={4}
               >
                 Background
@@ -294,9 +294,9 @@ export default function About() {
                 <MotionBox variants={fadeLeft} w="full">
                   <Box
                     w="full"
-                    bg="#0B1120"
+                    bg="brand.navy"
                     borderLeft="4px solid"
-                    borderLeftColor="blue.500"
+                    borderLeftColor="brand.primary"
                     rounded="xl"
                     p={7}
                     position="relative"
@@ -306,7 +306,7 @@ export default function About() {
                     <Box
                       position="absolute" top="-40px" right="-40px"
                       w="160px" h="160px" rounded="full"
-                      bg="blue.600" opacity={0.1} filter="blur(50px)"
+                      bg="brand.primaryDark" opacity={0.1} filter="blur(50px)"
                       pointerEvents="none"
                     />
                     <Text
@@ -324,7 +324,7 @@ export default function About() {
                       clear line back to development impact.&rdquo;
                     </Text>
                     <Text
-                      color="blue.300"
+                      color="brand.primaryTint"
                       fontWeight="700"
                       fontSize="sm"
                       position="relative"
@@ -345,7 +345,7 @@ export default function About() {
                 variants={fadeRight}
               >
                 <MotionBox
-                  bg="#0D1627"
+                  bg="brand.navy"
                   border="1px solid rgba(255,255,255,0.08)"
                   rounded="2xl"
                   p={8}
@@ -358,13 +358,13 @@ export default function About() {
                   <Box
                     position="absolute" top="-60px" right="-60px"
                     w="200px" h="200px" rounded="full"
-                    bg="blue.600" opacity={0.12} filter="blur(60px)"
+                    bg="brand.primaryDark" opacity={0.12} filter="blur(60px)"
                     pointerEvents="none"
                   />
                   <Box
                     position="absolute" bottom="-40px" left="-40px"
                     w="160px" h="160px" rounded="full"
-                    bg="green.500" opacity={0.08} filter="blur(40px)"
+                    bg="brand.secondary" opacity={0.08} filter="blur(40px)"
                     pointerEvents="none"
                   />
 
@@ -381,7 +381,7 @@ export default function About() {
                       />
                       <Box
                         position="absolute" bottom={0} right={0}
-                        w={4} h={4} rounded="full" bg="green.400"
+                        w={4} h={4} rounded="full" bg="brand.status"
                         border="2px solid" borderColor="gray.900"
                       />
                     </Box>
@@ -396,10 +396,10 @@ export default function About() {
                   </Flex>
 
                   <Flex align="center" gap={2} mb={5}>
-                    <Box w={2} h={2} rounded="full" bg="green.400"
+                    <Box w={2} h={2} rounded="full" bg="brand.status"
                       sx={{ animation: "pulse 2s infinite" }}
                     />
-                    <Text fontSize="xs" color="green.400" fontWeight="600">
+                    <Text fontSize="xs" color="brand.status" fontWeight="600">
                       Available for Engagements
                     </Text>
                   </Flex>
@@ -440,7 +440,7 @@ export default function About() {
                       as="a" href="https://www.linkedin.com/in/joshua-a-5760b3196/" target="_blank"
                       w={9} h={9} rounded="lg" bg="whiteAlpha.100"
                       align="center" justify="center"
-                      _hover={{ bg: "blue.600" }} transition="all 0.2s"
+                      _hover={{ bg: "brand.primaryDark" }} transition="all 0.2s"
                     >
                       <Icon as={FaLinkedin} boxSize={4} color="gray.300" />
                     </Flex>
@@ -520,7 +520,7 @@ export default function About() {
                     pb={10} flex={1}
                     bg="white"
                     borderWidth={1}
-                    borderColor="gray.100"
+                    borderColor="brand.border"
                     borderLeft="3px solid"
                     borderLeftColor={item.accent}
                     rounded="xl"
@@ -604,7 +604,7 @@ export default function About() {
                   variants={fadeUp}
                   bg="white"
                   borderWidth={1}
-                  borderColor="gray.100"
+                  borderColor="brand.border"
                   rounded="2xl"
                   p={7}
                   boxShadow="sm"
@@ -612,7 +612,7 @@ export default function About() {
                   _hover={{
                     boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
                     transform: "translateY(-4px)",
-                    borderColor: "gray.200",
+                    borderColor: "brand.border",
                   }}
                   position="relative"
                   overflow="hidden"
@@ -646,7 +646,7 @@ export default function About() {
                         fontWeight="500"
                         fontSize="xs"
                         border="1px solid"
-                        borderColor="gray.100"
+                        borderColor="brand.border"
                         _hover={{ bg: s.accentBg, color: s.accent, borderColor: s.accentBg }}
                         transition="all 0.2s"
                         cursor="default"
@@ -672,7 +672,7 @@ export default function About() {
             transition={{ duration: 0.7 } as any}
           >
             <Box
-              bg="#0B1120"
+              bg="brand.navy"
               rounded="3xl"
               p={{ base: 10, md: 16 }}
               position="relative"
@@ -681,7 +681,7 @@ export default function About() {
             >
               <Box
                 position="absolute" inset={0}
-                bgImage="radial-gradient(ellipse 60% 70% at 50% 0%, rgba(29,78,216,0.3) 0%, transparent 65%)"
+                bgImage="radial-gradient(ellipse 60% 70% at 50% 0%, rgba(166,99,29,0.3) 0%, transparent 65%)"
                 pointerEvents="none"
                 rounded="3xl"
               />
@@ -713,7 +713,7 @@ export default function About() {
                   maxW="600px"
                 >
                   Let&apos;s build something{" "}
-                  <Box as="span" color="blue.300" fontStyle="italic">
+                  <Box as="span" color="brand.primaryTint" fontStyle="italic">
                     meaningful
                   </Box>
                 </Heading>
@@ -726,16 +726,16 @@ export default function About() {
                     as={Link}
                     href="/contact"
                     size="lg"
-                    bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                    bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                     color="white"
                     fontWeight="700"
                     px={8}
                     h="52px"
                     fontSize="sm"
                     _hover={{
-                      bgGradient: "linear(135deg, #1e40af, #1D4ED8)",
+                      bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
                       transform: "translateY(-2px)",
-                      boxShadow: "0 12px 32px rgba(29,78,216,0.5)",
+                      boxShadow: "0 12px 32px rgba(166,99,29,0.5)",
                     }}
                     transition="all 0.2s"
                     rightIcon={<FaArrowRight size={12} />}

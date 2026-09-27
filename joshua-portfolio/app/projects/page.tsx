@@ -239,7 +239,7 @@ export default function Projects() {
       >
         <Box
           position="absolute" inset={0}
-          bgImage="radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,78,216,0.08) 0%, transparent 65%)"
+          bgImage="radial-gradient(ellipse 70% 50% at 50% 0%, rgba(166,99,29,0.08) 0%, transparent 65%)"
           pointerEvents="none"
         />
         <Box
@@ -261,7 +261,7 @@ export default function Projects() {
           >
             <MotionBox variants={fadeUp}>
               <Box>
-                <Text fontSize="xs" fontWeight="700" color="blue.600"
+                <Text fontSize="xs" fontWeight="700" color="brand.primaryDark"
                   letterSpacing="widest" textTransform="uppercase" mb={4}>
                   Selected Work
                 </Text>
@@ -305,9 +305,9 @@ export default function Projects() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] } as any}
-                  borderTop="1px solid #E2E8F0"
+                  borderTop="1px solid #E3DCCF"
                   py={{ base: 12, md: 16 }}
-                  _last={{ borderBottom: '1px solid #E2E8F0' }}
+                  _last={{ borderBottom: '1px solid #E3DCCF' }}
                 >
                   <Grid
                     templateColumns={{ base: '1fr', lg: '1fr 1fr' }}
@@ -323,7 +323,7 @@ export default function Projects() {
                         <Box w="24px" h="1px" bg="gray.300" />
                         <Badge
                           px={3} py={1} rounded="full"
-                          bg="gray.100" color="gray.600"
+                          bg="brand.border" color="brand.muted"
                           fontSize="xs" fontWeight="600"
                         >
                           {project.category}
@@ -372,7 +372,7 @@ export default function Projects() {
                       <Flex flexWrap="wrap" gap={2} mb={8}>
                         {project.tech.map((t) => (
                           <Badge key={t} px={3} py={1} rounded="full"
-                            bg="gray.100" color="gray.600"
+                            bg="brand.border" color="brand.muted"
                             fontWeight="500" fontSize="xs">
                             {t}
                           </Badge>
@@ -407,7 +407,7 @@ export default function Projects() {
                           rounded="2xl"
                           overflow="hidden"
                           h={{ base: '240px', md: '340px', lg: '400px' }}
-                          border="1px solid #E2E8F0"
+                          border="1px solid #E3DCCF"
                           transition="all 0.35s cubic-bezier(0.4,0,0.2,1)"
                           _hover={{
                             transform: 'scale(1.025)',
@@ -449,7 +449,7 @@ export default function Projects() {
             transition={{ duration: 0.7 } as any}
           >
             <Box
-              bg="#0B1120"
+              bg="brand.navy"
               rounded="3xl"
               p={{ base: 10, md: 14 }}
               position="relative"
@@ -457,13 +457,13 @@ export default function Projects() {
             >
               <Box
                 position="absolute" inset={0}
-                bgImage="radial-gradient(ellipse 50% 80% at 50% 100%, rgba(29,78,216,0.25) 0%, transparent 70%)"
+                bgImage="radial-gradient(ellipse 50% 80% at 50% 100%, rgba(166,99,29,0.25) 0%, transparent 70%)"
                 pointerEvents="none"
                 rounded="3xl"
               />
               <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between" gap={8} position="relative">
                 <Box>
-                  <Text fontSize="xs" fontWeight="700" color="blue.400"
+                  <Text fontSize="xs" fontWeight="700" color="brand.primaryTint"
                     letterSpacing="widest" textTransform="uppercase" mb={3}>
                     Let's Build Together
                   </Text>
@@ -475,14 +475,14 @@ export default function Projects() {
                 <ChakraLink
                   href="/contact"
                   display="inline-flex" alignItems="center" gap={3}
-                  bgGradient="linear(135deg, #1D4ED8, #2563EB)"
+                  bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
                   color="white" px={8} py={4} rounded="xl"
                   fontSize="sm" fontWeight="700" flexShrink={0}
                   _hover={{
-                    bgGradient: 'linear(135deg, #1e40af, #1D4ED8)',
+                    bgGradient: 'linear(135deg, brand.primaryDark, brand.primary)',
                     textDecoration: 'none',
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 16px 40px rgba(29,78,216,0.4)',
+                    boxShadow: '0 16px 40px rgba(166,99,29,0.4)',
                   }}
                   transition="all 0.2s"
                 >

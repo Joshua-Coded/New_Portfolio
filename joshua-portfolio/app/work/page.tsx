@@ -31,7 +31,7 @@ const caseStudies = [
     title: "AFS Forum Data Systems",
     category: "Data Systems",
     categoryColor: { bg: "blue.50", color: "blue.700" },
-    accent: "#1D4ED8",
+    accent: "brand.primary",
     challenge:
       "No unified data infrastructure to track multi-country program implementation across African states.",
     approach:
@@ -115,10 +115,10 @@ export default function Work() {
 
       {/* Hero */}
       <Box position="relative" bg="#F8F7F4" pt={{ base: 28, md: 36 }} pb={{ base: 14, md: 18 }} overflow="hidden">
-        <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,78,216,0.08) 0%, transparent 65%)" pointerEvents="none" />
+        <Box position="absolute" inset={0} bgImage="radial-gradient(ellipse 60% 50% at 50% 0%, rgba(166,99,29,0.08) 0%, transparent 65%)" pointerEvents="none" />
         <Box position="absolute" inset={0} bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)" bgSize="60px 60px" pointerEvents="none" />
         <Container maxW="container.xl" position="relative">
-          <Text fontSize="xs" fontWeight="700" color="blue.600" letterSpacing="widest" textTransform="uppercase" mb={4}>Current Role</Text>
+          <Text fontSize="xs" fontWeight="700" color="brand.primaryDark" letterSpacing="widest" textTransform="uppercase" mb={4}>Current Role</Text>
           <Heading as="h1" fontSize={{ base: '5xl', md: '7xl' }} fontWeight="800" color="gray.900" letterSpacing="-0.04em" lineHeight="0.95" mb={6}>Professional Work</Heading>
           <Text fontSize="lg" color="gray.600" maxW="540px" lineHeight="1.8">IT Consultant at AGRA building technology products and data systems for agricultural transformation under the AFS Forum (AFSF).</Text>
         </Container>
@@ -131,7 +131,7 @@ export default function Work() {
           <Box
             bg="white"
             borderWidth={1}
-            borderColor="gray.200"
+            borderColor="brand.border"
             borderLeft="4px solid"
             borderLeftColor="brand.primary"
             rounded="xl"
@@ -213,7 +213,7 @@ export default function Work() {
                   key={cs.title}
                   bg="white"
                   borderWidth={1}
-                  borderColor="gray.200"
+                  borderColor="brand.border"
                   borderTop={`3px solid ${cs.accent}`}
                   rounded="xl"
                   p={6}
@@ -304,8 +304,8 @@ export default function Work() {
                         px={2}
                         py={0.5}
                         rounded="md"
-                        bg="gray.100"
-                        color="gray.600"
+                        bg="brand.border"
+                        color="brand.muted"
                         fontWeight="500"
                         fontSize="xs"
                       >
@@ -351,7 +351,7 @@ export default function Work() {
               fontWeight="600"
               fontSize="sm"
               flexShrink={0}
-              _hover={{ bg: "#1e40af", textDecoration: "none" }}
+              _hover={{ bg: "brand.primaryDark", textDecoration: "none" }}
               transition="all 0.2s"
             >
               Get In Touch

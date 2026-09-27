@@ -33,7 +33,7 @@ export default function Navbar() {
       position="fixed"
       top={0}
       w="full"
-      bg="rgba(11,17,32,0.92)"
+      bg="rgba(27,38,32,0.92)"
       backdropFilter="blur(16px)"
       borderBottom="1px solid rgba(255,255,255,0.07)"
       zIndex={1000}
@@ -49,7 +49,7 @@ export default function Navbar() {
             fontSize="md"
             color="white"
             letterSpacing="-0.025em"
-            _hover={{ textDecoration: 'none', color: 'blue.400' }}
+            _hover={{ textDecoration: 'none', color: 'brand.primaryTint' }}
             transition="color 0.15s"
           >
             Joshua Alana
@@ -93,7 +93,7 @@ export default function Navbar() {
               h="36px"
               fontSize="sm"
               rounded="md"
-              _hover={{ bg: '#1e40af', boxShadow: '0 4px 14px rgba(29,78,216,0.35)', transform: 'translateY(-1px)' }}
+              _hover={{ bg: 'brand.primaryDark', boxShadow: '0 4px 14px rgba(166,99,29,0.35)', transform: 'translateY(-1px)' }}
               transition="all 0.15s"
             >
               Contact
