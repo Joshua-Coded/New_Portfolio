@@ -116,7 +116,7 @@ const processSteps = [
 
 const impactStats = [
   { to: 9, suffix: "", label: "Deployed Platforms" },
-  { to: 5, suffix: "+", label: "Countries Reached" },
+  { to: 118, suffix: "+", label: "Countries Reached" },
   { to: 6000, suffix: "+", label: "Expected Attendees" },
   { to: 200, suffix: "+", label: "Certified Members" },
 ];
