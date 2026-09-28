@@ -128,123 +128,204 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <Box
         position="relative"
-        bg="brand.navy"
+        bg="#F8F7F4"
         pt={{ base: 28, md: 36 }}
         pb={{ base: 20, md: 28 }}
         overflow="hidden"
       >
-        {/* Photo background */}
         <Box
           position="absolute" inset={0}
-          bgImage="url('/Joshua_Alana.jpg')"
-          bgSize="cover"
-          bgPosition="top center"
-        />
-        {/* Scrim — strong on the left for text legibility, fading right so the photo shows */}
-        <Box
-          position="absolute" inset={0}
-          bgGradient="linear(100deg, rgba(27,38,32,0.97) 0%, rgba(27,38,32,0.94) 35%, rgba(27,38,32,0.55) 65%, rgba(27,38,32,0.25) 100%)"
+          bgImage="radial-gradient(ellipse 80% 60% at 60% 0%, rgba(166,99,29,0.09) 0%, transparent 60%),
+                   radial-gradient(ellipse 50% 40% at 10% 80%, rgba(168,73,43,0.08) 0%, transparent 55%)"
           pointerEvents="none"
         />
         <Box
           position="absolute" inset={0}
-          bgGradient="linear(to-t, rgba(27,38,32,0.5), transparent 40%)"
+          bgImage="linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px)"
+          bgSize="60px 60px"
           pointerEvents="none"
         />
 
         <Container maxW="container.xl" position="relative">
-          <MotionVStack
-            align="flex-start"
-            spacing={0}
-            initial="hidden"
-            animate="show"
-            variants={heroStagger}
-            maxW="640px"
+          <Grid
+            templateColumns={{ base: "1fr", lg: "1fr 420px" }}
+            gap={16}
+            alignItems="center"
           >
-            <MotionBox variants={fadeUp} mb={7}>
-              <Flex align="center" gap={2}>
-                <Box w={2} h={2} rounded="full" bg="brand.status" flexShrink={0}
-                  sx={{ animation: "pulse 2s infinite" }}
+            {/* LEFT */}
+            <GridItem>
+              <MotionVStack
+                align="flex-start"
+                spacing={0}
+                initial="hidden"
+                animate="show"
+                variants={heroStagger}
+              >
+                <MotionBox variants={fadeUp} mb={7}>
+                  <Flex align="center" gap={2}>
+                    <Box w={2} h={2} rounded="full" bg="brand.status" flexShrink={0}
+                      sx={{ animation: "pulse 2s infinite" }}
+                    />
+                    <Text fontSize="sm" color="gray.600" fontWeight="500">
+                      Available for engagements
+                    </Text>
+                  </Flex>
+                </MotionBox>
+
+                <MotionBox variants={fadeUp} mb={7}>
+                  <Heading
+                    as="h1"
+                    fontSize={{ base: "4xl", md: "58px", lg: "68px" }}
+                    fontWeight="800"
+                    color="gray.900"
+                    lineHeight="1.05"
+                    letterSpacing="-0.03em"
+                  >
+                    Building{" "}
+                    <Box as="span" color="brand.primary" fontStyle="italic">
+                      Technology
+                    </Box>
+                    {" "}for{"\n"}Development Impact
+                  </Heading>
+                </MotionBox>
+
+                <MotionBox variants={fadeUp} mb={10}>
+                  <Text
+                    fontSize={{ base: "lg", md: "xl" }}
+                    color="gray.600"
+                    maxW="520px"
+                    lineHeight="1.8"
+                  >
+                    IT Consultant at AGRA designing data systems, M&amp;E
+                    frameworks, and agricultural technology solutions across Africa.
+                  </Text>
+                </MotionBox>
+
+                <MotionBox variants={fadeUp}>
+                  <HStack spacing={3} flexWrap="wrap">
+                    <Button
+                      as={Link}
+                      href="/expertise"
+                      size="lg"
+                      bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
+                      color="white"
+                      px={8}
+                      h="52px"
+                      fontSize="sm"
+                      fontWeight="600"
+                      _hover={{
+                        bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 12px 32px rgba(166,99,29,0.4)",
+                      }}
+                      transition="all 0.2s"
+                      rightIcon={<FaArrowRight size={12} />}
+                    >
+                      View My Services
+                    </Button>
+                    <Button
+                      as={Link}
+                      href="/contact"
+                      size="lg"
+                      variant="outline"
+                      borderColor="gray.300"
+                      color="gray.700"
+                      px={8}
+                      h="52px"
+                      fontSize="sm"
+                      fontWeight="600"
+                      _hover={{
+                        borderColor: "gray.400",
+                        color: "gray.900",
+                        bg: "gray.50",
+                      }}
+                      transition="all 0.2s"
+                    >
+                      Get In Touch
+                    </Button>
+                  </HStack>
+                </MotionBox>
+              </MotionVStack>
+            </GridItem>
+
+            {/* RIGHT: Portrait */}
+            <GridItem display={{ base: "none", lg: "block" }}>
+              <MotionBox
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] } as any}
+                position="relative"
+              >
+                {/* Ambient glow */}
+                <Box
+                  position="absolute" top="-50px" right="-50px"
+                  w="240px" h="240px" rounded="full"
+                  bg="brand.primary" opacity={0.14} filter="blur(70px)"
+                  pointerEvents="none"
                 />
-                <Text fontSize="sm" color="gray.300" fontWeight="500">
-                  Available for engagements
-                </Text>
-              </Flex>
-            </MotionBox>
+                <Box
+                  position="absolute" bottom="-30px" left="-30px"
+                  w="200px" h="200px" rounded="full"
+                  bg="brand.secondary" opacity={0.12} filter="blur(60px)"
+                  pointerEvents="none"
+                />
 
-            <MotionBox variants={fadeUp} mb={7}>
-              <Heading
-                as="h1"
-                fontSize={{ base: "4xl", md: "58px", lg: "68px" }}
-                fontWeight="800"
-                color="white"
-                lineHeight="1.05"
-                letterSpacing="-0.03em"
-              >
-                Building{" "}
-                <Box as="span" color="brand.primaryTint" fontStyle="italic">
-                  Technology
-                </Box>
-                {" "}for{"\n"}Development Impact
-              </Heading>
-            </MotionBox>
+                {/* Offset outline frame — creative depth layer */}
+                <Box
+                  position="absolute" inset="16px"
+                  border="1px solid rgba(15,23,42,0.1)"
+                  rounded="3xl"
+                  transform="rotate(3deg)"
+                  pointerEvents="none"
+                />
 
-            <MotionBox variants={fadeUp} mb={10}>
-              <Text
-                fontSize={{ base: "lg", md: "xl" }}
-                color="gray.300"
-                maxW="520px"
-                lineHeight="1.8"
-              >
-                IT Consultant at AGRA designing data systems, M&amp;E
-                frameworks, and agricultural technology solutions across Africa.
-              </Text>
-            </MotionBox>
-
-            <MotionBox variants={fadeUp}>
-              <HStack spacing={3} flexWrap="wrap">
-                <Button
-                  as={Link}
-                  href="/expertise"
-                  size="lg"
-                  bgGradient="linear(135deg, brand.primary, brand.primaryLight)"
-                  color="white"
-                  px={8}
-                  h="52px"
-                  fontSize="sm"
-                  fontWeight="600"
-                  _hover={{
-                    bgGradient: "linear(135deg, brand.primaryDark, brand.primary)",
-                    transform: "translateY(-2px)",
-                    boxShadow: "0 12px 32px rgba(166,99,29,0.4)",
-                  }}
-                  transition="all 0.2s"
-                  rightIcon={<FaArrowRight size={12} />}
+                {/* Portrait frame */}
+                <MotionBox
+                  position="relative"
+                  rounded="3xl"
+                  overflow="hidden"
+                  h={{ lg: "460px", xl: "500px" }}
+                  border="1px solid rgba(15,23,42,0.08)"
+                  boxShadow="0 30px 70px rgba(15,23,42,0.18)"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" } as any}
                 >
-                  View My Services
-                </Button>
-                <Button
-                  as={Link}
-                  href="/contact"
-                  size="lg"
-                  variant="outline"
-                  borderColor="whiteAlpha.400"
-                  color="white"
-                  px={8}
-                  h="52px"
-                  fontSize="sm"
-                  fontWeight="600"
-                  _hover={{
-                    borderColor: "whiteAlpha.600",
-                    bg: "whiteAlpha.100",
-                  }}
-                  transition="all 0.2s"
-                >
-                  Get In Touch
-                </Button>
-              </HStack>
-            </MotionBox>
-          </MotionVStack>
+                  <Box
+                    position="absolute" inset={0}
+                    bgImage="url('/Joshua_Alana.jpg')"
+                    bgSize="cover"
+                    bgPosition="top center"
+                  />
+                  <Box
+                    position="absolute" inset={0}
+                    bgGradient="linear(to-b, transparent 55%, rgba(27,38,32,0.6))"
+                    pointerEvents="none"
+                  />
+                  <Box
+                    position="absolute" inset={0}
+                    bgGradient="linear(180deg, rgba(166,99,29,0.15) 0%, transparent 30%)"
+                    pointerEvents="none"
+                  />
+                  {/* Brand-gradient accent line */}
+                  <Box
+                    position="absolute" bottom={0} left={0} right={0} h="4px"
+                    bgGradient="linear(90deg, brand.primaryLight, brand.secondaryLight)"
+                  />
+                </MotionBox>
+
+                {/* Rotated gradient chip — decorative signature mark */}
+                <Box
+                  position="absolute" top="-18px" left="-18px"
+                  w="52px" h="52px"
+                  bgGradient="linear(135deg, brand.primaryLight, brand.secondaryLight)"
+                  rounded="xl"
+                  transform="rotate(12deg)"
+                  boxShadow="0 14px 34px rgba(194,98,74,0.35)"
+                />
+              </MotionBox>
+            </GridItem>
+          </Grid>
         </Container>
       </Box>
 
